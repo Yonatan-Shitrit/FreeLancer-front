@@ -1,5 +1,5 @@
 <template>
-  <h1>app footer</h1>
+  <p class="lead fs-5 text-secondary text-center">app footer</p>
 </template>
 
 <script>
