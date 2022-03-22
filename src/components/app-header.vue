@@ -24,16 +24,24 @@
     </div>
         
     </section>
-    <section class="search-home col-10 m-auto mt-5">
+    <datalist id="categories">
+          <option value="logo maker"/>
+          <option value="build app"/>
+          <option value="build web"/>
+          <option value="create video"/>
+          <option value="create gallery"/>
+        </datalist>
+    <section class="search-home col-10 m-auto mt-5">        
         <div class="col-6">
             <p class="lead fs-3">
                 Find the perfect <span class="text-success" style="font-weight: bold; font-family: 'Inspiration', cursive;">freelance</span> <br>
                 services for your business
             </p>
             <div class="input-group mb-5">              
-              <input type="text" class="form-control" :placeholder="searchPlaceHolder" aria-label="search" aria-describedby="basic-addon1">
+              <input list="categories" type="text" class="form-control" :placeholder="searchPlaceHolder" aria-label="search" aria-describedby="basic-addon1">
               <span class="input-group-text bg-success" style="--bs-bg-opacity: .6;" id="basic-addon1">search</span>
             </div>
+            
             
         </div>
     </section>
@@ -46,7 +54,7 @@
 export default {
     computed:{
         searchPlaceHolder(){
-            return `🔎 Try "building mobile app"`
+            return `🔍 Try "building mobile app"`
         }
     }
 }
