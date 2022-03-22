@@ -27,7 +27,7 @@
     <section class="search-home col-10 m-auto mt-5">
         <div class="col-6">
             <p class="lead fs-3">
-                Find the perfect <span class="text-danger" style="font-family: 'Inspiration', cursive;">freelance</span> <br>
+                Find the perfect <span class="text-success" style="font-weight: bold; font-family: 'Inspiration', cursive;">freelance</span> <br>
                 services for your business
             </p>
             <div class="input-group mb-5">              
