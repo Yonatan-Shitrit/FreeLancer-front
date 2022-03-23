@@ -7,5 +7,44 @@
         width: 1400px;
         margin: 0 auto;        
         background-color: rgba(95, 158, 160, 0);
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            // background-color: #333;
+            li {
+                float: right;
+                a {
+                    display: block;
+                    color: whitesmoke;
+                    text-align: center;
+                    padding: 10px;
+                    text-decoration: none;
+                    .not-exist{
+                        color: lightgray;
+                        cursor: not-allowed;
+                    }
+                  }
+                  
+                  &:hover:not(.active) {
+                    color: white;
+                  }
+              }
+              .logo{
+                float: left;
+                font-family: 'logoFont', serif;
+                font-size: 20px;
+                span{
+                    color: #4ce9a0;
+                    font-weight: 900;
+                }
+              }
+        }
     }
 }
+
+

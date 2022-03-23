@@ -10,13 +10,14 @@
         </datalist>
         
         <div class="left-side">
-            <div class="sub-left-side">
+            <div class="sub-left-side1">
             <p class="mini-dis">
                 Find the perfect <span class="text-success" style="font-weight: bold; font-family: 'domaine', cursive;">freelance</span> <br>
                 services for your business
             </p>
             </div>
-            <div class="sub-left-side">              
+            <div class="sub-left-side2">              
+              <span><button class="search-icon"><i class="bi bi-search"></i></button></span>
               <input list="categories" type="text" class="search-input" :placeholder="searchPlaceHolder">
               <span ><button class="search-btn"> search</button></span>
             </div>          
@@ -36,7 +37,7 @@ import categoryCarousel from "../components/category-carousel.vue"
 export default {
     computed:{
         searchPlaceHolder(){
-            return `🔍 Try "building mobile app"`
+            return `Try "building mobile app"`
         }
     },
     components:{
