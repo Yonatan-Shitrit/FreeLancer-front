@@ -6,7 +6,10 @@
       alt="..."
     />
     <div class="gig-mini-user">
-      <img src="https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg" alt="">
+      <img
+        src="https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg"
+        alt=""
+      />
       <div class="seller-identifiers">
         <div>andreacarvalho_</div>
         <span>Level 2 Seller</span>
@@ -34,7 +37,23 @@
         <span class="comment-counter">(1k+)</span>
       </span>
     </div>
-    <div class="gig-footer">is footer</div>
+    <div class="gig-footer">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.4469 1.95625C12.7344 0.496875 10.1875 0.759375 8.61561 2.38125L7.99999 3.01562L7.38436 2.38125C5.81561 0.759375 3.26561 0.496875 1.55311 1.95625C-0.409388 3.63125 -0.512513 6.6375 1.24374 8.45312L7.29061 14.6969C7.68124 15.1 8.31561 15.1 8.70624 14.6969L14.7531 8.45312C16.5125 6.6375 16.4094 3.63125 14.4469 1.95625Z"
+        ></path>
+      </svg>
+      <span class="price-container">
+        <small class="price-tag">starting at</small>
+        <span class="gig-price">$20<sup class="price-cents">56</sup>
+        </span>
+      </span>
+    </div>
   </div>
 </template>
 
