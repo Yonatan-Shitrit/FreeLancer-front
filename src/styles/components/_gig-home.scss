@@ -1,0 +1,45 @@
+.gig-home{
+    background-color: #013f1d;
+    display: flex;
+    color: whitesmoke;
+    height: 630px;
+    padding-left: 40px;
+    .gig-home-top{
+        width: 1400px;
+        margin: auto auto;                    
+        .left-side{                
+            // width: 50%;  
+                
+                .mini-dis{
+                    font-size: 40px;
+                    line-height: 120%;
+                    font-weight: 700;
+                }
+                
+                .search-input{
+                    width:40%;
+                }
+                .search-icon{
+                    width:2%;
+                    color: black;
+                    background-color: white;
+                    border: 1px solid white;
+                    margin: 0px;
+                }
+                .search-btn{
+                    width:10%;
+                    background-color: #4ce9a0;
+                    font-weight: bold;
+                    color: white;
+                    border: 1px solid #4ce9a0;
+                    &:hover{
+                        background-color:#19a463;
+                        border: 1px solid #19a463;
+                    }
+                }
+            
+            
+        }
+        
+    }
+}

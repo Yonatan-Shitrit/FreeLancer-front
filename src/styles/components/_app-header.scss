@@ -1,48 +1,50 @@
-header.app-header {
-    .router-link-active {
-        text-decoration: underline;
-        color: darken($red, 15%);
-    }
-    display: flex;
-    font-family: flower;
-    justify-content: space-between;
-    height: 20vh;
-    align-items: center;
-    background-color: lighten($blue, 30%);
-    .logo {
-        width: rem(220px);
-        padding: rem(20px);
-        object-fit: contain;
-    }
-    nav {
-        display: flex;
-        height: 100%;
-        align-items: center;
-        a {
-            display: flex;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-            padding: 0 rem(20px);
-            font-size: rem(35px);
-            text-decoration: none;
-            color: lighten($yellow, 20%);
-            font-weight: normal;
-            width: rem(200px);
-            text-align: center;
-            white-space: nowrap;
-            border-right: 2px solid $yellow;
-            transition: color 0.3s ease-in;
-            &:hover {
-                text-decoration: underline;
-                color: $red;
-            }
-        }
-        a:nth-child(1) {
-            border-left: 2px solid $yellow;
-        }
-        a:last-child {
-            width: 300px;
+.full-header{
+    height: 70px;
+    padding-top: 10px;
+    background-color: #013f1d;
+    color: whitesmoke;
+    .app-header{        
+        width: 1400px;
+        margin: 0 auto;        
+        background-color: rgba(95, 158, 160, 0);
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            // background-color: #333;
+            li {
+                float: right;
+                a {
+                    display: block;
+                    color: whitesmoke;
+                    text-align: center;
+                    padding: 10px;
+                    text-decoration: none;
+                    .not-exist{
+                        color: lightgray;
+                        cursor: not-allowed;
+                    }
+                  }
+                  
+                  &:hover:not(.active) {
+                    color: white;
+                  }
+              }
+              .logo{
+                float: left;
+                font-family: 'logoFont', serif;
+                font-size: 20px;
+                span{
+                    color: #4ce9a0;
+                    font-weight: 900;
+                }
+              }
         }
     }
 }
+
+
