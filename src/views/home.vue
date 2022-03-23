@@ -1,7 +1,10 @@
 <template>
+<<<<<<< HEAD
   <section class="col-10 m-auto">
     <h1>Home page</h1>
   </section>
+=======
+>>>>>>> b72b860ff86b05acd15611958fa15c38ea9bd6fd
   <section class="gig-home">
     <section class="gig-home-top">
       <datalist id="categories">
@@ -38,13 +41,15 @@
           <span><button class="search-btn">search</button></span>
         </div>
       </div>
-
     </section>
   </section>
 </template>
 
 <script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> b72b860ff86b05acd15611958fa15c38ea9bd6fd
 
 export default {
   computed: {
@@ -53,6 +58,10 @@ export default {
     },
   },
   components: {
+<<<<<<< HEAD
+=======
+
+>>>>>>> b72b860ff86b05acd15611958fa15c38ea9bd6fd
   },
 };
 </script>
