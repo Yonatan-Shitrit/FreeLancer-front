@@ -1,12 +1,42 @@
 <template>
-<section class="col-10 m-auto">
-  <h1>Home page</h1>
-  </section>
+<section class="gig-home" >
+<section class="gig-home-top" >
+    <datalist id="categories">
+          <option value="logo maker"/>
+          <option value="build app"/>
+          <option value="build web"/>
+          <option value="create video"/>
+          <option value="create gallery"/>
+        </datalist>
+        
+        <div class="left-side">
+            <div class="sub-left-side">
+            <p class="mini-dis">
+                Find the perfect <span class="text-success" style="font-weight: bold; font-family: 'domaine', cursive;">freelance</span> <br>
+                services for your business
+            </p>
+            </div>
+            <div class="sub-left-side">              
+              <input list="categories" type="text" class="search-input" :placeholder="searchPlaceHolder">
+              <span ><button class="search-btn"> search</button></span>
+            </div>          
+            
+        </div>
+        
+    
+
+</section>
+</section>
+  
 </template>
 
 <script>
 export default {
-
+    computed:{
+        searchPlaceHolder(){
+            return `🔍 Try "building mobile app"`
+        }
+    }
 }
 </script>
 

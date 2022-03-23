@@ -1,0 +1,32 @@
+.gig-home{
+    background-color: #013f1d;
+    color: whitesmoke;
+    height: 630px;
+    .gig-home-top{
+        width: 1400px;
+        margin: 0 auto;                    
+        .left-side{                
+            width: 50%;            
+            .sub-left-side{
+                width: 100%;
+                .mini-dis{
+                    font-size: 40px;
+                    line-height: 120%;
+                    font-weight: 700;
+                }
+                .search-input{
+                    width:90%;
+                }
+                .search-btn{
+                    width:10%;
+                    background-color: #19a463;
+                    font-weight: bold;
+                    color: white;
+                    border: 1px solid #19a463;
+                }
+            }
+            
+        }
+        
+    }
+}
