@@ -1,0 +1,19 @@
+.toy-dashboard {
+    h1 {
+        margin: auto;
+        padding: rem(20px);
+    }
+    display: flex;
+    flex-direction: column;
+
+    .charts {
+        display: flex;
+        >* {
+            text-decoration: underline;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-basis: 50%;
+        }
+    }
+}

@@ -1,12 +1,17 @@
 <template>
-<section class="col-10 m-auto">
-  <h1>gig-explore</h1>
+<section class="">  
+  <div class="">
+    <gig-list />
+  </div>
   </section>
 </template>
 
 <script>
+import gigList from "../components/gig-list.vue"
 export default {
-
+  components:{
+    gigList
+  }
 }
 </script>
 

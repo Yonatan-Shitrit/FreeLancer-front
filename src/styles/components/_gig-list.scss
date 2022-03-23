@@ -1,0 +1,8 @@
+.gig-list{
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(4,1fr);
+    width: 1400px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
