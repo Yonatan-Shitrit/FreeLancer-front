@@ -1,6 +1,6 @@
 <template>
-<section class="col-10 m-auto">  
-  <div class="row">
+<section class="">  
+  <div class="">
     <gig-list />
   </div>
   </section>
