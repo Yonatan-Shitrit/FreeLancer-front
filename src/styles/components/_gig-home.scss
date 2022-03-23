@@ -1,10 +1,12 @@
 .gig-home{
     background-color: #013f1d;
+    display: flex;
     color: whitesmoke;
     height: 630px;
+    padding-left: 40px;
     .gig-home-top{
         width: 1400px;
-        margin: 0 auto;                    
+        margin: auto auto;                    
         .left-side{                
             width: 50%;            
             .sub-left-side{
