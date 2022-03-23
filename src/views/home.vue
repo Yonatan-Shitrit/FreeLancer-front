@@ -31,12 +31,18 @@
 </template>
 
 <script>
+import categoryCarousel from "../components/category-carousel.vue"
+
 export default {
     computed:{
         searchPlaceHolder(){
             return `🔍 Try "building mobile app"`
         }
-    }
+    },
+    components:{
+    categoryCarousel,
+}
+
 }
 </script>
 
