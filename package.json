@@ -9,10 +9,11 @@
   },
   "dependencies": {
     "jquery": "^3.6.0",
-    "slick-carousel": "^1.8.1",
     "sass": "^1.49.9",
+    "slick-carousel": "^1.8.1",
     "vue": "^3.2.31",
     "vue-router": "^4.0.12",
+    "vue-slick-carousel": "^1.0.6",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
