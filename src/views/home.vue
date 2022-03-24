@@ -37,19 +37,13 @@
       </div>
     </section>
   </section>
-    <main-carousel :items-to-show="1.5">
-    <slide v-for="slide in 8" :key="slide">
-      {{ slide }}
-    </slide>
-
-    <template #addons>
-      <navigation />
-      <pagination />
-    </template>
+    <main-carousel :itemsToShow="4" :itemsToScroll="4" :wrapAround="true" :snapAlign="start">
   </main-carousel>
 </template>
 
 <script>
+import mainCarousel from "../components/main-carousel.vue";
+
 
 export default {
   computed: {
@@ -58,6 +52,7 @@ export default {
     },
   },
   components: {
+    mainCarousel,
   },
 };
 </script>
