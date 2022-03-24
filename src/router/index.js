@@ -4,6 +4,7 @@ import about from '../views/about.vue'
 import gigExplore from '../views/gig-explore.vue'
 import gigDetails from '../views/gig-details.vue'
 import gigEdit from '../views/gig-edit.vue'
+import logPage from '../views/log-page.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/gig-edit/:id?',
       name: 'gigEdit',
       component: gigEdit
+    },
+    {
+      path: '/login/',
+      name: 'logPage',
+      component: logPage
     }
   ]
 })
