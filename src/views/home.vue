@@ -1,14 +1,10 @@
 <template>
-  <section class="col-10 m-auto">    
-  </section>
+  
   <section class="gig-home">
     <section class="gig-home-top">
       <datalist id="categories">
-        <option value="logo maker" />
-        <option value="build app" />
-        <option value="build web" />
-        <option value="create video" />
-        <option value="create gallery" />
+          <option v-for="(gig) in gigs[0]" :key="gig._id" :value="gig.title.slice(6,gig.title.length-1)" />
+          <!-- <option value="gig.title" /> -->
       </datalist>
 
       <div class="left-side">
@@ -25,9 +21,7 @@
           </p>
         </div>
         <div class="sub-left-side2">
-          <span
-            ><button class="search-icon"><i class="bi bi-search"></i></button
-          ></span>
+          <span><button class="search-icon"><i class="bi bi-search"></i></button></span>
           <input
             list="categories"
             type="text"
@@ -39,11 +33,15 @@
       </div>
     </section>
   </section>
+  <section class="main-home">
+
+  
   <h2 style="font-size: 32px; line-height: 120%; color: #404145; font-weight: 700; padding-left:40px;"> Popular professional services </h2>
     <main-carousel   style="padding: 0 40px 0 40px; margin:auto; width:100%"  :itemsToShow="5" :itemsToScroll="4"  :wrapAround="true" :transition="400">
   </main-carousel>  
   <pre><h2>Our Gigs:</h2>
   {{gigs}}</pre>
+  </section>
 </template>
 
 <script>
@@ -52,6 +50,7 @@ import mainCarousel from "../components/main-carousel.vue";
 
 export default {  
   methods:{    
+    
   },
   data(){
     return{
@@ -59,7 +58,7 @@ export default {
     }
   },
   created(){
-
+    
   },
   computed: {
     searchPlaceHolder() {
@@ -67,7 +66,8 @@ export default {
     },
     gigs(){
       return this.$store.getters.gigs
-    }
+    },
+    
   },
   components: {
     mainCarousel,
