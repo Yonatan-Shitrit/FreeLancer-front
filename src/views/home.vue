@@ -1,10 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <section class="col-10 m-auto">
-    <h1>Home page</h1>
-  </section>
-=======
->>>>>>> b72b860ff86b05acd15611958fa15c38ea9bd6fd
   <section class="gig-home">
     <section class="gig-home-top">
       <datalist id="categories">
@@ -43,13 +37,21 @@
       </div>
     </section>
   </section>
+    <main-carousel :items-to-show="1.5">
+    <slide v-for="slide in 8" :key="slide">
+      {{ slide }}
+    </slide>
+
+    <template #addons>
+      <navigation />
+      <pagination />
+    </template>
+  </main-carousel>
 </template>
 
 <script>
-<<<<<<< HEAD
-
-=======
->>>>>>> b72b860ff86b05acd15611958fa15c38ea9bd6fd
+import 'vue3-carousel/dist/carousel.css';
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 
 export default {
   computed: {
@@ -58,10 +60,10 @@ export default {
     },
   },
   components: {
-<<<<<<< HEAD
-=======
-
->>>>>>> b72b860ff86b05acd15611958fa15c38ea9bd6fd
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
   },
 };
 </script>
