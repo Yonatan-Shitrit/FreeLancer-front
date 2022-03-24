@@ -3,7 +3,7 @@ import { gigService } from '@/services/gig-service.js'
 export default {
   state: {
     gigs: [],
-    filterBy: { name: '', inStock: '', labels: [], sortBy: '' },
+    filterBy: ''//{ name: '', inStock: '', labels: [], sortBy: '' },
     // labels: gigService.getlabels(),
   },
   getters: {
@@ -39,10 +39,10 @@ export default {
     },
   },
   actions: {
-    loadGigs({ commit, state }) {
-      gigService.query(state.filterBy).then((gigs) => {
-        commit({ type: 'setGigs', gigs })
-      })
+    async loadGigs({ commit, state }) {
+      const gigs = await gigService.query(state.filterBy)      
+      commit({ type: 'setGigs', gigs })
+    
     },
     saveGig({ commit }, { gig }) {
       gigService.save(gig).then((savedGig) => {

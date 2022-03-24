@@ -40,19 +40,32 @@
     </section>
   </section>
   <h2 style="font-size: 32px; line-height: 120%; color: #404145; font-weight: 700; padding-left:40px;"> Popular professional services </h2>
-    <main-carousel style="padding: 0 40px 0 40px; margin:auto; width:100%"  :itemsToShow="5" :itemsToScroll="4"  :wrapAround="true" :transition="400">
-  </main-carousel>
+    <main-carousel   style="padding: 0 40px 0 40px; margin:auto; width:100%"  :itemsToShow="5" :itemsToScroll="4"  :wrapAround="true" :transition="400">
+  </main-carousel>  
 </template>
 
 <script>
 import mainCarousel from "../components/main-carousel.vue";
 
 
-export default {
+export default {  
+  methods:{    
+  },
+  data(){
+    return{
+      
+    }
+  },
+  created(){
+
+  },
   computed: {
     searchPlaceHolder() {
       return `Try "building mobile app"`;
     },
+    gigs(){
+      return this.$store.getters.gigs
+    }
   },
   components: {
     mainCarousel,
