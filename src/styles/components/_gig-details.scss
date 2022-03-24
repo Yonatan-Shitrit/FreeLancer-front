@@ -1,16 +1,73 @@
-.gig-page{
+.gig-page {
     max-width: 1304px;
     margin: 0 auto;
-    // background-color: antiquewhite;
     display: flex;
     align-items: flex-start;
     padding: 32px 32px 0;
-    // height: 300px;
-    .gig-details{
+    .gig-details {
         width: 57.42%;
         margin-right: 9.15%;
+        .gig-overview {
+            margin-bottom: 24px;
+            h1 {
+                padding-bottom: 16px;
+                word-wrap: break-word;
+                font-size: 28px;
+                font-weight: 700;
+                color: #404145;
+                margin: 0;
+            }
+            .seller-overview {
+                display: flex;
+                img {
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-right: 16px;
+                }
+                .mini-info {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    font-size: 14px;
+                    line-height: 21px;
+                    .seller-name {
+                        color: #404145;
+                        font-weight: 700;
+                    }
+                    .seller-level {
+                        color: #62646a;
+                    }
+                    .rating-stars {
+                        fill: #ffb33e;
+                        &:before {
+                            content: "|";
+                            color: #c5c6c9;
+                            margin-right: 8px;
+                        }
+                        span {
+                            padding-left: 4px;
+                            color: #62646a;
+                        }
+                        b {
+                            color: #ffb33e;
+                            padding-left: 4px;
+                        }
+                        svg {
+                            margin-left: 4px;
+                            margin-bottom: 4px;
+                        }
+                    }
+                    div {
+                        margin-right: 8px;
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
     }
-    .sidebar{
+    .sidebar {
         width: 33.6%;
     }
 }

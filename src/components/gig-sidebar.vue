@@ -45,7 +45,7 @@
           <button>Continue ($30)</button>
         </footer>
       </form>
-      <div class="contect-seller">
+      <div class="contact-seller">
         <button>Contact Seller</button>
       </div>
     </aside>

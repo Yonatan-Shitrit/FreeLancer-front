@@ -1,12 +1,10 @@
 .sidebar-container {
-    
     aside {
-        
         form {
             width: 100%;
             padding: 20px 24px 24px;
             border: 1px solid rgb(218, 219, 221);
-
+            margin-bottom: 16px;
             header {
                 padding-top: 12px;
                 padding-bottom: 24px;
@@ -55,7 +53,7 @@
             footer {
                 button {
                     width: 100%;
-                    border: 0;
+                    border: 1px solid transparent;
                     border-radius: 4px;
                     cursor: pointer;
                     display: inline-block;
@@ -69,9 +67,35 @@
                     transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
                     background-color: #1dbf73;
                     color: #fff;
-                    &:hover{
+                    &:hover {
                         background: #19a463;
                     }
+                }
+            }
+        }
+        .contact-seller {
+            background-color: #fafafa;
+            padding: 24px;
+            text-align: center;
+            button {
+                transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+                width: 100%;
+                color: #62646a;
+                background: none;
+                cursor: pointer;
+                display: inline-block;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 100%;
+                padding: 12px 24px;
+                position: relative;
+                text-align: center;
+                text-decoration: none;
+                border-radius: 4px;
+                border: 1px solid rgb(98, 100, 106);
+                &:hover{
+                    background: #74767e;
+                    color: #fff;
                 }
             }
         }
