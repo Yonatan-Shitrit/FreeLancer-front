@@ -37,6 +37,16 @@
       </div>
     </section>
   </section>
+    <main-carousel :items-to-show="1.5">
+    <slide v-for="slide in 8" :key="slide">
+      {{ slide }}
+    </slide>
+
+    <template #addons>
+      <navigation />
+      <pagination />
+    </template>
+  </main-carousel>
 </template>
 
 <script>
