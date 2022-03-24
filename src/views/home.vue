@@ -1,4 +1,6 @@
 <template>
+  <section class="col-10 m-auto">    
+  </section>
   <section class="gig-home">
     <section class="gig-home-top">
       <datalist id="categories">

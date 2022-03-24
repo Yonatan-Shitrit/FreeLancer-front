@@ -1,0 +1,16 @@
+.gig-page{
+    max-width: 1304px;
+    margin: 0 auto;
+    // background-color: antiquewhite;
+    display: flex;
+    align-items: flex-start;
+    padding: 32px 32px 0;
+    // height: 300px;
+    .gig-details{
+        width: 57.42%;
+        margin-right: 9.15%;
+    }
+    .sidebar{
+        width: 33.6%;
+    }
+}
