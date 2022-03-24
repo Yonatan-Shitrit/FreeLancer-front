@@ -42,6 +42,8 @@
   <h2 style="font-size: 32px; line-height: 120%; color: #404145; font-weight: 700; padding-left:40px;"> Popular professional services </h2>
     <main-carousel   style="padding: 0 40px 0 40px; margin:auto; width:100%"  :itemsToShow="5" :itemsToScroll="4"  :wrapAround="true" :transition="400">
   </main-carousel>  
+  <pre><h2>Our Gigs:</h2>
+  {{gigs}}</pre>
 </template>
 
 <script>

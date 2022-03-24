@@ -12208,7 +12208,7 @@ async function save(gig) {
 }
 
 async function _createManyGigs(){
-  storageService.post(KEY, gGigsTest)
+  if (!storageService.query(KEY)) storageService.post(KEY, gGigsTest)
 }
 
 function getEmptyGig() { //TODO
