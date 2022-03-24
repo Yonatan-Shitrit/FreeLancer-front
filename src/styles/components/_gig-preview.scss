@@ -20,7 +20,6 @@
                 color: #74767e;
                 font-family: macanBold;
                 font-size: 10px;
-                font-weight: 700;
                 letter-spacing: 0.5px;
                 text-transform: uppercase;
                 display: inline-block;
@@ -32,7 +31,6 @@
                 text-align: end;
                 color: #404145;
                 text-align: right;
-                font-weight: 600;
                 font-size: 18px;
                 line-height: 20px;
                 
@@ -69,10 +67,12 @@
     .gig-rating {
         display: flex;
         justify-content: space-between;
+        font-family: macanBold;
         padding: 10px 12px;
         font-size: 14px;
         line-height: 21px;
         height: 40px;
+        align-items: flex-end;
         svg {
             vertical-align: -0.16em;
         }
@@ -80,6 +80,7 @@
             color: #b5b6ba;
             font-weight: 400;
             margin-left: 2px;
+            font-family: macan;
         }
     }
     .gig-card-img {
@@ -105,7 +106,7 @@
             font-size: 14px;
             height: 39px;
             line-height: 120%;
-            font-weight: 600;
+            // font-weight: 600;
             // font-family: macanBold;
             div {
                 color: #222325;
@@ -116,7 +117,7 @@
             }
             span {
                 color: #74767e;
-                font-weight: 600;
+                font-weight: 500;
                 line-height: 21px;
             }
         }
