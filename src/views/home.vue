@@ -45,6 +45,7 @@
 import mainCarousel from "../components/main-carousel.vue";
 
 
+
 export default {
   computed: {
     searchPlaceHolder() {
