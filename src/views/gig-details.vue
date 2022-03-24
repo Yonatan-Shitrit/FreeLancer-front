@@ -1,8 +1,11 @@
 <template>
   <section class="gig-page">
     <div class="gig-details">
-      <gig-Overview />
+      <gig-overview />
       put carousel here
+      <gig-description />
+      <h2>About The Seller</h2>
+      <gig-profile />
     </div>
     <section class="sidebar">
       <gig-sidebar />
@@ -12,11 +15,15 @@
 
 <script>
 import gigSidebar from "../components/gig-sidebar.vue";
-import gigOverview from"../components/gig-overview.vue"
+import gigOverview from"../components/gig-overview.vue";
+import gigDescription from"../components/gig-description.vue";
+import gigProfile from"../components/gig-profile.vue";
 export default {
   components: {
     gigSidebar,
     gigOverview,
+    gigDescription,
+    gigProfile,
   },
 };
 </script>
