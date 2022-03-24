@@ -1,6 +1,9 @@
 <template>
+<<<<<<< HEAD
   <section class="col-10 m-auto">    
   </section>
+=======
+>>>>>>> a4eb223569cc22447783c2bd0de484a353f5bc4b
   <section class="gig-home">
     <section class="gig-home-top">
       <datalist id="categories">
@@ -39,9 +42,16 @@
       </div>
     </section>
   </section>
+    <main-carousel :itemsToShow="4" :itemsToScroll="4" :wrapAround="true" :snapAlign="start">
+  </main-carousel>
 </template>
 
 <script>
+<<<<<<< HEAD
+=======
+import mainCarousel from "../components/main-carousel.vue";
+
+>>>>>>> a4eb223569cc22447783c2bd0de484a353f5bc4b
 
 export default {
   computed: {
@@ -50,6 +60,10 @@ export default {
     },
   },
   components: {
+<<<<<<< HEAD
+=======
+    mainCarousel,
+>>>>>>> a4eb223569cc22447783c2bd0de484a353f5bc4b
   },
 };
 </script>
