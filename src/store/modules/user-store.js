@@ -25,9 +25,10 @@ export default {
         console.log(err)
       }
     },
-    async signup({ commit }, { cred }) {
+    async signup({ commit }, { userCred }) {
+      console.log('user store',userCred);
       try {
-        const user = await userService.signup(cred)
+        const user = await userService.signup(userCred)
         commit({ type: 'setUser', user })
         utilService.saveToSessionStorage('user', user)
       } catch (err) {

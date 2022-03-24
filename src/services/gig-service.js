@@ -48,11 +48,12 @@ async function save(gig) {
 function getEmptyGig() { //TODO
   return Promise.resolve({
     title: '',
-    image: '',
+    image: [],
+    details: '',
     price: 0,
     daysToMake: 0,
+    revision: 1,
     description: '',
-    daysToMake: '',
     miniUser: {
       _id: '',
       fullName: '',
@@ -61,7 +62,6 @@ function getEmptyGig() { //TODO
     reviews: [],
     category:'',
     tags: [],
-    reviews: [],
   })
 }
 

@@ -15,6 +15,7 @@ async function login(cred) {
 }
 
 async function signup(cred) {
+  console.log('signup',cred);
   // return await httpService.post(ENDPOINT + '/signup', cred)
   return await storageService.post(ENDPOINT, cred)
 }
