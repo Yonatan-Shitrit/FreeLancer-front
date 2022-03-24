@@ -48,7 +48,7 @@ async function save(gig) {
 function getEmptyGig() { //TODO
   return Promise.resolve({
     title: '',
-    image: [],
+    images: [],
     details: '',
     price: 0,
     daysToMake: 0,
