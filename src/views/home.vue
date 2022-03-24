@@ -1,6 +1,5 @@
 <template>
-  <section class="col-10 m-auto">
-    <h1>Home page</h1>
+  <section class="col-10 m-auto">    
   </section>
   <section class="gig-home">
     <section class="gig-home-top">
