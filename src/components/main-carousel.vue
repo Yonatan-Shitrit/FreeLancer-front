@@ -1,7 +1,6 @@
 <template>
-<!-- <pre>Categories: {{categories}}</pre> -->
     <Carousel>
-    <Slide  style="padding: 0 10px 0 10px; display:grid; " v-for="category in this.categories" :key="category" >
+    <Slide  style="padding: 0 10px 0 10px; display:grid; " v-for="category in this.categories" :key="category">
       <img  class="slide-image" :src="category.image">
       <h4 class="main-carousel-slide-txt">
    <small style="font-size: 14px; font-weight: 100;">{{category.description}}</small><br>
@@ -33,27 +32,9 @@ export default {
             {name: 'Book Covers', description: "Showcase your story", image:'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741667/social-2x.png'}
           ]
     }},
-    methods:{
-      getImagesCat(){
-        let imagesCat = this.categories.map(category=>`
-          <img style=" border-radius: 4px; margin:18px; width:252px; height: 345px"  src="${category.image}">
-        `)
-        // console.log('imagesCat', imagesCat.join(''));
-        return imagesCat.join()
-      }
-    },
-    computed:{
-      images(){
-        return this.getImagesCat()
-      }
-    },
-    created(){
-      this.getImagesCat()
-    },
   components: {
     Carousel,
     Slide,
-    Pagination,
     Navigation,
   },
 };
