@@ -1,6 +1,6 @@
 <template>
   <section class="gig-list">
-    <gig-preview v-for="gig in gigs[0]" :key="gig.title" :gig="gig" />
+    <gig-preview v-for="gig in gigs[0]" :key="gig._id" :gig="gig" />
   </section>
 </template>
 
