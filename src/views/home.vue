@@ -42,6 +42,9 @@
       </div>
     </section>
   </section>
+  <section class="main-home-1">
+    <test-carousel />
+  </section>
   <section class="main-home-1">  
   <h2 class="main-carousel-header"> Popular professional services </h2>
     <main-carousel   style=" margin:auto; ;"  :itemsToShow="5" :itemsToScroll="5"  :modelValue="2" :wrapAround="true" :transition="400">
@@ -98,6 +101,8 @@
 
 <script>
 import mainCarousel from "../components/main-carousel.vue";
+import testCarousel from "../components/test-carousel.vue";
+
 
 export default {
   methods: {},
@@ -115,6 +120,7 @@ export default {
   },
   components: {
     mainCarousel,
+    testCarousel
   },
 };
 </script>
