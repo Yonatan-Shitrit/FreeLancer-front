@@ -12202,13 +12202,21 @@ async function remove(id) {
 
 async function save(gig) {
   // return gig._id
-    // ? await httpService.put(`${ENDPOINT}/${gig._id}`, gig)
-    // : await httpService.post(ENDPOINT, gig)
+  // ? await httpService.put(`${ENDPOINT}/${gig._id}`, gig)
+  // : await httpService.post(ENDPOINT, gig)
   return gig._id ? storageService.put(KEY, gig) : storageService.post(KEY, gig)
 }
-
+_createManyGigs()
 async function _createManyGigs(){
-  storageService.post(KEY, gGigsTest)
+  try {
+    const gigs = await query();
+    if (!gigs || !gigs.length) {
+      storageService.post(KEY, gGigsTest)
+    }
+  }
+  catch (err) {
+    console.error('Cannot get gigs', err);
+  }
 }
 
 function getEmptyGig() { //TODO
@@ -12226,7 +12234,7 @@ function getEmptyGig() { //TODO
       imgUrl: '',
     },
     reviews: [],
-    category:'',
+    category: '',
     tags: [],
   })
 }

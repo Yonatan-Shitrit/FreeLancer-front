@@ -2,21 +2,21 @@
   <div class="preview">
     <img
       class="gig-card-img"
-      src="https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/155512325/original/9d62fbdec2b0bffd0318f9af43c2de023b62f5f0.jpg"
+      :src="gig.images[0]"
       alt="..."
     />
     <div class="gig-mini-user">
       <img
-        src="https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg"
+        :src="gig.seller.imgUrl"
         alt=""
       />
       <div class="seller-identifiers">
-        <div>andreacarvalho_</div>
+        <div>{{gig.seller.fullName}}</div>
         <span>Level 2 Seller</span>
       </div>
     </div>
     <h3 class="gig-title">
-      Card title will be up to 2 lines Card title will be up to 2 lines
+      {{gig.title}}
     </h3>
 
     <div class="gig-rating">
@@ -50,7 +50,7 @@
       </svg>
       <span class="price-container">
         <small class="price-tag">starting at</small>
-        <span class="gig-price">$20<sup class="price-cents">56</sup>
+        <span class="gig-price">${{gig.price}}<sup class="price-cents">56</sup>
         </span>
       </span>
     </div>
@@ -58,7 +58,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    gig: {
+      type: Object,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style>

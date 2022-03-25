@@ -2,7 +2,7 @@
   <section class="gig-page">
     <div class="gig-details">
       <gig-overview />
-      put carousel here
+      <div class="put-carousel">put carousel here</div>
       <gig-description />
       <h2>About The Seller</h2>
       <gig-profile />
@@ -15,9 +15,9 @@
 
 <script>
 import gigSidebar from "../components/gig-sidebar.vue";
-import gigOverview from"../components/gig-overview.vue";
-import gigDescription from"../components/gig-description.vue";
-import gigProfile from"../components/gig-profile.vue";
+import gigOverview from "../components/gig-overview.vue";
+import gigDescription from "../components/gig-description.vue";
+import gigProfile from "../components/gig-profile.vue";
 export default {
   components: {
     gigSidebar,
