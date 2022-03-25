@@ -51,7 +51,9 @@
   position: relative;
   text-align: center;
   box-sizing: border-box;
-  right:18px;
+  // right:58px;
+  right: 18px;
+  // padding: 0 40px;
 }
 
 .slide-image{
@@ -94,7 +96,7 @@
   font-size: 32px;
   line-height: 120%;
   color: #404145;
-  font-weight: bolder;
+  font-family: macanBold;
   padding: 0 0 26px 0;
   margin: 0;
 }
