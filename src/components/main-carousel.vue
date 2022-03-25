@@ -1,13 +1,29 @@
 <template>
 <!-- <pre>Categories: {{categories}}</pre> -->
     <Carousel>
-    <Slide  style="padding: 0 10px 0 10px;" v-for="category in this.categories" :key="category" >
-      <img v-bind:src=" category.image"/>
-      <!-- <img style=" border-radius: 4px; margin:18px; width:252px; height: 345px"  src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png">
-      <img style=" border-radius: 4px; margin:18px; width:252px; height: 345px"  src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png">
-      <img style=" border-radius: 4px; margin:18px; width:252px; height: 345px"  src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png">
-      <img style=" border-radius: 4px; margin:18px; width:252px; height: 345px"  src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741663/animated-explainer-2x.png">
-      <img style=" border-radius: 4px; margin:18px; width:252px; height: 345px"  src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741667/social-2x.png"> -->
+    <Slide  style="padding: 0 10px 0 10px; display:grid; " v-for="category in this.categories" :key="category" >
+      <img  style="
+  grid-column-start: 1;
+  grid-column-end: one;
+  grid-row-start: 1;
+  grid-row-end: 1;"
+   v-bind:src=" category.image">
+      <h4 style="
+  font-size: 24px;
+  grid-column-start: 1;
+  grid-column-end: one;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  color:white;
+  padding:16px;
+  margin-bottom: auto;
+  text-align:left;
+  font-weight: 700;
+  ">
+   <small style="font-size: 14px; font-weight: 100;">{{category.name}}</small><br>
+  {{category.name}}
+  </h4>
+
     </Slide>
     
     
