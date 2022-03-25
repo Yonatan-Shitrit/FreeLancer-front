@@ -12180,7 +12180,7 @@ var gGigsTest = [
   }
 ]
 
-//const gGigs = _createManyGigs()
+// const gGigs = _createManyGigs()
 
 async function query(filterBy = {}) {
   // return await httpService.get(ENDPOINT, filterBy)
