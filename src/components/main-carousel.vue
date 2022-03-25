@@ -2,31 +2,14 @@
 <!-- <pre>Categories: {{categories}}</pre> -->
     <Carousel>
     <Slide  style="padding: 0 10px 0 10px; display:grid; " v-for="category in this.categories" :key="category" >
-      <img  style="
-  grid-column-start: 1;
-  grid-column-end: one;
-  grid-row-start: 1;
-  grid-row-end: 1;"
-   v-bind:src=" category.image">
-      <h4 style="
-  font-size: 24px;
-  grid-column-start: 1;
-  grid-column-end: one;
-  grid-row-start: 1;
-  grid-row-end: 1;
-  color:white;
-  padding:16px;
-  margin-bottom: auto;
-  text-align:left;
-  font-weight: 700;
-  ">
+      <img  class="slide-image" :src="category.image">
+      <h4 class="main-carousel-slide-txt">
    <small style="font-size: 14px; font-weight: 100;">{{category.description}}</small><br>
   {{category.name}}
   </h4>
     </Slide>
     <template #addons>
       <Navigation />
-      <Pagination />
     </template>
   </Carousel>
 </template>

@@ -21,20 +21,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  // position: absolute;
+  right: 16px;
   border: 0;
   cursor: pointer;
   top: 50%;
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
  
 }
+.carousel__prev{
+  left:16px;
+}
 
 .carousel__icon {
-  width: var(--vc-icn-width);
-  height: var(--vc-icn-width);
+  width: 32px;
+  height: 32px;
   fill: currentColor;
-  background-color: black;
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMWwriqhsqzRnd_lU-8el8JRST4h_MOGaKcw&usqp=CAU);
+  color: rgb(27, 27, 27);
+  background-size: 16px 64px;
+  content:"";
+
 }
 
 .main-home-1{
@@ -45,5 +51,48 @@
   position: relative;
   text-align: center;
   box-sizing: border-box;
-  right:10px;
+  right:18px;
+}
+
+.slide-image{
+  grid-column-start: 1;
+  grid-column-end: one;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  -webkit-transition: all 1s ease-out;
+   -moz-transition: all 1s ease-out;
+   -o-transition: all 1s ease-out;
+   -ms-transition: all 1s ease-out;
+   transition: all 1s ease-out;
+   width: 100%;
+   height: 345px;
+   padding: 0 8px;
+
+}
+
+.slide-image:hover{
+  opacity: 0.8;
+  transition: opacity .3s ease-in-out;
+}
+
+.main-carousel-slide-txt{
+  font-size: 24px;
+  grid-column-start: 1;
+  grid-column-end: one;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  color:white;
+  padding:16px;
+  margin-bottom: auto;
+  text-align:left;
+  font-weight: 700;
+  z-index: 1;
+}
+.main-carousel-header{
+  font-size: 32px;
+  line-height: 120%;
+  color: #404145;
+  font-weight: bolder;
+  padding: 0 0 26px 0;
+  margin: 0;
 }
