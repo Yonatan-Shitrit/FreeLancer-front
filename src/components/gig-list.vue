@@ -1,18 +1,23 @@
 <template>
-<section class="gig-list">
-  <gig-preview v-for="card in 20" :key="card"/>
-</section>
+  <section class="gig-list">
+    <gig-preview v-for="gig in gigs[0]" :key="gig.title" :gig="gig" />
+  </section>
 </template>
 
 <script>
-import gigPreview from "../components/gig-preview.vue"
+import gigPreview from "../components/gig-preview.vue";
 export default {
-  components:{
-    gigPreview
-  }
-}
+  props: {
+    gigs: {
+      type: Array,
+      required: true,
+    },
+  },
+  components: {
+    gigPreview,
+  },
+};
 </script>
 
 <style>
-
 </style>

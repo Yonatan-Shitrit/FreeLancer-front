@@ -58,7 +58,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    gig: {
+      type: Object,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style>
