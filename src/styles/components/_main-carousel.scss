@@ -73,6 +73,7 @@
 .slide-image:hover{
   opacity: 0.8;
   transition: opacity .3s ease-in-out;
+  cursor: pointer;
 }
 
 .main-carousel-slide-txt{
@@ -87,6 +88,7 @@
   text-align:left;
   font-weight: 700;
   z-index: 1;
+  
 }
 .main-carousel-header{
   font-size: 32px;
