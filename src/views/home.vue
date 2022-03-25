@@ -33,14 +33,58 @@
       </div>
     </section>
   </section>
-  <section class="main-home">
-
-  
+  <section class="main-home-1">  
   <h2 style="font-size: 32px; line-height: 120%; color: #404145; font-weight: 700; padding-left:40px;"> Popular professional services </h2>
     <main-carousel   style="padding: 0 40px 0 40px; margin:auto; width:100%"  :itemsToShow="5" :itemsToScroll="4"  :wrapAround="true" :transition="400">
   </main-carousel>  
-  <pre><h2>Our Gigs:</h2>
-  {{gigs}}</pre>
+  <!-- <pre><h2>Our Gigs:</h2>
+  {{gigs}}</pre> -->
+  </section>
+  <section class="markit-home">
+  <section class="main-home-2">
+    <div class="right-side">
+      <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_700,dpr_1.0/v1/attachments/generic_asset/asset/089e3bb9352f90802ad07ad9f6a4a450-1599517407052/selling-proposition-still-1400-x1.png" alt="">
+    </div>
+    <div class="left-side">
+      <h2>
+        A whole world of freelance <br> talent at your fingertips
+      </h2>
+
+      <h6>
+        <i class="bi bi-check-circle"></i>&nbsp; 
+        The best for every budget
+      </h6>
+      <p>
+        Find high-quality services at every price point. No hourly <br> rates, just project-based pricing.
+      </p>
+
+      <h6>
+        <i class="bi bi-check-circle"></i>&nbsp; 
+        Quality work done quickly
+      </h6>
+      <p>
+        Find the right freelancer to begin working on your <br> project within minutes.
+      </p>
+
+      <h6>
+        <i class="bi bi-check-circle"></i> &nbsp; 
+        Protected payments, every time
+      </h6>
+      <p>
+        Always know what you'll pay upfront. Your payment isn't <br> released until you approve the work.
+      </p>
+
+      <h6>
+        <i class="bi bi-check-circle"></i>&nbsp; 
+        24/7 support
+      </h6>
+      <p>
+        Questions? Our round-the-clock support team is <br> available to help anytime, anywhere.
+      </p>
+
+    </div>
+
+  </section>
   </section>
 </template>
 
