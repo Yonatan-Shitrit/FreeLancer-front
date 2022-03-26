@@ -16,7 +16,6 @@ export default {
   },
   created() {
     this.gigs = this.$store.getters.gigs;
-    console.log(this.$store.getters.gigs);
   },
   components: {
     gigList,

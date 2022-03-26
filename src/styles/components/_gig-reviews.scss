@@ -1,0 +1,101 @@
+.breakdown {
+    display: flex;
+    background-color: aqua;
+    padding-bottom: 24px;
+    .ratings {
+        padding: 0 16px;
+        flex-basis: 50%;
+        max-width: 50%;
+        h6 {
+            margin: 0;
+            outline: 0;
+            padding: 0;
+            padding-bottom: 16px;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 140%;
+            color: #404145;
+        }
+        ul {
+            margin: 0;
+            outline: 0;
+            padding: 0;
+            list-style: none;
+            list-style-image: none;
+            li {
+                display: flex;
+                justify-content: space-between;
+                color: #95979d;
+                padding-bottom: 8px;
+                line-height: 24px;
+                span {
+                    color: #62646a;
+                    white-space: nowrap;
+                    margin-left: 12px;
+                    svg{
+                        width: 15px;
+                        height: 15px;
+                        fill: #ffb33e;
+                    }
+                }
+            }
+        }
+    }
+    .statistics {
+        padding: 0 16px;
+        flex-basis: 50%;
+        max-width: 50%;
+        background-color: aquamarine;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            tbody {
+                tr {
+                    font-weight: 400;
+                    height: fit-content;
+                    white-space: nowrap;
+                    vertical-align: top;
+                    height: 32px;
+                    .rating-tag {
+                        padding: 0;
+                        padding-bottom: 4px;
+                        height: fit-content;
+                        padding: 6px;
+                        span {
+                            color: #446ee7;
+                            font-size: 16px;
+                            font-weight: 600;
+                            line-height: 100%;
+                        }
+                    }
+                    .progress-bar-container {
+                        width: 100%;
+                        padding: 10px 10px 0 6px;
+                        margin: auto;
+                        height: 32px;
+                        .progress-bar {
+                            position: relative;
+                            height: 8px;
+                            background: #e4e5e7;
+                            border-radius: 999px;
+                            width: 100%;
+                            span {
+                                background-color: #ffb33e;
+                                width: 20%;
+                                height: 100%;
+                                position: absolute;
+                                border-radius: 999px;
+                            }
+                        }
+                    }
+                    .rating-amount {
+                        color: #446ee7;
+                        padding-bottom: 4px;
+                        line-height: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
