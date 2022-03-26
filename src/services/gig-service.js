@@ -13045,11 +13045,12 @@ async function save(gig) {
   return gig._id ? storageService.put(KEY, gig) : storageService.post(KEY, gig)
 }
 _createManyGigs()
-async function _createManyGigs(){
+async function _createManyGigs() {
   try {
     const gigs = await query();
     if (!gigs || !gigs.length) {
-      storageService.post(KEY, gGigsTest)
+      // storageService.post(KEY, gGigsTest)
+      utilService.saveToStorage(KEY, gGigsTest);
     }
   }
   catch (err) {

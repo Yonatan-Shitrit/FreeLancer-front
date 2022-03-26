@@ -18,12 +18,25 @@ import gigSidebar from "../components/gig-sidebar.vue";
 import gigOverview from "../components/gig-overview.vue";
 import gigDescription from "../components/gig-description.vue";
 import gigProfile from "../components/gig-profile.vue";
+import { gigService } from "../services/gig-service.js";
 export default {
   components: {
     gigSidebar,
     gigOverview,
     gigDescription,
     gigProfile,
+  },
+  data(){
+    return{
+      gig: null
+    }
+  },
+  async created() {
+    const { id } = this.$route.params;
+    console.log(id);
+    const gig = await gigService.getById(id);
+    console.log(gig);
+    this.gig = gig;
   },
 };
 </script>

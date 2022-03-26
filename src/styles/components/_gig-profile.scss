@@ -57,7 +57,9 @@
             }
             svg {
                 margin-left: 4px;
-                margin-bottom: 4px;
+                width: 15px;
+                position: relative;
+                top: 1px;
                 &:first-child {
                     margin-left: 0;
                 }
