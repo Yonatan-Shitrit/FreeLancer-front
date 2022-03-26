@@ -43,12 +43,11 @@
     </section>
   </section>
   <section class="main-home-1">
-    <test-carousel />
+
   </section>
   <section class="main-home-1">  
   <h2 class="main-carousel-header"> Popular professional services </h2>
-    <main-carousel   style=" margin:auto; ;"  :itemsToShow="5" :itemsToScroll="5"  :modelValue="2" :wrapAround="true" :transition="400">
-  </main-carousel>  
+  <test-carousel   :itemsToShow="5" :itemsToScroll="5"  :wrapAround="true" :transition="400" />
   </section>
   <section class="markit-home">
     <section class="main-home-2">
@@ -100,8 +99,8 @@
 </template>
 
 <script>
-import mainCarousel from "../components/main-carousel.vue";
-import testCarousel from "../components/test-carousel.vue";
+import mainCarousel from "../components/main-carousel2.vue";
+import testCarousel from "../components/main-carousel.vue";
 
 
 export default {
