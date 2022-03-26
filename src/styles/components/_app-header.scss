@@ -1,14 +1,19 @@
 .full-header {
-    height: 70px;
-    padding-top: 10px;
-    background-color: #013f1d;
-    color: whitesmoke;
+    background-color: #fff;
+    color: #62646a;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
     .app-header {
+        height: 80px;
         width: 1400px;
         margin: 0 auto;
         background-color: rgba(95, 158, 160, 0);
         display: flex;
+        align-content: center;
+        align-items: center;
         justify-content: space-between;
+        flex-wrap: nowrap;
         .logo {
             float: left;
             font-family: "logoFont", serif;
@@ -19,10 +24,10 @@
             }
         }
         a {
+            height: auto;
             display: block;
-            color: whitesmoke;
+            color: #62646a;
             text-align: center;
-            padding: 10px;
             text-decoration: none;
             .not-exist {
                 color: lightgray;
@@ -31,18 +36,43 @@
         }
         ul {
             list-style-type: none;
+            display: flex;
+            flex-direction: row-reverse;
             margin: 0;
             padding: 0;
             overflow: hidden;
             font-weight: 600;
             font-size: 16px;
             line-height: 24px;
+            margin-right: -24px;
+            align-items: center;
             // background-color: #333;
             li {
+                &:first-child {
+                    a {
+                        color: #1dbf73;
+                        font-size: 14px;
+                        padding: 10px 16px;
+                        border: #1dbf73 solid 1px;
+                        border-radius: 4px;
+                        line-height: 14px;
+                        transition: color 0.5s ease, border 0.5s ease;
+                        &:hover {
+                            background: #19a463;
+                            color: #fff;
+                        }
+                    }
+                }
                 float: right;
-
-                &:hover:not(.active) {
-                    color: white;
+                padding-right: 24px;
+                a {
+                    color: #74767e;
+                    transition: 0.2s;
+                }
+                &:hover {
+                    a {
+                        color: #1dbf73;
+                    }
                 }
             }
         }

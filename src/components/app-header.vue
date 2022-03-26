@@ -5,12 +5,12 @@
       <ul>
         <li class="header-item">
           <router-link to="/"
-            ><a class="not-exist" href="">Join</a>
+            >Join
           </router-link>
         </li>
         <li class="header-item">
           <router-link to="/login"
-            ><a class="" href="">Sign In</a>
+            ><a class="" href="">Sign in</a>
           </router-link>
         </li>
         <li class="header-item">
