@@ -8,8 +8,7 @@
           :value="gig.title.slice(6, gig.title.length - 1)"
         />
         <!-- <option value="gig.title" /> -->
-      </datalist>
-
+      </datalist>      
       <div class="left-side">
         <div class="sub-left-side1">
           <h1 class="mini-dis">
@@ -43,7 +42,7 @@
     </section>
   </section>
   <section class="main-home-1">
-
+    <pre>User: {{user}}</pre>
   </section>
   <section class="main-home-1">  
   <h2 class="main-carousel-header"> Popular professional services </h2>
@@ -116,6 +115,9 @@ export default {
     gigs() {
       return this.$store.getters.gigs;
     },
+    user(){
+      return this.$store.getters.user;
+    }
   },
   components: {
     mainCarousel,
