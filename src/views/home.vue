@@ -3,7 +3,7 @@
     <section class="gig-home-top">
       <datalist id="categories">
         <option
-          v-for="gig in gigs[0]"
+          v-for="gig in gigs"
           :key="gig._id"
           :value="gig.title.slice(6, gig.title.length - 1)"
         />
