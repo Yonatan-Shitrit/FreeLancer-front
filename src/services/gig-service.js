@@ -13909,10 +13909,10 @@ var gSellersTest = [
 
 // const gGigs = _createManyGigs()
 
-async function query(key=KEY, filterBy = {}) {
+async function query(filterBy = {}) {
   // return await httpService.get(ENDPOINT, filterBy)
   // return axios.get(BASE_URL, { params: { filterBy } }).then((res) => res.data)
-  return storageService.query(key)
+  return storageService.query(KEY)
 }
 
 
