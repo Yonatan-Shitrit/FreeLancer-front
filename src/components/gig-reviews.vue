@@ -1,10 +1,10 @@
 <template>
   <section class="gig-reviews">
-      <header>
-          <h2>
-              <span>312</span>
-              Reviews
-              <small class="rating-stars">
+    <header>
+      <h2>
+        <span>312</span>
+        Reviews
+        <small class="rating-stars">
           <svg
             width="16"
             height="15"
@@ -65,17 +65,51 @@
           </svg>
         </small>
         <span>4.3</span>
-          </h2>
-      </header>
+      </h2>
+    </header>
+    <div class="breakdown">
+      <div class="statistics">
+        <table>
+          <tbody>
+            <tr>
+              <td>stars</td>
+              <td class="progress-bar-container">
+                <div class="progress-bar">
+                    <span></span>
+                </div>
+              </td>
+              <td>(320)</td>
+            </tr>
+            <tr>
+              <td>stars</td>
+              <td class="progress-bar-container">
+                <div class="progress-bar">
+                    <span></span>
+                </div>
+              </td>
+              <td>(320)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ratings"></div>
+    </div>
   </section>
 </template>
 
 <script>
 export default {
+    props:{
+    gig: {
+      type: Object,
+      required: true,
+    },
+  },
+  computed:{
 
-}
+  },
+};
 </script>
 
 <style>
-
 </style>
