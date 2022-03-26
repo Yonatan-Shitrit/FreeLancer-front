@@ -8,7 +8,8 @@ export default defineConfig({
   plugins: [vue()],
   optimizeDeps: {
     include: [
-      'lodash.throttle' // if it is inlcuded here, error is gone 🐓
+      'lodash.throttle',
+      'lodash.orderby' // if it is inlcuded here, error is gone 🐓
     ]
   },
   resolve: {
