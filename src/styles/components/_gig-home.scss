@@ -7,7 +7,7 @@
     .gig-home-top {
         width: 1400px;
         margin: auto auto;
-        padding: 0 32px;
+        // padding: 0 32px;
         .left-side {
             width: 650px;
             form {
@@ -90,7 +90,8 @@
 .main-home-1 {
     width: 1400px;
     margin: 40px auto;
-    padding: 0 32px;
+    // padding: 0 32px;
+    padding: 0;
 }
 
 .main-home-2 {
@@ -100,7 +101,7 @@
     display: grid;
     grid-template-areas: "left-side right-side";
     gap: 10px;
-    padding: 0 32px;
+    // padding: 0 32px;
     .right-side {
         grid-area: right-side;
         margin: auto auto;
