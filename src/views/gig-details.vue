@@ -6,7 +6,7 @@
       <gig-description :gig="gig" />
       <h2>About The Seller</h2>
       <gig-profile />
-      <gig-reviews />
+      <gig-reviews :gig="gig" />
     </div>
     <section class="sidebar">
       <gig-sidebar :gig="gig" />
