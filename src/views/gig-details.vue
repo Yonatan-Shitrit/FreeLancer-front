@@ -1,14 +1,14 @@
 <template>
   <section class="gig-page">
     <div class="gig-details">
-      <gig-overview />
+      <gig-overview :gig="gig" />
       <div class="put-carousel">put carousel here</div>
-      <gig-description />
+      <gig-description :gig="gig" />
       <h2>About The Seller</h2>
-      <gig-profile />
+      <gig-profile  />
     </div>
     <section class="sidebar">
-      <gig-sidebar />
+      <gig-sidebar :gig="gig" />
     </section>
   </section>
 </template>
