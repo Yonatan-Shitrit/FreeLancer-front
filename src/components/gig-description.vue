@@ -3,7 +3,8 @@
     <header>
       <h2>About This Gig</h2>
     </header>
-    <p>You're in the right place!</p>
+    <p>{{gig.description}}</p>
+    <!-- <p>You're in the right place!</p>
     <p>
       For $40 I'll draw you a colorfull and modern trippy dripping style
       illustration in less than 7 days. Perfect for stickers, your website, app,
@@ -24,12 +25,19 @@
       If you want a custom request, please contact me before ordering so we can
       discuss the project.
     </p>
-    <p>Thank You!</p>
+    <p>Thank You!</p> -->
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    gig: {
+      type: Object,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style>

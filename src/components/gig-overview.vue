@@ -1,13 +1,13 @@
 <template>
   <section class="gig-overview">
-    <h1>I will record a natural, professional american female voice over</h1>
+    <h1>{{gig.title}}</h1>
     <div class="seller-overview">
       <img
-        src="https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg"
+        :src="gig.reviews[0].userCLogo"
         alt=""
       />
       <div class="mini-info">
-        <div class="seller-name">pro_graphics_cg</div>
+        <div class="seller-name">{{gig.seller.fullName}}</div>
         <div class="seller-level">Level 2 Seller</div>
         <div class="rating-stars">
           <svg
@@ -68,8 +68,8 @@
               d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z"
             ></path>
           </svg>
-          <b>4.8</b>
-          <span>(745)</span>
+          <b>{{gigRating}}</b>
+          <span>({{gig.reviews.length}})</span>
         </div>
       </div>
     </div>
@@ -77,7 +77,23 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props:{
+    gig: {
+      type: Object,
+      required: true,
+    },
+  },
+  computed: {
+    gigRating() {
+      const sum = this.gig.reviews.reduce((acc, rate) => {
+        return acc + rate.rate;
+      }, 0);
+      const avg = ("" + sum / this.gig.reviews.length).slice(0, 3);
+      return avg;
+    },
+  },
+};
 </script>
 
 <style>

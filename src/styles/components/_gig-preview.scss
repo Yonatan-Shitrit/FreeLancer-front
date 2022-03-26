@@ -21,6 +21,7 @@
         .price-container {
             display: flex;
             flex-direction: column;
+            cursor: pointer;
             .price-tag {
                 color: #74767e;
                 font-family: macanBold;

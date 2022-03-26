@@ -1,14 +1,15 @@
 <template>
   <section class="gig-page">
     <div class="gig-details">
-      <gig-overview />
+      <gig-overview :gig="gig" />
       <div class="put-carousel">put carousel here</div>
-      <gig-description />
+      <gig-description :gig="gig" />
       <h2>About The Seller</h2>
       <gig-profile />
+      <gig-reviews />
     </div>
     <section class="sidebar">
-      <gig-sidebar />
+      <gig-sidebar :gig="gig" />
     </section>
   </section>
 </template>
@@ -18,12 +19,27 @@ import gigSidebar from "../components/gig-sidebar.vue";
 import gigOverview from "../components/gig-overview.vue";
 import gigDescription from "../components/gig-description.vue";
 import gigProfile from "../components/gig-profile.vue";
+import gigReviews from "../components/gig-reviews.vue";
+import { gigService } from "../services/gig-service.js";
 export default {
   components: {
     gigSidebar,
     gigOverview,
     gigDescription,
     gigProfile,
+    gigReviews,
+  },
+  data() {
+    return {
+      gig: null,
+    };
+  },
+  async created() {
+    const { id } = this.$route.params;
+    console.log(id);
+    const gig = await gigService.getById(id);
+    console.log(gig);
+    this.gig = gig;
   },
 };
 </script>
