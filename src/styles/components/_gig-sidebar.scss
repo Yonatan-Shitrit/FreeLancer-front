@@ -26,6 +26,7 @@
                 }
                 p {
                     margin-top: 16px;
+                    line-height: 140%;
                     margin-bottom: 0;
                     font-size: 14px;
                     color: #62646a;
@@ -39,6 +40,8 @@
                 div {
                     margin-bottom: 8px;
                     svg {
+                        position: relative;
+                        top: 4px;
                         fill: #62646a;
                     }
                     b {

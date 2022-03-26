@@ -5,9 +5,11 @@
         <header>
           <h3>
             <b>Order Details:</b>
-            <div>$30</div>
+            <div>${{ gig.price }}</div>
           </h3>
-          <p>Double Sided + Print Ready Files + JPEG + PDF Double Sided + Print Ready Files + JPEG + PDF</p>
+          <p>
+            {{ gig.details }}
+          </p>
         </header>
         <article>
           <div class="sidebar-delivery">
@@ -22,7 +24,7 @@
               ></path>
               <path d="M9 4H7v5h5V7H9V4z"></path>
             </svg>
-            <b> 3 day delivery</b>
+            <b> {{gig.daysToMake}} {{gigDelivery}} delivery</b>
           </div>
           <div class="sidebar-revision">
             <svg
@@ -38,11 +40,11 @@
                 d="M15.8 7.2999L9.40001 6.5999L11.5 4.4999C9.60001 2.5999 6.40001 2.5999 4.50001 4.4999C3.80001 5.1999 3.30001 6.1999 3.10001 7.1999L1.10001 6.8999C1.30001 5.3999 2.00001 4.0999 3.00001 3.0999C4.40001 1.6999 6.10001 1.0999 7.90001 1.0999C9.70001 1.0999 11.5 1.7999 12.8 3.0999L15 0.899902L15.8 7.2999Z"
               ></path>
             </svg>
-            <b> 1 revision</b>
+            <b> {{ gig.revision }} {{ gigRevisions }}</b>
           </div>
         </article>
         <footer>
-          <button>Continue ($30)</button>
+          <button>Continue (${{ gig.price }})</button>
         </footer>
       </form>
       <div class="contact-seller">
@@ -53,7 +55,24 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    gig: {
+      type: Object,
+      required: true,
+    },
+  },
+  computed: {
+    gigRevisions() {
+      if (this.gig.revision === 1) return "revision";
+      else return "revisions";
+    },
+    gigDelivery() {
+      if (this.gig.daysToMake === 1) return "day";
+      else return "days";
+    },
+  },
+};
 </script>
 
 <style>
