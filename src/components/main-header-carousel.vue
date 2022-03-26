@@ -1,5 +1,5 @@
 <template>
-  <agile  :autoplay="true" :autoplaySpeed="2000" >
+  <agile  :autoplay="true" :autoplaySpeed="2000" :fade="true">
     <div style="height 100px; width;70px;" v-for="(image, index) in this.images" :key="index">
 
 
