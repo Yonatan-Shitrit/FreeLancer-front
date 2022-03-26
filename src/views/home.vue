@@ -41,10 +41,16 @@
       </div>
     </section>
   </section>
+
   <section class="main-home-1">
     <pre>User: {{user}}</pre>
   </section>
-  <section class="main-home-1">  
+  <section class="main-home-1"> 
+             <div>
+        <agilecarousel style="height: 400px;">
+        </agilecarousel>
+
+      </div>
   <h2 class="main-carousel-header"> Popular professional services </h2>
   <test-carousel   :itemsToShow="5" :itemsToScroll="5"  :wrapAround="true" :transition="400" />
   </section>
@@ -100,6 +106,7 @@
 <script>
 import mainCarousel from "../components/main-carousel2.vue";
 import testCarousel from "../components/main-carousel.vue";
+import agilecarousel from "../components/main-header-carousel.vue";
 
 
 export default {
@@ -121,7 +128,9 @@ export default {
   },
   components: {
     mainCarousel,
-    testCarousel
+    testCarousel,
+    agilecarousel,
+    
   },
 };
 </script>

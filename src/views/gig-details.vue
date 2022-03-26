@@ -2,7 +2,12 @@
   <section class="gig-page">
     <div class="gig-details">
       <gig-overview :gig="gig" />
-      <div class="put-carousel">put carousel here</div>
+      <div class="put-carousel">
+        <agilecarousel style="z-index: 1000; ">
+
+        </agilecarousel>
+
+      </div>
       <gig-description :gig="gig" />
       <h2>About The Seller</h2>
       <gig-profile />
@@ -21,6 +26,7 @@ import gigDescription from "../components/gig-description.vue";
 import gigProfile from "../components/gig-profile.vue";
 import gigReviews from "../components/gig-reviews.vue";
 import { gigService } from "../services/gig-service.js";
+import agilecarousel from "../views/agile-carousel.vue";
 export default {
   components: {
     gigSidebar,
@@ -28,6 +34,8 @@ export default {
     gigDescription,
     gigProfile,
     gigReviews,
+    agilecarousel
+ 
   },
   data() {
     return {
