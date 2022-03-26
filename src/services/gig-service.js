@@ -15,7 +15,7 @@ export const gigService = {
   remove,
   save,
   getEmptyGig,
-  // getCatigories,
+  getUserById
 }
 
 var gGigsTest = [
@@ -13915,6 +13915,12 @@ async function query(filterBy = {}) {
   return storageService.query(KEY)
 }
 
+async function getUserById(id) {
+  // return await httpService.get(ENDPOINT, filterBy)
+  // return axios.get(BASE_URL, { params: { filterBy } }).then((res) => res.data)
+  return storageService.getById('sellers_DB', id)
+
+}
 
 
 async function getById(id) {

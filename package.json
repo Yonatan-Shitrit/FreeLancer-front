@@ -8,8 +8,10 @@
     "test:unit": "vitest --environment jsdom"
   },
   "dependencies": {
+    "agile": "^0.0.2",
     "sass": "^1.49.9",
     "vue": "^3.2.31",
+    "vue-agile": "^2.0.0",
     "vue-router": "^4.0.12",
     "vue3-carousel": "^0.1.36",
     "vuex": "^4.0.2"
