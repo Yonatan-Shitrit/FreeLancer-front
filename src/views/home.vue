@@ -69,7 +69,7 @@
   </section>
 
   <section class="main-home-1">
-    <pre>User: {{ user }}</pre>
+    <!-- <pre>User: {{ user }}</pre> -->
   </section>
   <section class="main-home-1"> 
 
