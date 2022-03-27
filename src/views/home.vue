@@ -1,14 +1,14 @@
 <template>
-  <section   ref="header" class="gig-home" style="position:relative">
+  <section    class="gig-home" style="position:relative">
                  <div style="margin:auto 0; position: absolute; z-index:0; width:100%">
-        <agilecarousel   style="height: 630px; width:100%"
+        <agilecarousel ref="header"  style="height: 630px; width:100%"
         
         >
         </agilecarousel>
 
       </div>
     <section  style="z-index:10; " class="gig-home-top"
-    v-bind:style="{backgroundColor: bgcNav ? 'rgba(255, 255, 255)': 'rgba(255, 255, 255)' }"
+    v-bind:style="{backgroundColor: bgcNav ? 'rgba(255, 255, 255)': 'rgba(255, 255, 255, 0)' }"
     >
       <datalist id="categories">
         <option
@@ -173,7 +173,7 @@ export default {
   data() {
     return {
 
-      bgcNav: true,
+      bgcNav: false,
       headerObserver: null,
     };
   },
@@ -190,10 +190,10 @@ export default {
     },
   },
   mounted(){
-    this.headerObserver = newintersectionObserver(this.onHeaderObserved, {
-      rootMargin : "-1650px 0px 0px",
+    this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
+      rootMargin : "-10px 0px 0px",
     })
-    this.headerObserver.observe(this.$hrefs.header)
+    // this.headerObserver.observe(this.$refs.header)
     }
   
   ,
