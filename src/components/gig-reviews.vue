@@ -189,6 +189,11 @@
         </ul>
       </div>
     </div>
+    <div class="reviews">
+      <ul>
+        <li v-for="review in gig.reviews" :key="review._id"></li>
+      </ul>
+    </div>
   </section>
 </template>
 

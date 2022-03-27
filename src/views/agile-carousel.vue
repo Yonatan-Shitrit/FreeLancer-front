@@ -2,11 +2,11 @@
  <agile class="main" ref="main" :options="options1" :as-nav-for="asNavFor1">
     <div class="image" v-for="(image, index) in images" :key="index" :class="`image--${index}`"><img :src="image"/></div>
   </agile>
-  <agile class="thumbnails" ref="thumbnails" :options="options2" :as-nav-for="asNavFor2">
+  <!-- <agile class="thumbnails" ref="thumbnails" :options="options2" :as-nav-for="asNavFor2">
     <div class="image image--thumbniail" v-for="(image, index) in images" :key="index" :class="`image--${index}`" @click="$refs.thumbnails.goTo(index)"><img :src="image"/></div>
     <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
     <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
-  </agile>
+  </agile> -->
 </template>
 
 <script>
