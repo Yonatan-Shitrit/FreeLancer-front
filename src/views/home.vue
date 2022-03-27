@@ -1,11 +1,15 @@
 <template>
-  <section class="gig-home" style="position:relative">
+  <section    class="gig-home" style="position:relative">
                  <div style="margin:auto 0; position: absolute; z-index:0; width:100%">
-        <agilecarousel style="height: 630px; width:100%">
+        <agilecarousel ref="header"  style="height: 630px; width:100%"
+        
+        >
         </agilecarousel>
 
       </div>
-    <section  style="z-index:10; " class="gig-home-top">
+    <section  style="z-index:10; " class="gig-home-top"
+    v-bind:style="{backgroundColor: bgcNav ? 'rgba(255, 255, 255)': 'rgba(255, 255, 255, 0)' }"
+    >
       <datalist id="categories">
         <option
           v-for="gig in gigs"
@@ -176,9 +180,19 @@ import testCarousel from "../components/main-carousel.vue";
 import agilecarousel from "../components/main-header-carousel.vue";
 
 export default {
-  methods: {},
+  methods: {
+    onHeaderObserved(entries) {
+      entries.forEach((entry)=> {
+        this.bgcNav = entry.isIntersecing ? false :true
+      })
+    }
+  },
   data() {
-    return {};
+    return {
+
+      bgcNav: false,
+      headerObserver: null,
+    };
   },
   created() {},
   computed: {
@@ -192,6 +206,14 @@ export default {
       return this.$store.getters.user;
     },
   },
+  mounted(){
+    this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
+      rootMargin : "-10px 0px 0px",
+    })
+    // this.headerObserver.observe(this.$refs.header)
+    }
+  
+  ,
   components: {
     mainCarousel,
     testCarousel,

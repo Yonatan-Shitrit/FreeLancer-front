@@ -1,5 +1,5 @@
 <template>
-  <agile  :autoplaySpeed="8000" :fade="true" :dots="false" :navButtons="false" :autoplay="true" :timing="linear">
+  <agile  :autoplaySpeed="6000" :fade="true" :dots="false" :navButtons="false" :autoplay="true">
     
       <div
         
