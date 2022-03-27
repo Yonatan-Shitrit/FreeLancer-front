@@ -118,6 +118,12 @@
                         line-height: 27px;
                         font-weight: 600;
                         color: #fff; 
+                        &:hover{
+                            a{
+                                background-color: #fff;
+                                color: #404145;
+                            }
+                        }
                         
                         a{
                             background-color: transparent;

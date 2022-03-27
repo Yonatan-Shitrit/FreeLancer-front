@@ -44,7 +44,7 @@
           <button class="search-btn">Search</button>
         </form>
         <div class="popular">
-          <span>Popular</span>
+          <span>Popular:</span>
           <ul>
             <li>
               <a href="">Website Design</a>
