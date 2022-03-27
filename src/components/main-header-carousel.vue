@@ -9,6 +9,8 @@
         display:flex;
         justify-content:center">
         <img style="height:630px; width:auto" :src="image.img" />
+        <!-- <div style="height:630px; width:auto"  :style="{ backgroundImage: 'url(' + image.img + ')' }"> </div> -->
+
         </div>
       </div>
     
