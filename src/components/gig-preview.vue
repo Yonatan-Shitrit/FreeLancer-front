@@ -2,7 +2,7 @@
   <div class="preview">
     <img @click="goToDetail" class="gig-card-img" :src="gig.images[0]" alt="..." />
     <div class="gig-mini-user">
-      <img :src="gig.reviews[0].userCLogo" alt="" />
+      <img :src="gig.seller.imgUrl" alt="" />
       <div class="seller-identifiers">
         <div>{{ gig.seller.fullName }}</div>
         <span>Level 2 Seller</span>
