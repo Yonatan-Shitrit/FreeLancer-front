@@ -1,5 +1,6 @@
 <template>
   <section class="">
+    
     <div class="">
       <gig-list :gigs="gigs"/>
     </div>
