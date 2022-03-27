@@ -1,19 +1,34 @@
 <template>
-  <agile  :autoplaySpeed="6000" :fade="true" :dots="false" :navButtons="false" :autoplay="true">
-    
-      <div
-        
-        v-for="(image, index) in this.images"
-        :key="index">
-        <div :style="image.bgc" style="
-        display:flex;
-        justify-content:center">
+  <agile
+    :autoplaySpeed="6000"
+    :fade="true"
+    :dots="false"
+    :navButtons="false"
+    :autoplay="false"
+  >
+    <div v-for="(image, index) in this.images" :key="index">
+      <div :style="image.bgc" style="display: flex; justify-content: center; position:relative">
         <img style="height:630px; width:auto" :src="image.img" />
-        <!-- <div style="height:630px; width:auto"  :style="{ backgroundImage: 'url(' + image.img + ')' }"> </div> -->
+        <div style="position:absolute; bottom:10px; right:10%">
+          helllooooooo
 
         </div>
+        <!-- <div
+          style="
+            height: 630px;
+            margin: 0 auto;
+            width: 1792px;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            position:relative;
+            width:100%;
+          "
+          :style="{ backgroundImage: 'url(' + image.img + ')' }"
+        >
+          <div style="right: 50%; bottom: 0; position:absolute; ">hello</div>
+        </div> -->
       </div>
-    
+    </div>
   </agile>
 </template>
 
@@ -25,27 +40,26 @@ export default {
     return {
       images: [
         {
-         img:"https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049983/bg-hero-1-1792-x1.png",
-         bgc: "background-color:#023a15"
+          img: "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049983/bg-hero-1-1792-x1.png",
+          bgc: "background-color:#023a15",
         },
         {
-         img:"https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/2413b8415dda9dbd7756d02cb87cd4b1-1599595203045/bg-hero-2-1792-x1.png",
-         bgc: "background-color:#b64762"
+          img: "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/2413b8415dda9dbd7756d02cb87cd4b1-1599595203045/bg-hero-2-1792-x1.png",
+          bgc: "background-color:#b64762",
         },
         {
-         img:"https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/d14871e2d118f46db2c18ad882619ea8-1599835783966/bg-hero-3-1792-x1.png",
-         bgc: "background-color:#540e1f",
+          img: "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/d14871e2d118f46db2c18ad882619ea8-1599835783966/bg-hero-3-1792-x1.png",
+          bgc: "background-color:#540e1f",
         },
-                {
-         img:"https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/93085acc959671e9e9e77f3ca8147f82-1599427734108/bg-hero-4-1792-x1.png",
-         bgc: "background-color:#023a15"
+        {
+          img: "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/93085acc959671e9e9e77f3ca8147f82-1599427734108/bg-hero-4-1792-x1.png",
+          bgc: "background-color:#023a15",
         },
-                {
-         img:"https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049970/bg-hero-5-1792-x1.png",
-         bgc: "background-color:#7d1a00"
+        {
+          img: "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049970/bg-hero-5-1792-x1.png",
+          bgc: "background-color:#7d1a00",
         },
       ],
-
     };
   },
   components: {
