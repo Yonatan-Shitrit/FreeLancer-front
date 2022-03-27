@@ -3,7 +3,7 @@
     <h1>{{gig.title}}</h1>
     <div class="seller-overview">
       <img
-        :src="gig.reviews[0].userCLogo"
+        :src="gig.seller.imgUrl"
         alt=""
       />
       <div class="mini-info">

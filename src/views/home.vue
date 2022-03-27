@@ -47,12 +47,29 @@
           />
           <button class="search-btn">Search</button>
         </form>
+        <div class="popular">
+          <span>Popular</span>
+          <ul>
+            <li>
+              <a href="">Website Design</a>
+            </li>
+            <li>
+              <a href="">WordPress</a>
+            </li>
+            <li>
+              <a href="">Logo Design</a>
+            </li>
+            <li>
+              <a href="">NFT Art</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </section>
 
   <section class="main-home-1">
-    <pre>User: {{ user }}</pre>
+    <!-- <pre>User: {{ user }}</pre> -->
   </section>
   <section class="main-home-1"> 
 
