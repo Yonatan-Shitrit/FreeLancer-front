@@ -1,7 +1,7 @@
 <template>
   <section class="full-header" 
   style="position:relative"
-      v-bind:style="{backgroundColor: stickyNav ? 'rgba(0, 255, 255, 0.5)': 'rgba(255, 255, 255, 0.5)' , position: stickyNav ? 'relative' : 'fixed' }"
+      v-bind:style="{backgroundColor: scrollY ? 'rgba(255, 255, 255, 1)': 'rgba(255, 255, 255, 0)' , position: scrollY ? 'fixed' : 'fixed' }"
       
       ref="header"
   >
@@ -38,6 +38,7 @@ export default {
 
       headerObserver: null,
       stickyNav:false,
+      scrollY:0
     };
   },
   computed: {
@@ -56,14 +57,22 @@ export default {
         this.stickyNav = entry.isIntersecing ? true :false
         console.log(this.stickyNav)
      })
+    },
+    setScroll(){
+      this.scrollY = window.scrollY
     }
   
   },
-
+  created(){
+    document.addEventListener('scroll',this.setScroll)
+  },
+  unmounted(){
+    document.removeEventListener('scroll',this.setScroll)
+  },
     mounted(){
     this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
       rootMargin : "-30px 0px 0px",
-      threshold: 0.5
+      // threshold: 0.5
     })
     this.headerObserver.observe(this.$refs.header)
     

@@ -4,7 +4,7 @@
     :fade="true"
     :dots="false"
     :navButtons="false"
-    :autoplay="false"
+    :autoplay="true"
   >
     <div v-for="(image, index) in this.images" :key="index">
       <div :style="image.bgc" style="display: flex; justify-content: center; position:relative">

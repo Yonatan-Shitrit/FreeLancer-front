@@ -1,9 +1,7 @@
 <template>
   <section    class="gig-home" style="position:relative">
                  <div style="margin:auto 0; position: absolute; z-index:0; width:100%">
-        <agilecarousel  style="height: 630px; width:100%"
-        
-        >
+        <agilecarousel  style="height: 630px; width:100%">
         </agilecarousel>
 
       </div>
