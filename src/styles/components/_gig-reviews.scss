@@ -10,13 +10,13 @@
             font-size: 20px;
             color: #404145;
             font-weight: 700;
-            small{
-                fill:#ffb33e ;
-                svg{
+            small {
+                fill: #ffb33e;
+                svg {
                     margin-left: 4px;
                     width: 15px;
                 }
-                span{
+                span {
                     color: #ffb33e;
                     margin-left: 5px;
                     font-size: 16.6667px;
@@ -126,5 +126,117 @@
                 }
             }
         }
+    }
+    .details-reviews {
+        ul {
+            margin: 0;
+            outline: 0;
+            padding: 0;
+            li {
+                padding: 16px 0 32px 44px;
+                position: relative;
+                border-top: 1px solid #dadbdd;
+                &:last-child {
+                    border-bottom: 1px solid #dadbdd;
+                }
+                .review-pic {
+                    width: 32px;
+                    height: 32px;
+                    float: left;
+                    margin-left: -44px;
+                    border-radius: 50%;
+                }
+                header {
+                    padding-bottom: 3px;
+                    line-height: 24px;
+                    .review-username {
+                        display: flex;
+                        align-items: center;
+                        padding: 4px 0;
+                        h5 {
+                            margin: 0;
+                            font-size: 16px;
+                            line-height: 120%;
+                            margin-right: 10px;
+                            font-weight: 700;
+                            color: #404145;
+                        }
+                        small {
+                            line-height: 24px;
+                            svg {
+                                fill: #ffb33e;
+                                position: relative;
+                                top: 2px;
+                            }
+                            span {
+                                color: #ffb33e;
+                                font-weight: 700;
+                                margin-left: 5px;
+                                font-size: 16px;
+                                line-height: 140%;
+                            }
+                        }
+                    }
+                    .review-country {
+                        display: inline-flex;
+                        img {
+                            margin: 3px 0;
+                            width: 20px;
+                            height: 14px;
+                            border-radius: 2px;
+                        }
+                        div {
+                            color: #62646a;
+                            font-size: 14px;
+                            padding-left: 8px;
+                            line-height: 21px;
+                        }
+                    }
+                }
+                p {
+                    margin: 0;
+                    padding: 8px 0;
+                    line-height: 22px;
+                    color: #404145;
+                    font-size: 14px;
+                    word-wrap: break-word;
+                }
+                time {
+                    color: #95979d;
+                    font-size: 14px;
+                    line-height: 21px;
+                }
+                .review-liked {
+                    padding: 12px 0;
+                    display: flex;
+                    div {
+                        align-items: center;
+                        display: flex;
+                        padding: 2px 0;
+                        cursor: pointer;
+                        color: #404145;
+                        font-weight: 600;
+                        font-size: 14px;
+                        line-height: 21px;
+                        svg {
+                            fill: #404145;
+                            margin-right: 4px;
+                        }
+                    }
+                    .review-like {
+                        padding-right: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+.dim {
+    opacity: 0.7;
+    td {
+        color: #dadbdd !important;
+    }
+    span {
+        color: #dadbdd !important;
     }
 }
