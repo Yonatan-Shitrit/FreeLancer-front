@@ -1,6 +1,11 @@
 <template>
-  <section class="gig-home">
-    <section class="gig-home-top">
+  <section class="gig-home" style="position:relative">
+                 <div style="margin:auto 0; position: absolute; z-index:0; width:100%">
+        <agilecarousel style="height: 630px; width:100%">
+        </agilecarousel>
+
+      </div>
+    <section  style="z-index:10; " class="gig-home-top">
       <datalist id="categories">
         <option
           v-for="gig in gigs"
@@ -45,17 +50,10 @@
   <section class="main-home-1">
     <pre>User: {{ user }}</pre>
   </section>
-  <section class="main-home-1">
-    <div>
-      <agilecarousel style="height: 400px"> </agilecarousel>
-    </div>
-    <h2 class="main-carousel-header">Popular professional services</h2>
-    <test-carousel
-      :itemsToShow="5"
-      :itemsToScroll="5"
-      :wrapAround="true"
-      :transition="400"
-    />
+  <section class="main-home-1"> 
+
+  <h2 class="main-carousel-header"> Popular professional services </h2>
+  <test-carousel   :itemsToShow="5" :itemsToScroll="5"  :wrapAround="true" :transition="400" />
   </section>
   <section class="markit-home">
     <section class="main-home-2">
