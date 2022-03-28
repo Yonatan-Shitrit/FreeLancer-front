@@ -159,23 +159,29 @@
 }
 
 .main-home-1 {
-    width: 1400px;
+    width: 1436px;
     margin: 40px auto;
     // padding: 0 32px;
     padding: 0;
+    h2{
+        padding-left: 18px;
+        padding-right: 18px;
+    }
 }
 
 .main-home-2 {
     width: 1400px;
     margin: auto auto;
     min-height: 705px;
-    display: grid;
-    grid-template-areas: "left-side right-side";
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     gap: 10px;
     // padding: 0 32px;
     .right-side {
         grid-area: right-side;
-        margin: auto auto;
+        margin: auto 0;
+        max-width: 700px;
         cursor: pointer;
         -webkit-box-direction: normal;
         -webkit-font-smoothing: antialiased;
