@@ -74,7 +74,7 @@ export default {
       rootMargin : "-30px 0px 0px",
       // threshold: 0.5
     })
-    this.headerObserver.observe(this.$refs.header)
+    // this.headerObserver.observe(this.$refs.header)
     
     
     
