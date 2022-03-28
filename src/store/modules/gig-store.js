@@ -10,6 +10,9 @@ export default {
     gigs({ gigs }) {
       return gigs
     },
+    getEmptyGig() {
+      return gigService.getEmptyGig()
+    },
     gigsToShow({ gigs, filterBy }) {
       const copyGigs = JSON.parse(JSON.stringify(gigs))
       return copyGigs
@@ -27,6 +30,7 @@ export default {
       const idx = state.gigs.findIndex((t) => t._id === gig._id)
       if (idx !== -1) state.gigs.splice(idx, 1, gig)
       else state.gigs.push(gig)
+      console.log('I saved');
     },
     removeGig(state, { gigId }) {
       const idx = state.gigs.findIndex((t) => t._id === gigId)

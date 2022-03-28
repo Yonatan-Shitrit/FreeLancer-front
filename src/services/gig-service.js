@@ -15,6 +15,7 @@ export const gigService = {
   remove,
   save,
   getEmptyGig,
+  getEmptyReview,
   getUserById
 }
 
@@ -13696,24 +13697,38 @@ async function _createManySellers() {
 }
 
 function getEmptyGig() { //TODO
-  return Promise.resolve({
-    title: '',
-    images: [],
-    details: '',
-    price: 0,
-    daysToMake: 0,
-    revision: 1,
-    description: '',
-    seller: {
-      _id: '',
-      fullName: '',
-      imgUrl: '',
-    },
-    reviews: [],
-    category: '',
-    tags: [],
-  })
-}
+  return {    
+        title: '',
+        images: [],
+        details: '',
+        price: 0,
+        daysToMake: 0,
+        revision: 0,
+        description: '',
+        category: '',        
+        seller: {
+          _id: utilService.makeId(15),
+          fullName: '',
+          imgUrl: ''
+        },
+        reviews: [],
+        labels: []
+      }    
+  }
+
+  function getEmptyReview() { 
+    return {       
+        _id: utilService.makeId(15),
+        userName: '',
+        userCountry: '',
+        userCFlag: '',
+        userCLogo: '',
+        txt: '',
+        reviewedAt: Date.now(),
+        rate: 0  
+        }      
+    }
+
 
 // function getCatigories() { //TODO
 //   return labels
