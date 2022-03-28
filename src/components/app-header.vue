@@ -29,7 +29,7 @@
   </section>
     <section class="main-sub-menu-full-header" 
   style="margin-top:80px; transform: rotateX(90deg); position:fixed; transition: background-color .5s ease, transform .2s; border-top: solid lightgrey 1px; border-bottom: solid lightgrey 1px; height:40px; color:black; width:100%; background-color:white;"
-      v-bind:style="{display: (scrollY>150) ? 'block': 'none', transform: (scrollY>160)? 'rotateX(0deg)' : 'rotateX(90deg)'}"
+      v-bind:style="{display: (scrollY>81) ? 'block': 'none', transform: (scrollY>160)? 'rotateX(0deg)' : 'rotateX(90deg)'}"
   >
     <section style=" transition: 1s;" class="app-header">
      <main-header-sub-menu style="width:100%"></main-header-sub-menu>
