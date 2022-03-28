@@ -2,8 +2,6 @@
   <section class="full-header" 
   style="position:relative"
       v-bind:style="{backgroundColor: scrollY ? 'rgba(255, 255, 255, 1)': 'rgba(255, 255, 255, 0)' , position: scrollY ? 'fixed' : 'fixed' }"
-      
-      ref="header"
   >
     <section class="app-header">
       <router-link class="logo" to="/">Fastlancer<span>.</span></router-link>
@@ -29,15 +27,22 @@
       </ul>
     </section>
   </section>
+    <section class="main-sub-menu-full-header" 
+  style="margin-top:80px;   transition: background-color .5s ease;; border-top: solid lightgrey 1px; border-bottom: solid lightgrey 1px; height:40px; color:black; width:100%; background-color:white;"
+      v-bind:style="{display: (scrollY>160) ? 'block': 'none', position: (scrollY>160) ? 'fixed' : 'fixed' }"
+  >
+    <section style=" transition: 1s;" class="app-header">
+     <main-header-sub-menu style="width:100%"></main-header-sub-menu>
+    </section>
+  </section>
 </template>
 
 <script>
+import  MainHeaderSubMenu from "./main-header-sub-menu.vue";
 export default {
     data() {
     return {
 
-      headerObserver: null,
-      stickyNav:false,
       scrollY:0
     };
   },
@@ -49,17 +54,9 @@ export default {
 
   methods:{
     
-    onHeaderObserved(entries) {
-      entries.forEach((entry)=> {
-      if(entry.isIntersecing){
-        console.log("is intersecting")
-      }
-        this.stickyNav = entry.isIntersecing ? true :false
-        console.log(this.stickyNav)
-     })
-    },
     setScroll(){
       this.scrollY = window.scrollY
+      console.log(this.scrollY)
     }
   
   },
@@ -69,15 +66,8 @@ export default {
   unmounted(){
     document.removeEventListener('scroll',this.setScroll)
   },
-    mounted(){
-    this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
-      rootMargin : "-30px 0px 0px",
-      // threshold: 0.5
-    })
-    // this.headerObserver.observe(this.$refs.header)
-    
-    
-    
+    components:{
+      MainHeaderSubMenu,
     }
 };
 </script>

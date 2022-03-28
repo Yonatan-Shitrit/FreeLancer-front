@@ -9,7 +9,7 @@
     <div v-for="(image, index) in this.images" :key="index">
       <div :style="image.bgc" style="display: flex; justify-content: center; position:relative">
         <img style="height:630px; width:auto" :src="image.img" />
-        <div style="position:absolute; bottom:10px; right:10%">
+        <div style="position:absolute; bottom:10px; right:4%">
           <img style="height: 12px; margin-left: -50px; margin-bottom:10px" :src="image.stars"  alt="" 
            v-bind:style="{display: image.stars ? 'block': 'none'}" 
           >
@@ -17,20 +17,6 @@
          
 
         </div>
-        <!-- <div
-          style="
-            height: 630px;
-            margin: 0 auto;
-            width: 1792px;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            position:relative;
-            width:100%;
-          "
-          :style="{ backgroundImage: 'url(' + image.img + ')' }"
-        >
-          <div style="right: 50%; bottom: 0; position:absolute; ">hello</div>
-        </div> -->
       </div>
     </div>
   </agile>
