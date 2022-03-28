@@ -19,8 +19,8 @@
           </router-link>
         </li>
         <li class="header-item">
-          <router-link to="/"
-            ><a class="not-exist" href="">Become a Seller</a>
+          <router-link to="/seller"
+            ><a class="" href="">Become a Seller</a>
           </router-link>
         </li>
         <li class="header-item">
