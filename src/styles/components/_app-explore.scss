@@ -1,0 +1,41 @@
+.search-aria{
+    width: 1400px;
+    margin: 40px auto;
+    padding: 0;
+    .search-input {
+        width: 90%;
+        padding: 12px 20px;
+        margin: 0;
+        display: inline-block;
+        border: 1px solid #dadbdd;
+        flex: 1 1 auto;
+        border-right: 0;
+        border-radius: 4px 0 0 4px;
+        color: #404145;
+        height: 48px;
+        padding-left: 44px;
+        box-sizing: border-box;
+        font-size: 16px;
+        &:focus{
+            outline: none;
+        }
+    }
+    .search-btn {
+        background-color: #1dbf73;
+        width: 8.5%;
+        font-weight: 700;
+        font-size: 16px;
+        height: 48px;
+        color: white;
+        padding: 12px 24px;
+        cursor: pointer;
+        transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+        border-radius: 0 4px 4px 0;
+        border: 1px solid transparent;
+        &:hover {
+            background-color: #19a463;
+        }
+    }
+
+    
+}

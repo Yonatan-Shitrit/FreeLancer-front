@@ -45,6 +45,7 @@ export default {
   async created() {
     const { id } = this.$route.params;
     const gig = await gigService.getById(id);
+    console.log('i got gig', gig);
     this.gig = gig;
   },
 };
