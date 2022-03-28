@@ -1,7 +1,7 @@
 <template>
   <section class="">
     <div class="">
-      <gig-list :gigs="gigs"/>
+      <gig-list :gigs="gigs" />
     </div>
   </section>
 </template>
@@ -15,10 +15,23 @@ export default {
     };
   },
   created() {
-    this.gigs = this.$store.getters.gigs;
+    this.loadGigs()
   },
   components: {
     gigList,
+  },
+  methods: {
+    loadGigs() {
+      this.gigs = this.$store.getters.gigs;
+      console.log("i set timeout");
+      setTimeout(() => {
+        console.log("i timeout");
+        this.gigs = this.$store.getters.gigs;
+        console.log(this.gigs);
+        if(!this.gigs.length)this.loadGigs();
+      }, 200);
+      console.log(this.gigs);
+    },
   },
 };
 </script>

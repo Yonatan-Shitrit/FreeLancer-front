@@ -21,6 +21,7 @@ export default {
   mutations: {
     setGigs(state, { gigs }) {
       state.gigs = gigs
+      console.log('gigs are set in store');
     },
     saveGig(state, { gig }) {
       const idx = state.gigs.findIndex((t) => t._id === gig._id)
@@ -40,8 +41,9 @@ export default {
   },
   actions: {
     async loadGigs({ commit, state }) {
-      const gigs = await gigService.query(state.filterBy)      
+      const gigs = await gigService.query(state.filterBy)
       commit({ type: 'setGigs', gigs })
+      console.log('store commit gigs');      
     
     },
     saveGig({ commit }, { gig }) {

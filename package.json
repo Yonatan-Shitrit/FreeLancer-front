@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "agile": "^0.0.2",
+    "axios": "^0.26.1",
     "sass": "^1.49.9",
     "vue": "^3.2.31",
     "vue-agile": "^2.0.0",
