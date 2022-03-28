@@ -10,10 +10,10 @@
       <div :style="image.bgc" style="display: flex; justify-content: center; position:relative">
         <img style="height:630px; width:auto" :src="image.img" />
         <div style="position:absolute; bottom:10px; right:10%">
-          <img style="height: 17px; margin-left:0;" :src="image.stars"  alt="" 
+          <img style="height: 12px; margin-left: -50px; margin-bottom:10px" :src="image.stars"  alt="" 
            v-bind:style="{display: image.stars ? 'block': 'none'}" 
           >
-          {{image.hero +", "}} {{image.title}}
+          {{image.hero +", "}} <strong>{{image.title}}</strong>
          
 
         </div>
