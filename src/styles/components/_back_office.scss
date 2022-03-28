@@ -1,4 +1,26 @@
 .main-container{
   width: 1436px;
   margin: 100px auto;
+
+  .edit-form{
+    width: 50%;
+
+    input{
+      width: 100%;
+    }
+
+    select{
+      width: 100%;
+    }
+    
+    textarea{
+      width: 100%;
+    }
+    .input-with-btn{
+      width: 90%;      
+    }
+    .add-input{
+      width: 9%;
+    }
+  }
 }
