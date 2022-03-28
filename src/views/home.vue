@@ -171,7 +171,6 @@
 </template>
 
 <script>
-import mainCarousel from "../components/main-carousel2.vue";
 import testCarousel from "../components/main-carousel.vue";
 import agilecarousel from "../components/main-header-carousel.vue";
 
@@ -194,7 +193,6 @@ export default {
 
 
   components: {
-    mainCarousel,
     testCarousel,
     agilecarousel,
   },
