@@ -17,9 +17,10 @@
         <div class="sign-up" v-if="!sigupScop">
             <h4>Signup</h4>
         <form @submit.prevent="signup">
-            <input type="text" v-model="signupCred.fullname" placeholder="Enter full name" />
             <input type="text" v-model="signupCred.username" placeholder="Enter username" />
             <input type="password" v-model="signupCred.password" placeholder="Enter password" />
+            <input type="text" v-model="signupCred.fullname" placeholder="Enter full name" />
+            <input type="text" v-model="signupCred.imgUrl" placeholder="Enter your image url" />
             <button>Signup Now!</button>
         </form>
         <pre>{{signupCred}}</pre>
@@ -38,7 +39,7 @@ export default {
     data() {
         return {
             loginCred: {username: '', password: ''},
-            signupCred: {username: '', password: '', fullname: ''},
+            signupCred: {username: '', password: '', fullname: '', imgUrl: ''},
             sigupScop: false
         };
     },

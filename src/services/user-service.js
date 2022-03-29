@@ -30,6 +30,7 @@ function getGuestUser() {
     fullname: 'Guest User',
     username: 'guest',
     password: 'guest',
+    imgUrl: '',
     isAdmin: false,
   }
 }
