@@ -61,18 +61,20 @@
       <button  @click="getDemoData">Get Demo Data</button>
     </form>
     <div v-if="sellerGigs">
-    <gig-preview-bo  v-for="gig in sellerGigs" :key="gig._id" :gig="gig" />
+    <gig-preview  v-for="gig in sellerGigs" :key="gig._id" :gig="gig" />
 
     </div>
-    <pre>{{ gigToSave }}</pre>
-    <pre>{{ sellerGigs }}</pre>
+    <pre>gigToSave:
+      {{ gigToSave }}</pre>
+    <pre>sellerGigs:
+      {{ sellerGigs }}</pre>
 
   </section>
 </template>
 
 <script>
 import { gigService } from "@/services/gig-service.js";
-import gigPreviewBO from "../components/gig-preview-bo.vue";
+import gigPreview from "../components/gig-preview.vue";
 export default {
   data() {
     return {
@@ -103,7 +105,7 @@ export default {
     
   },
   components: {
-    gigPreviewBO
+    gigPreview
   },
   methods: {
     // async getEmptyGig(){
@@ -135,6 +137,8 @@ export default {
     saveGig() {
       console.log(this.gigToSave);
       this.$store.dispatch({ type: "saveGig", gig: this.gigToSave });
+      this.loadGigs();
+      this.loadSellerGigs() 
     },
     loadGigs(){
       this.gigs = this.$store.getters.gigs;

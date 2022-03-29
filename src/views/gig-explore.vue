@@ -28,10 +28,10 @@ export default {
       setTimeout(() => {
         console.log("i timeout");
         this.gigs = this.$store.getters.gigs;
-        console.log(this.gigs);
+        // console.log(this.gigs);
         if(!this.gigs.length)this.loadGigs();
       }, 200);
-      console.log(this.gigs);
+      // console.log(this.gigs);
     },
   },
 };
