@@ -68,6 +68,7 @@
       {{ gigToSave }}</pre>
     <pre>sellerGigs:
       {{ sellerGigs }}</pre>
+      
 
   </section>
 </template>
@@ -93,24 +94,19 @@ export default {
         "Logo Design",
         "Word Press",
       ],
-      gigs: null,
       sellerGigs: null
     };
   },
   created() {
     this.getEmptyGig();
     this.getUser();  
-    this.loadGigs();
     this.loadSellerGigs() 
     
   },
   components: {
     gigPreview
   },
-  methods: {
-    // async getEmptyGig(){
-    //   this.emptyGig = await this.$store.getters.getEmptyGig;
-    // }
+  methods: {    
     getEmptyGig() {
       this.gigToSave = gigService.getEmptyGig();
     },
@@ -137,20 +133,9 @@ export default {
     saveGig() {
       console.log(this.gigToSave);
       this.$store.dispatch({ type: "saveGig", gig: this.gigToSave });
-      this.loadGigs();
       this.loadSellerGigs() 
     },
-    loadGigs(){
-      this.gigs = this.$store.getters.gigs;
-      console.log("i set timeout");
-      setTimeout(() => {
-        console.log("i timeout");
-        this.gigs = this.$store.getters.gigs;
-        // console.log(this.gigs);
-        if(!this.gigs.length)this.loadGigs();
-      }, 200);      
-      // console.log(this.gigs);
-    },
+    
     loadSellerGigs(){
       this.sellerGigs = this.gigs.filter(gig=> gig.seller._id === this.$store.getters.user._id)
       console.log('sellerGigs', this.sellerGigs);
@@ -170,7 +155,11 @@ export default {
 
     }
   },
-  computed: {},
+  computed: {
+    gigs(){
+      return this.$store.getters.gigs;
+    }
+  },
   mounted(){      
     
   },
