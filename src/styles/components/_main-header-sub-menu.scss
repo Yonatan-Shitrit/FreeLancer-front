@@ -6,6 +6,7 @@
     top: 0px;
     z-index: 3000;
     transition: background-color .5s ease;
+
     .app-header {
         height: 40px;
         width: 1400px;
@@ -16,26 +17,31 @@
         align-items: center;
         justify-content: space-between;
         flex-wrap: nowrap;
+
         .logo {
             float: left;
             font-family: "logoFont", serif;
             font-size: 28px;
+
             span {
                 color: #4ce9a0;
                 font-weight: 900;
             }
         }
+
         a {
             height: auto;
             display: block;
             color: #62646a;
             text-align: center;
             text-decoration: none;
+
             .not-exist {
                 color: lightgray;
                 cursor: not-allowed;
             }
         }
+
         ul {
             list-style-type: none;
             display: flex;
@@ -48,6 +54,7 @@
             line-height: 24px;
             margin-right: -24px;
             align-items: center;
+
             // background-color: #333;
             li {
                 &:first-child {
@@ -59,19 +66,23 @@
                         border-radius: 4px;
                         line-height: 14px;
                         transition: color 0.5s ease, border 0.5s ease;
+
                         &:hover {
                             background: #19a463;
                             color: #fff;
                         }
                     }
                 }
+
                 float: right;
                 padding-right: 24px;
+
                 a {
                     color: #74767e;
                     transition: 0.2s;
                     letter-spacing: 0.1px;
                 }
+
                 &:hover {
                     a {
                         color: #1dbf73;
@@ -80,4 +91,18 @@
             }
         }
     }
+}
+
+.main-sub-menu-full-header {
+    margin-top: 80px;
+    transform: rotateX(90deg);
+    position: fixed;
+    transition: transform .2s;
+    transition: background-color .5s ease;
+    border-top: solid lightgrey 1px;
+    border-bottom: solid lightgrey 1px;
+    height: 40px;
+    color: black;
+    width: 100%;
+    background-color: white;
 }
