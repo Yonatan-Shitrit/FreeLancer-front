@@ -54,7 +54,7 @@ export default {
     
     setScroll(){
       this.scrollY = window.scrollY
-      console.log(this.scrollY)
+      // console.log(this.scrollY)
     }
   
   },
