@@ -67,7 +67,7 @@
     <pre>gigToSave:
       {{ gigToSave }}</pre>
     <pre>sellerGigs:
-      {{ sellerGigs }}</pre>
+      {{ sellerGigs }} <span v-if="!this.$store.getters.user">please sing in to get your gigs</span></pre>
       
 
   </section>
@@ -125,7 +125,8 @@ export default {
       }
       this.labelCount++
     },
-    getUser() {      
+    getUser() {
+      if(!this.$store.getters.user)return
         this.gigToSave.seller._id = this.$store.getters.user._id;
         this.gigToSave.seller.fullName = this.$store.getters.user.fullname;
         this.gigToSave.seller.imgUrl = this.$store.getters.user.imgUrl;
@@ -153,6 +154,7 @@ export default {
   },
   computed: {
     sellerGigs(){
+      if(!this.$store.getters.user) return 
       return this.gigs.filter(gig=> gig.seller._id === this.$store.getters.user._id)
       // console.log('sellerGigs', this.sellerGigs);
     },
