@@ -50,10 +50,10 @@ export default {
       console.log('store commit gigs');      
     
     },
-    saveGig({ commit }, { gig }) {
-      gigService.save(gig).then((savedGig) => {
-        commit({ type: 'saveGig', gig: savedGig })
-      })
+    async saveGig({ commit }, { gig }) {
+      const savedGig = await gigService.save(gig)
+      commit({ type: 'saveGig', gig: savedGig })
+      return savedGig
     },
     removeGig({ commit }, { gigId }) {
       gigService.remove(gigId).then(() => {

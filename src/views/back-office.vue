@@ -94,13 +94,13 @@ export default {
         "Logo Design",
         "Word Press",
       ],
-      sellerGigs: null
+      // sellerGigs: null
     };
   },
   created() {
     this.getEmptyGig();
     this.getUser();  
-    this.loadSellerGigs() 
+    // this.loadSellerGigs() 
     
   },
   components: {
@@ -130,16 +130,12 @@ export default {
         this.gigToSave.seller.fullName = this.$store.getters.user.fullname;
         this.gigToSave.seller.imgUrl = this.$store.getters.user.imgUrl;
     },
-    saveGig() {
+    async saveGig() {
       console.log(this.gigToSave);
-      this.$store.dispatch({ type: "saveGig", gig: this.gigToSave });
-      this.loadSellerGigs() 
+      await this.$store.dispatch({ type: "saveGig", gig: this.gigToSave });
+      // this.loadSellerGigs() 
     },
     
-    loadSellerGigs(){
-      this.sellerGigs = this.gigs.filter(gig=> gig.seller._id === this.$store.getters.user._id)
-      console.log('sellerGigs', this.sellerGigs);
-    },
     getDemoData(){
       this.labelCount = 4
       this.imageCount = 3
@@ -156,6 +152,10 @@ export default {
     }
   },
   computed: {
+    sellerGigs(){
+      return this.gigs.filter(gig=> gig.seller._id === this.$store.getters.user._id)
+      // console.log('sellerGigs', this.sellerGigs);
+    },
     gigs(){
       return this.$store.getters.gigs;
     }
