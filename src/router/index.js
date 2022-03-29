@@ -6,6 +6,7 @@ import gigDetails from '../views/gig-details.vue'
 import gigEdit from '../views/gig-edit.vue'
 import logPage from '../views/log-page.vue'
 import backOffice from '../views/back-office.vue'
+import dashBoard from '../views/office-dashboard.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -31,7 +32,7 @@ const router = createRouter({
       component: gigDetails
     },
     {
-      path: '/gig-edit/:id?',
+      path: '/seller/gig-edit/:id?',
       name: 'gigEdit',
       component: gigEdit
     },
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/seller/',
       name: 'backOffice',
       component: backOffice
+    },
+    {
+      path: '/seller/dashboard',
+      name: 'dashBoard',
+      component: dashBoard
     }
   ]
 })
