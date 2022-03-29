@@ -26,7 +26,7 @@ import gigDescription from "../components/gig-description.vue";
 import gigProfile from "../components/gig-profile.vue";
 import gigReviews from "../components/gig-reviews.vue";
 import { gigService } from "../services/gig-service.js";
-import agilecarousel from "../views/agile-carousel.vue";
+import agilecarousel from "../components/agile-carousel.vue";
 export default {
   components: {
     gigSidebar,

@@ -5,6 +5,7 @@
     :dots="false"
     :navButtons="false"
     :autoplay="true"
+    :speed="2000"
   >
     <div v-for="(image, index) in this.images" :key="index">
       <div
