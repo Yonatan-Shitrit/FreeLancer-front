@@ -1,14 +1,6 @@
 <template>
 
-<section  style="z-index:10; " class="gig-home-top">
-      <datalist id="categories">
-        <option
-          v-for="gig in gigs"
-          :key="gig._id"
-          :value="gig.title.slice(6, gig.title.length - 1)"
-        />
-      </datalist>
-      <div class="left-side">
+<section class="search-bar-container" >
         <form @submit.prevent="" class="search-bar">
           <span>
             <svg
@@ -30,7 +22,6 @@
           />
           <button class="search-btn">Search</button>
         </form>
-      </div>
     </section>
         
 </template>

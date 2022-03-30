@@ -1,55 +1,57 @@
 <template>
-  <section class="log-page">
-    <div v-if="sigupScop" class="log-in">
-      <h1>LOGIN/SIGNUP Page</h1>
-      <section v-if="loggedinUser">
-        <h2>Welcome {{ loggedinUser.fullname }}</h2>
-        <button @click="logout">Logout</button>
-      </section>
-      <form v-else @submit.prevent="login">
-        <input
-          type="text"
-          v-model="loginCred.username"
-          placeholder="Enter username"
-        />
-        <input
-          type="text"
-          v-model="loginCred.password"
-          placeholder="Enter password"
-        />
-        <button>Login</button>
-      </form>
-      <pre>{{ loginCred }}</pre>
-    </div>
+  <section @click="closeModal" class="log-page">
+    <div class="login-container">
+      <div v-if="sigupScop" class="log-in">
+        <h1>LOGIN/SIGNUP Page</h1>
+        <section v-if="loggedinUser">
+          <h2>Welcome {{ loggedinUser.fullname }}</h2>
+          <button @click="logout">Logout</button>
+        </section>
+        <form v-else @submit.prevent="login">
+          <input
+            type="text"
+            v-model="loginCred.username"
+            placeholder="Enter username"
+          />
+          <input
+            type="text"
+            v-model="loginCred.password"
+            placeholder="Enter password"
+          />
+          <button>Login</button>
+        </form>
+        <pre>{{ loginCred }}</pre>
+      </div>
 
-    <div class="sign-up" v-if="!sigupScop">
-      <h4>Signup</h4>
-      <form @submit.prevent="signup">
-        <input
-          type="text"
-          v-model="signupCred.username"
-          placeholder="Enter username"
-        />
-        <input
-          type="password"
-          v-model="signupCred.password"
-          placeholder="Enter password"
-        />
-        <input
-          type="text"
-          v-model="signupCred.fullname"
-          placeholder="Enter full name"
-        />
-        <input
-          type="text"
-          v-model="signupCred.imgUrl"
-          placeholder="Enter your image url"
-        />
-        <button>Signup Now!</button>
-      </form>
-      <pre>{{ signupCred }}</pre>
+      <div class="sign-up" v-if="!sigupScop">
+        <h4>Signup</h4>
+        <form @submit.prevent="signup">
+          <input
+            type="text"
+            v-model="signupCred.username"
+            placeholder="Enter username"
+          />
+          <input
+            type="password"
+            v-model="signupCred.password"
+            placeholder="Enter password"
+          />
+          <input
+            type="text"
+            v-model="signupCred.fullname"
+            placeholder="Enter full name"
+          />
+          <input
+            type="text"
+            v-model="signupCred.imgUrl"
+            placeholder="Enter your image url"
+          />
+          <button>Signup Now!</button>
+        </form>
+        <!-- <pre>{{ signupCred }}</pre> -->
+      </div>
+      <button @click="switchScop" class="switch">{{ titleBtn }}</button>
     </div>
-    <button @click="switchScop" class="switch">{{ titleBtn }}</button>
   </section>
 </template>
  
@@ -76,6 +78,9 @@ export default {
     };
   },
   methods: {
+    closeModal(){
+      return this.$emit('closeModal')
+    },
     async login() {
       try {
         await this.$store.dispatch({ type: "login", userCred: this.loginCred });
@@ -109,7 +114,9 @@ export default {
         console.log(err);
       }
     },
-    switchScop() {
+    switchScop(mode = null) {
+      // if(mode === 'login')return this.sigupScop = false;
+      // if(mode === 'signup')return this.sigupScop = true;
       this.sigupScop = !this.sigupScop;
     },
   },

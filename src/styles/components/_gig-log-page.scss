@@ -1,50 +1,59 @@
-.log-page{
-    width: 300px;
-    margin: auto auto;
-    input {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
+.log-page {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.692);
+    z-index: 4000;
+    cursor: pointer;
+    .login-container {
+        width: 350px;
+        background-color: white;
         border-radius: 4px;
-        box-sizing: border-box;
-      }
-      
-      button {
-        width: 100%;
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        &:hover{
-            background-color: #45a049;
+        input {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
-      }
 
-      .sign-up{
-          width: 60%;
-          margin: 50px auto;
-          
-      }
+        button {
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            &:hover {
+                background-color: #45a049;
+            }
+        }
 
-      .log-in{
-        width: 60%;
-        margin: 50px auto;
-        
-    }
+        .sign-up {
+            width: 80%;
+            margin: 50px auto;
+        }
 
-    .switch{
-        width: 40%;
-        float: right;
-        background-color: lightblue;
-        &:hover{
-            background-color: rgb(60, 182, 223);
+        .log-in {
+            width: 80%;
+            margin: 50px auto;
+        }
+
+        .switch {
+            margin: 0 auto;
+            float: right;
+            background-color: lightblue;
+            border-radius: 0  0 4px 4px;
+            &:hover {
+                background-color: rgb(60, 182, 223);
+            }
         }
     }
-      
-      
 }
