@@ -93,10 +93,10 @@
     .gig-card-img {
         height: 195px;
         object-fit: cover;
-        width: 100%;
+        width: calc(100% - 1px);
         cursor: pointer;
         .agile{
-            top: -16px;
+            top: -38px;
         }
     }
     .gig-mini-user {

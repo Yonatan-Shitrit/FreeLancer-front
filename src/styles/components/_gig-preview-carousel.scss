@@ -1,0 +1,75 @@
+
+.view-sub-carousel-prev-btn {
+
+    background-color: white;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;  
+    width: 25px;
+    height: 30px;
+    font-size:15px;
+    padding: 0;
+    color:black;
+    justify-content: center;
+    align-items: center;
+    border: lightgrey 1px solid;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+    z-index: 6;
+    position: relative;
+    top: 45%;
+    left:calc(100% - 12px );
+    border-right: 0;
+    transform: rotateY(-90deg);
+    transition: all 0.2s;
+    padding: 2px;
+
+
+
+
+}
+
+.view-sub-carousel-next-btn {
+
+  background-color: white;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;  
+  width: 25px;
+  height: 30px;
+  font-size:15px;
+  border: lightgrey 1px solid;
+  color:black;
+  justify-content: center;
+  align-items: center;
+  border: lightgrey 1px solid;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+  z-index: 6;
+  position: relative;
+  bottom: 75%;
+  border-left: 0;
+  right: 13px;
+  transform: rotateY(90deg);
+  transition: all 0.2s;
+
+
+
+}
+
+.gig-card-img:hover{
+
+    .view-sub-carousel-next-btn{
+        transform: rotateY(0deg);
+        left: 0;
+
+    }
+
+    .view-sub-carousel-prev-btn{
+      transform: rotateY(0deg);
+        left: calc(100% - 25px);
+       
+
+    }
+
+
+}
+

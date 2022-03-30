@@ -4,7 +4,7 @@
       v-bind:style="{backgroundColor: scrollY ? 'rgba(255, 255, 255, 1)': 'rgba(255, 255, 255, 0)' , position: scrollY ? 'fixed' : 'fixed' }"
   >
     <section class="app-header">
-      <router-link class="logo" to="/">Fastlancer<span>.</span></router-link>
+      <router-link class="logo" to="/">FreeLancer<span>.</span></router-link>
       <nav>
       <ul>
         <li class="header-item">
