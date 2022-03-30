@@ -26,7 +26,7 @@ export default {
       }
     },
     async signup({ commit }, { userCred }) {
-      console.log('user store',userCred);
+      console.log('"Hi user I am in the user store',userCred);
       try {
         const user = await userService.signup(userCred)
         commit({ type: 'setUser', user })
