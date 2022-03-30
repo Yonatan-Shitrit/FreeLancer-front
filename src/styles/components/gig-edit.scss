@@ -13,24 +13,43 @@
             // flex-direction: column;
             background-color: white;
             margin-top: 120px;
-            textarea{
+            select {
+                padding: 5px;
+                border: 1px solid #c5c6c9;
+                color: #7a7d85;
+                cursor: pointer;
+            }
+            input{
+                border: 1px solid #c5c6c9;
+                color: #7a7d85;
+            }
+            textarea {
+                padding: 10px;
                 resize: none;
                 font-family: macan;
                 border: 1px solid #c5c6c9;
+                color: #7a7d85;
+                &::placeholder {
+                    color: #dadbdd;
+                }
+            }
+            div{
+                color: #62646a;
             }
             label {
                 padding: 5px 10px;
                 width: 15%;
                 float: left;
+                color: #62646a;
             }
             .title-input {
                 width: 85%;
                 padding: 20px;
                 font-size: 30px;
             }
-            .img-input-container{
+            .img-input-container {
                 width: 100%;
-                .img-input{
+                .img-input {
                     width: 30%;
                     height: 130px;
                     margin: 1.66%;
@@ -38,7 +57,7 @@
                     border: 1px solid #c5c6c9;
                     border-radius: 20px;
                 }
-                button{
+                button {
                     height: 130px;
                     width: 30%;
                     margin: 1.66%;
@@ -47,8 +66,92 @@
                     border-radius: 20px;
                     background-color: white;
                     cursor: pointer;
-                    &:hover{
+                    &:hover {
                         background-color: #e9e9e9;
+                    }
+                }
+            }
+            .description-input-container {
+                margin: 10px 0;
+                .description-input {
+                    margin-left: 20px;
+                    width: calc(85% - 20px);
+                }
+            }
+            .details-input-container {
+                margin: 10px 0;
+                .details-input {
+                    margin-left: 20px;
+                    width: calc(85% - 20px);
+                }
+            }
+            .container-inputs{
+                padding: 10px;
+                width: fit-content;
+                margin: 0 auto;
+            }
+            .delivery-select-container {
+                
+                label {
+                    float: none;
+                }
+            }
+            .revisions-select-container {
+                
+                label {
+                    float: none;
+                }
+            }
+            .category-select-container {
+                
+                label {
+                    float: none;
+                }
+            }
+            .price-input-container {
+                .price-input{
+                    padding: 5px;
+                }
+                label {
+                    float: none;
+                }
+            }
+            .label-input-container {
+                margin: 10px auto;
+                width: 75%;
+                .label-input {
+                    margin: 10px;
+                    width: calc(25% - 20px);
+                    padding: 5px;
+                }
+                button {
+                    margin: 10px;
+                    width: calc(25% - 20px);
+                    padding: 5px;
+                    background-color: white;
+                    border: 1px solid #c5c6c9;
+                    border-radius: 2px;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #e9e9e9;
+                    }
+                }
+            }
+            .btn-container{
+                margin: 0 auto;
+                width: fit-content;
+                .save-btn{
+                    font-size: 20px;
+                    padding: 10px;
+                    border-radius: 10px;
+                    border: solid 1px #1dbf73;
+                    background-color: white;
+                    color: #1dbf73;
+                    transition: color 0.5s ease, border 0.5s ease;
+                    cursor: pointer;
+                    &:hover{
+                        background: #19a463;
+                        color: #fff;
                     }
                 }
             }

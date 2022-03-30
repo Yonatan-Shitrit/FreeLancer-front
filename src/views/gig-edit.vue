@@ -11,69 +11,134 @@
           v-model="gigToSave.title"
         ></textarea>
         <div class="img-input-container">
-        <input
-          class="input-with-btn img-input"
-          v-for="(image, idx) in imageCount"
-          :key="idx"
-          type="text"
-          placeholder="Image Url"
-          v-model="gigToSave.images[idx]"
-        />
-        <button  v-if="imageCount<3" class="add-input" @click="addMoreImage(imageCount - 1)">
-          +
-        </button>
-        </div>
-        <input type="number" placeholder="price" v-model="gigToSave.price" />
-        <input type="text" placeholder="details" v-model="gigToSave.details" />
-        <select name="" id="" v-model.number="gigToSave.daysToMake">
-          <option selected value="">Choose Days To Make</option>
-          <option value="1">1 Day</option>
-          <option value="3">3 Days</option>
-          <option value="7">7 Days</option>
-          <option value="14">14 Days</option>
-          <option value="21">21 Days</option>
-        </select>
-        <select name="" id="" v-model.number="gigToSave.revision">
-          <option selected value="">Choose Revision</option>
-          <option value="1">1 Revision</option>
-          <option value="2">2 Revisions</option>
-          <option value="3">3 Revisions</option>
-          <option value="4">4 Revisions</option>
-          <option value="5">5 Revisions</option>
-          <option value="unlimited">Unlimited revisions</option>
-        </select>
-        <textarea
-          rows="7"
-          type="text"
-          placeholder="description"
-          v-model="gigToSave.description"
-        ></textarea>
-        <select name="" id="" v-model.number="gigToSave.category">
-          <option selected value="">Choose Category</option>
-          <option
-            v-for="category in categories"
-            :key="category"
-            :value="category"
+          <div>Gig Images</div>
+          <input
+            class="input-with-btn img-input"
+            v-for="(image, idx) in imageCount"
+            :key="idx"
+            type="text"
+            placeholder="Image Url"
+            v-model="gigToSave.images[idx]"
+          />
+          <button
+            v-if="imageCount < 3"
+            class="add-input"
+            @click="addMoreImage(imageCount - 1)"
           >
-            {{ category }}
-          </option>
-        </select>
-        <input
-          class="input-with-btn"
-          v-for="(label, idx) in labelCount"
-          :key="idx"
-          type="text"
-          placeholder="Labels"
-          v-model="gigToSave.labels[idx]"
-        />
-        <button class="add-input" @click="addMoreLabel(labelCount - 1)">
-          +
-        </button>
+            +
+          </button>
+        </div>
+        <div class="description-input-container">
+          <label for="description">Description</label>
+          <textarea
+            class="description-input"
+            id="description"
+            rows="7"
+            type="text"
+            placeholder="description"
+            v-model="gigToSave.description"
+          ></textarea>
+        </div>
+        <div class="details-input-container">
+          <label for="details">Details</label>
+          <textarea
+            class="details-input"
+            id="details"
+            type="text"
+            placeholder="details"
+            v-model="gigToSave.details"
+          />
+        </div>
+        <div class="container-inputs">
+          <span class="delivery-select-container">
+            <label for="delivery-time">Delivery Time</label>
+            <select
+              class="delivery-select"
+              name=""
+              id="delivery-time"
+              v-model.number="gigToSave.daysToMake"
+            >
+              <option selected value="0">Choose Days To Make</option>
+              <option value="1">1 Day</option>
+              <option value="3">3 Days</option>
+              <option value="7">7 Days</option>
+              <option value="14">14 Days</option>
+              <option value="21">21 Days</option>
+            </select>
+          </span>
+          <span class="revisions-select-container">
+            <label for="revisions">revisions</label>
+            <select
+              class="revisions-select"
+              name=""
+              id="revisions"
+              v-model.number="gigToSave.revision"
+            >
+              <option selected value="0">Choose Revision</option>
+              <option value="1">1 Revision</option>
+              <option value="2">2 Revisions</option>
+              <option value="3">3 Revisions</option>
+              <option value="4">4 Revisions</option>
+              <option value="5">5 Revisions</option>
+              <option value="unlimited">Unlimited revisions</option>
+            </select>
+          </span>
+        </div>
+        <div class="container-inputs">
+          <span class="category-select-container">
+            <label for="category">Category</label>
+            <select
+              class="category-select"
+              name=""
+              id="category"
+              v-model.number="gigToSave.category"
+            >
+              <option selected value="">Choose Category</option>
+              <option
+                v-for="category in categories"
+                :key="category"
+                :value="category"
+              >
+                {{ category }}
+              </option>
+            </select>
+          </span>
+          <span class="price-input-container">
+            <label for="price">Price</label>
+            <input
+              class="price-input"
+              id="price"
+              type="number"
+              placeholder="price"
+              v-model="gigToSave.price"
+            />
+          </span>
+        </div>
+        <div class="label-input-container">
+          <div>Labels</div>
+          <input
+            class="input-with-btn label-input"
+            v-for="(label, idx) in labelCount"
+            :key="idx"
+            type="text"
+            placeholder="Labels"
+            v-model="gigToSave.labels[idx]"
+          />
+          <button
+            v-if="labelCount < 8"
+            class="add-input"
+            @click="addMoreLabel(labelCount - 1)"
+          >
+            +
+          </button>
+        </div>
+        <div class="btn-container">
+          <button class="save-btn" type="submit" @click="saveGig">save</button>
+        </div>
       </div>
-      <button type="submit" @click="saveGig">save</button>
       <button @click="getDemoData">Get Demo Data</button>
     </form>
-    <div v-if="sellerGigs">
+    <!-- <div v-if="sellerGigs">
       <gig-preview v-for="gig in sellerGigs" :key="gig._id" :gig="gig" />
     </div>
     <pre>
@@ -83,7 +148,7 @@ gigToSave:
     <pre>
 sellerGigs:
       {{ sellerGigs }}</pre
-    >
+    > -->
   </section>
 </template>
 

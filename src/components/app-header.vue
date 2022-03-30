@@ -53,6 +53,10 @@ export default {
     searchPlaceHolder() {
       return `🔍 Try "building mobile app"`;
     },
+     user(){
+      return this.$store.getters.user
+      // console.log('sellerGigs', this.sellerGigs);
+    },
   },
 
   methods:{

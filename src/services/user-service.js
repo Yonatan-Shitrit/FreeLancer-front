@@ -1,4 +1,4 @@
-// import { httpService } from './http-service.js'
+import { httpService } from './http-service.js'
 import { storageService } from './async-storage-service'
 const ENDPOINT = 'auth'
 
@@ -10,19 +10,19 @@ export const userService = {
 }
 
 async function login(cred) {
-  // return await httpService.post(ENDPOINT + '/login', cred)
-  return await storageService.post(ENDPOINT, cred)
+  return await httpService.post(ENDPOINT + '/login', cred)
+  // return await storageService.post(ENDPOINT, cred)
 }
 
 async function signup(cred) {
-  console.log('signup',cred);
-  // return await httpService.post(ENDPOINT + '/signup', cred)
-  return await storageService.post(ENDPOINT, cred)
+  console.log('"Hi userI am in the user service signup',cred);
+  return await httpService.post(ENDPOINT + '/signup', cred)
+  // return await storageService.post(ENDPOINT, cred)
 }
 
 async function logout() {
-  // return await httpService.post(ENDPOINT + '/logout')
-  return await storageService.post(ENDPOINT)
+  return await httpService.post(ENDPOINT + '/logout')
+  // return await storageService.post(ENDPOINT)
 }
 
 function getGuestUser() {
@@ -31,6 +31,9 @@ function getGuestUser() {
     username: 'guest',
     password: 'guest',
     imgUrl: '',
+    gigs:[],
+    orders:[],
+    sales:[],
     isAdmin: false,
   }
 }
