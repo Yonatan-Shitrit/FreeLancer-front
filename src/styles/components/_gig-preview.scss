@@ -7,6 +7,9 @@
             color: #1dbf73;
         }
     }
+    .preview-carousel-container{
+        height: 300px;
+    }
     .gig-footer {
         display: flex;
         justify-content: space-between;
@@ -92,6 +95,11 @@
         object-fit: cover;
         width: 100%;
         cursor: pointer;
+        .agile{
+            .agile__list{
+                top: -15px;
+            }
+        }
     }
     .gig-mini-user {
         height: 54px;

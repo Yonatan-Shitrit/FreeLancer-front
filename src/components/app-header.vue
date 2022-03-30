@@ -75,7 +75,6 @@ export default {
   },
     components:{
     MainHeaderSubMenu,
-    searchBar,
     SearchBar
 }
 };
