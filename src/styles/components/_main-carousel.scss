@@ -43,14 +43,23 @@
 
 }
 
-.main-home-1{
-  padding: 0 40px 0 40px;
+.main-home-6{
+  max-width: 1436px;
+  width: 100%;
+  margin: 40px auto;
+  h2{
+      padding-left: 18px;
+      padding-right: 18px;
+  }
 }
 
 .carousel {
   position: relative;
   text-align: center;
   box-sizing: border-box;
+  max-width:1436px;
+   width:100%
+
   // right:58px;
   // padding: 0 40px;
 }
