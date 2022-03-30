@@ -13,7 +13,7 @@
         </svg>
       </button>
 
-      <agile class="" :options="options1" style="background-color: white">
+      <agile ref="main" class="" :options="options1" style="background-color: white">
         <div
         class="slide gig-card-img"
         v-for="(slide, index) in slides"
