@@ -65,10 +65,10 @@
   </section>
 
   <section class="main-home-6" > 
-
   <h2 class="main-carousel-header"> Popular professional services </h2>
   <test-carousel  class="carousel" :itemsToShow="5" :itemsToScroll="5"  :wrapAround="true" :transition="400" />
   </section>
+  
   <section class="markit-home">
     <section class="main-home-2">
       <div class="right-side">

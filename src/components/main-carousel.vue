@@ -34,7 +34,7 @@ export default {
         //   wrapAround:"true",
         //   transition:"400",
 				// },
-                				450: {
+                				550: {
 					itemsToShow: 3,
           itemsToScroll:3,
           wrapAround:"true",

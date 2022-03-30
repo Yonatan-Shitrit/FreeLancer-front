@@ -2,11 +2,11 @@
   <div id="app">
     <div class="gig-card-img" style=" background-color: white">
       <button
-        @click="$refs.main.goToPrev()"
+        @click="$refs.main.goToNext()"
         type="button"
-        class="view-main-carousel-prev-btn"
+        class="view-sub-carousel-prev-btn"
       >
-        <svg class="carousel__icon" style="width: 50%; height: 50%" role="img">
+        <svg class="carousel__icon" style="" role="img">
           <path
             d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
           ></path>
@@ -19,15 +19,15 @@
         v-for="(slide, index) in slides"
         :key="index"
         >
-        <img :src="slide" />
+        <img :src="slide"  />
       </div>
       </agile>
       <button
-        @click="$refs.main.goToNext()"
+        @click="$refs.main.goToPrev()"
         type="button"
-        class="view-main-carousel-next-btn"
+        class="view-sub-carousel-next-btn"
       >
-        <svg class="carousel__icon" style="width: 50%; height: 50%" role="img">
+        <svg class="carousel__icon" style="height:32px; width:32px; right:7px; position:relative;" role="img">
           <path
             d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
           ></path>
