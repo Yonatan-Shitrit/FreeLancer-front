@@ -2,9 +2,9 @@
   <section class="gig-page">
     <div class="gig-details">
       <gig-overview :gig="gig" />
-      
+
       <div class="put-carousel">
-        <agilecarousel style="z-index: 1000;">
+        <agilecarousel :gig="gig" style="z-index: 1000;">
 
         </agilecarousel>
 
