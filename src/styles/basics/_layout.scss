@@ -1,16 +1,18 @@
 .main-layout {
-    @media (max-width: 900px) {
-        padding: 0 $layout-small;
-    }
+    max-width: 1400px;
+    margin: 0 auto;
+    // @media (max-width: 900px) {
+    //     padding: 0 $layout-small;
+    // }
 
-    @media (min-width: 400px) {
-        padding: 0 $layout-small;
-    }
-    @media (min-width: 900px) {
-        padding: 0 $layout-normal;
-    }
-    @media (min-width: 1300px) {
-        padding: 0 $layout-large;
-    }
+    // @media (min-width: 400px) {
+    //     padding: 0 $layout-small;
+    // }
+    // @media (min-width: 900px) {
+    //     padding: 0 $layout-normal;
+    // }
+    // @media (min-width: 1400px) {
+    //     padding: 0 $layout-large;
+    // }
 }
 
