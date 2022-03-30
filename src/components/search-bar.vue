@@ -15,10 +15,9 @@
             </svg>
           </span>
           <input
-            list="categories"
             type="text"
             class="search-input"
-            :placeholder="searchPlaceHolder"
+            placeholder="Find Services"
           />
           <button class="search-btn">Search</button>
         </form>

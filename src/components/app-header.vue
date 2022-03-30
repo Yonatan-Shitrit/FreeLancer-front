@@ -12,16 +12,16 @@
     <section class="app-header">
       <div class="search-bar-wrapper">
         <router-link class="logo" to="/">Fastlancer<span>.</span></router-link>
-        <search-bar> </search-bar>
+        <search-bar v-if="scrollY>160"> </search-bar>
       </div>
       <nav>
         <ul>
           <li v-if="!user" class="header-item">
             <button @click="openModal('signup')">Join</button>
           </li>
-          <li v-else><img :src="user.imageUrl" alt="" /></li>
+          <li v-else><img :src="user.imgUrl" alt="" /></li>
           <li class="header-item">
-            <router-link to="/login">Sign in</router-link>
+            <button @click="openModal('login')">Sign in</button>
           </li>
           <li class="header-item">
             <router-link to="/seller">Become a Seller </router-link>
@@ -46,7 +46,7 @@
   </section>
   <login-modal
     @closeModal="closeModal"
-    :mode="loginMode"
+    :loginMode="loginMode"
     v-if="loginMode"></login-modal>
 </template>
 

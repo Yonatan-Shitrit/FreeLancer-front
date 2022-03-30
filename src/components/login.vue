@@ -1,5 +1,6 @@
 <template>
-  <section @click="closeModal" class="log-page">
+  <section class="log-page">
+    <div @click="closeModal" class="black-screen"></div>
     <div class="login-container">
       <div v-if="sigupScop" class="log-in">
         <h1>LOGIN/SIGNUP Page</h1>
@@ -59,6 +60,12 @@
 // import { userService } from '../services/user.service.js';
 
 export default {
+  props: {
+    loginMode: {
+      type: String,
+      required: true,
+    },
+  },
   name: "Login Page",
   data() {
     return {
@@ -78,8 +85,8 @@ export default {
     };
   },
   methods: {
-    closeModal(){
-      return this.$emit('closeModal')
+    closeModal() {
+      return this.$emit("closeModal");
     },
     async login() {
       try {
@@ -115,12 +122,14 @@ export default {
       }
     },
     switchScop(mode = null) {
-      // if(mode === 'login')return this.sigupScop = false;
-      // if(mode === 'signup')return this.sigupScop = true;
+      if (mode === "signup") return (this.sigupScop = false);
+      if (mode === "login") return (this.sigupScop = true);
       this.sigupScop = !this.sigupScop;
     },
   },
-  created() {},
+  created() {
+    this.switchScop(this.loginMode);
+  },
   computed: {
     loggedinUser() {
       return this.$store.getters.loggedinUser;

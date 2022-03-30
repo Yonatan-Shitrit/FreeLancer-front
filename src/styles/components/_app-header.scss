@@ -17,10 +17,11 @@
         align-items: center;
         justify-content: space-between;
         flex-wrap: nowrap;
-        .search-bar-wrapper{
+        .search-bar-wrapper {
             flex: 1;
         }
         .search-bar-container {
+            transition: 0.2s;
             width: 100%;
             .search-bar {
                 max-width: 400px;
@@ -108,6 +109,7 @@
                         color: #1dbf73;
                         font-size: 14px;
                         padding: 7px 20px;
+                        font-family: macan;
                         border: #1dbf73 solid 1px;
                         border-radius: 4px;
                         line-height: 14px;
@@ -122,13 +124,22 @@
                 }
                 float: right;
                 padding-right: 24px;
-                a {
+                a,
+                button {
+                    font-weight: 600;
+                    background-color: #19a46300;
                     color: #74767e;
                     transition: 0.2s;
                     letter-spacing: 0.1px;
+                    font-size: 16px;
+                    line-height: 24px;
+                    font-family: macan;
+                    border: 0;
+                    cursor: pointer;
                 }
                 &:hover {
-                    a {
+                    a,
+                    button {
                         color: #1dbf73;
                     }
                 }

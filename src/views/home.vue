@@ -6,14 +6,6 @@
 
       </div>
     <section  style="z-index:10; " class="gig-home-top">
-      <datalist id="categories">
-        <option
-          v-for="gig in gigs"
-          :key="gig._id"
-          :value="gig.title.slice(6, gig.title.length - 1)"
-        />
-        <!-- <option value="gig.title" /> -->
-      </datalist>
       <div class="left-side">
         <div class="sub-left-side1">
           <h1 class="mini-dis">
@@ -36,7 +28,6 @@
             </svg>
           </span>
           <input
-            list="categories"
             type="text"
             class="search-input"
             :placeholder="searchPlaceHolder"
