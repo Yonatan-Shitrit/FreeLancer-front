@@ -1,6 +1,12 @@
 <template>
   <div class="preview">
     <img @click="goToDetail" class="gig-card-img" :src="gig.images[0]" alt="..." />
+    <!-- <agile-preview-carousel
+      @click="goToDetail"
+      class="gig-card-img"
+      :gig="gig"
+      alt="..."
+    ></agile-preview-carousel> -->
     <div class="gig-mini-user">
       <img :src="gig.seller.imgUrl" alt="" />
       <div class="seller-identifiers">
@@ -52,7 +58,11 @@
 </template>
 
 <script>
+// import agilepreviewcarousel from "./agile-preview-carousel.vue";
 export default {
+  // components: {
+  //   agilepreviewcarousel,
+  // },
   props: {
     gig: {
       type: Object,

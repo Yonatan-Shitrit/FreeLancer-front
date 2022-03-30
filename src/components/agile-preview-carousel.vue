@@ -1,0 +1,67 @@
+<template>
+  <div id="app">
+      <div style="background-color:white; ">
+     <button @click="$refs.main.goToPrev()" type="button" class="view-main-carousel-prev-btn">
+         <svg class="carousel__icon" style="width:50%; height:50%; " role="img">
+             <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"></path>
+         </svg>
+     </button>
+
+    <agile class=""  :options="options1" style="background-color:white">
+      <div
+        class="slide"
+        v-for="(slide, index) in slides"
+        :key="index"
+        >
+        <img :src="slide" />
+      </div>
+      
+    </agile>
+     <button @click="$refs.main.goToNext()" type="button" class="view-main-carousel-next-btn" >
+         <svg class="carousel__icon"  style="width:50%; height:50%" role="img">
+             <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"></path>
+         </svg>
+     </button>
+
+</div>
+</div>
+</template>
+
+<script>
+import { VueAgile } from "vue-agile";
+
+export default {
+props: {
+    gig: {
+      type: Object,
+      required: true,
+    },
+  },
+ components: {
+    agile: VueAgile,
+  },
+    data() {
+    return {
+
+      options1: {
+        dots: false,
+        fade: false,
+        infinite:true,
+        navButtons: false,
+         },
+
+      slides: null }
+
+
+  },
+  
+  created(){
+      this.slides= this.gig.images
+      console.log(this.slides)
+  }
+}
+</script>
+
+<style>
+
+</style>
