@@ -6,6 +6,9 @@
     <section class="app-header">
       <router-link class="logo" to="/">Fastlancer<span>.</span></router-link>
       <ul>
+        <search-bar>
+          
+        </search-bar>
         <li class="header-item">
           <router-link to="/"
             >Join
@@ -36,7 +39,9 @@
 </template>
 
 <script>
+import searchBarVue from "./search-bar.vue";
 import  MainHeaderSubMenu from "./main-header-sub-menu.vue";
+import SearchBar from "./search-bar.vue";
 export default {
     data() {
     return {
@@ -65,8 +70,10 @@ export default {
     document.removeEventListener('scroll',this.setScroll)
   },
     components:{
-      MainHeaderSubMenu,
-    }
+    MainHeaderSubMenu,
+    searchBar,
+    SearchBar
+}
 };
 </script>
 
