@@ -61,7 +61,17 @@ export default {
   data() {
     return {
       loginCred: { username: "", password: "" },
-      signupCred: { username: "", password: "", fullname: "", imgUrl: "https://cdn1.vectorstock.com/i/1000x1000/31/95/user-sign-icon-person-symbol-human-avatar-vector-12693195.jpg", gigs:[], orders:[],isAdmin: false },
+      signupCred: {
+        username: "",
+        password: "",
+        fullname: "",
+        sales: [],
+        imgUrl:
+          "https://cdn1.vectorstock.com/i/1000x1000/31/95/user-sign-icon-person-symbol-human-avatar-vector-12693195.jpg",
+        gigs: [],
+        orders: [],
+        isAdmin: false,
+      },
       sigupScop: false,
     };
   },
@@ -90,7 +100,10 @@ export default {
           type: "signup",
           userCred: this.signupCred,
         });
-        console.log("Hi userI am in the log page - this.signupCred", this.signupCred);
+        console.log(
+          "Hi userI am in the log page - this.signupCred",
+          this.signupCred
+        );
         //this.$router.push('/');
       } catch (err) {
         console.log(err);

@@ -33,6 +33,7 @@ function getGuestUser() {
     imgUrl: '',
     gigs:[],
     orders:[],
+    sales:[],
     isAdmin: false,
   }
 }
