@@ -10,7 +10,7 @@
           placeholder="I will do something I'm realy good at"
           v-model="gigToSave.title"
         ></textarea>
-        <div class="img-input-container"></div>
+        <div class="img-input-container">
         <input
           class="input-with-btn img-input"
           v-for="(image, idx) in imageCount"
@@ -19,9 +19,10 @@
           placeholder="Image Url"
           v-model="gigToSave.images[idx]"
         />
-        <button class="add-input" @click="addMoreImage(imageCount - 1)">
+        <button  v-if="imageCount<3" class="add-input" @click="addMoreImage(imageCount - 1)">
           +
         </button>
+        </div>
         <input type="number" placeholder="price" v-model="gigToSave.price" />
         <input type="text" placeholder="details" v-model="gigToSave.details" />
         <select name="" id="" v-model.number="gigToSave.daysToMake">
