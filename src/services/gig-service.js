@@ -13622,12 +13622,10 @@ var gSellersTest = [
 
 // const gGigs = _createManyGigs()
 
-async function query(filterBy = {}) {
+async function query(filterBy) {
   return await httpService.get(ENDPOINT, filterBy)
-  // return axios.get(BASE_URL, { params: { filterBy } }).then((res) => res.data)
-  
-  //no back end:
-  // return storageService.query(KEY)
+  // return axios.get(BASE_URL, { params: { filterBy } }).then((res) => res.data)  
+  // return await storageService.query(KEY, filterBy)
 }
 
 async function getUserById(id) {

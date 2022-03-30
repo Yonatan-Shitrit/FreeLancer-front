@@ -60,14 +60,26 @@
       <button type="submit" @click="saveGig">save</button>
       <button  @click="getDemoData">Get Demo Data</button>
     </form>
+    <div v-if="gigs">
+      <div class="div-preview" v-for="gig in gigs" :key="gig._id">
+          <p>IDX: {{gig._id}}</p>
+          <p>Title: {{gig.title}}</p>
+          <p>Price: {{gig.price}}</p>
+          <p>Category: {{gig.category.name}}</p>
+          <button @click="removeGig(gig._id)">Remove</button>
+          <button @click="gigToEdit(gig)">Edit</button>
+          <router-link :to="'/gig/'+ gig._id"><button>Details</button></router-link>
+      </div>
+    </div>
     <div v-if="sellerGigs">
-    <gig-preview  v-for="gig in sellerGigs" :key="gig._id" :gig="gig" />
-
+    <gig-preview  v-for="gig in sellerGigs" :key="gig._id" :gig="gig" />        
     </div>
     <pre>gigToSave:
       {{ gigToSave }}</pre>
+      <!-- <pre>gigs:
+      {{ gigs }}</pre> -->
     <pre>sellerGigs:
-      {{ sellerGigs }}</pre>
+      {{ sellerGigs }} <span v-if="!this.$store.getters.user">please sing in to get your gigs</span></pre>
       
 
   </section>
@@ -94,13 +106,13 @@ export default {
         "Logo Design",
         "Word Press",
       ],
-      sellerGigs: null
+      // sellerGigs: null
     };
   },
   created() {
     this.getEmptyGig();
     this.getUser();  
-    this.loadSellerGigs() 
+    // this.loadSellerGigs() 
     
   },
   components: {
@@ -125,21 +137,18 @@ export default {
       }
       this.labelCount++
     },
-    getUser() {      
+    getUser() {
+      if(!this.$store.getters.user)return
         this.gigToSave.seller._id = this.$store.getters.user._id;
         this.gigToSave.seller.fullName = this.$store.getters.user.fullname;
         this.gigToSave.seller.imgUrl = this.$store.getters.user.imgUrl;
     },
-    saveGig() {
+    async saveGig() {
       console.log(this.gigToSave);
-      this.$store.dispatch({ type: "saveGig", gig: this.gigToSave });
-      this.loadSellerGigs() 
+      await this.$store.dispatch({ type: "saveGig", gig: this.gigToSave });
+      // this.loadSellerGigs() 
     },
     
-    loadSellerGigs(){
-      this.sellerGigs = this.gigs.filter(gig=> gig.seller._id === this.$store.getters.user._id)
-      console.log('sellerGigs', this.sellerGigs);
-    },
     getDemoData(){
       this.labelCount = 4
       this.imageCount = 3
@@ -153,9 +162,37 @@ export default {
       this.gigToSave.category = 'Logo Design'
       this.gigToSave.labels = ['logo', 'designer', 'photo', 'business']
 
-    }
+    },
+    removeGig(idx){
+      console.log('remove from back office: ', idx);
+      this.$store.dispatch({ type: 'removeGig', idx })
+    },
+    gigToEdit(gig){
+      console.log('edit from back office: ', gig);
+      //this.$store.dispatch({ type: 'removeGig', idx })
+      this.labelCount = gig.labels.length
+      this.imageCount = gig.images.length
+      this.gigToSave.title = gig.title
+      this.gigToSave.images = gig.images
+      this.gigToSave.details = gig.details
+      this.gigToSave.price = gig.price
+      this.gigToSave.daysToMake = gig.daysToMake
+      this.gigToSave.revision = gig.revision
+      this.gigToSave.description = gig.description
+      this.gigToSave.category = gig.category.name
+      this.gigToSave.labels = gig.labels
+      this.gigToSave._id = gig._id
+      this.gigToSave.reviews = gig.reviews
+
+    },
+    
   },
   computed: {
+    sellerGigs(){
+      if(!this.$store.getters.user) return 
+      return this.gigs.filter(gig=> gig.seller._id === this.$store.getters.user._id)
+      // console.log('sellerGigs', this.sellerGigs);
+    },
     gigs(){
       return this.$store.getters.gigs;
     }
