@@ -1,7 +1,7 @@
 <template>
   <section    class="gig-home" style="position:relative">
                  <div style="margin:auto 0; position: absolute; z-index:0; width:100%">
-        <agilecarousel  style="height: 630px; width:100%">
+        <agilecarousel  style="-max-height: 630px; width:100%">
         </agilecarousel>
 
       </div>
@@ -64,13 +64,10 @@
     </section>
   </section>
 
-  <section class="main-home-1">
-    <!-- <pre>User: {{ user }}</pre> -->
-  </section>
-  <section class="main-home-1"> 
+  <section class="main-home-6" > 
 
   <h2 class="main-carousel-header"> Popular professional services </h2>
-  <test-carousel   :itemsToShow="5" :itemsToScroll="5"  :wrapAround="true" :transition="400" />
+  <test-carousel  class="carousel" :itemsToShow="5" :itemsToScroll="5"  :wrapAround="true" :transition="400" />
   </section>
   <section class="markit-home">
     <section class="main-home-2">

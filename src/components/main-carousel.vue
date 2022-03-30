@@ -1,6 +1,6 @@
 <template>
-    <Carousel>
-    <Slide  style="padding: 0 10px 0 10px; display:grid; " v-for="slide in 10" :key="slide">
+    <Carousel :breakpoints="breakpoints">
+    <Slide  style="padding: 0 10px 0 10px; display:grid; " v-for="slide in 10" :key="slide" >
       <img  class="slide-image" :src="images[slide-1]">
       <h4 class="main-carousel-slide-txt">
    <small style="font-size: 14px; font-weight: 100;">{{description[slide-1]}}</small><br>
@@ -19,6 +19,47 @@ import { Carousel, Slide, Navigation } from "vue3-carousel";
 export default {
     data(){
         return{
+
+          breakpoints: {
+				// 700px and up
+				1000: {
+					itemsToShow: 5,
+          itemsToScroll:5,
+          wrapAround:"true",
+          transition:"400",
+				},
+        // 				1120: {
+				// 	itemsToShow: 4,
+        //   itemsToScroll:4,
+        //   wrapAround:"true",
+        //   transition:"400",
+				// },
+                				450: {
+					itemsToShow: 3,
+          itemsToScroll:3,
+          wrapAround:"true",
+          transition:"400",
+				},
+        //         				560: {
+				// 	itemsToShow: 2,
+        //   itemsToScroll:2,
+        //   wrapAround:"true",
+        //   transition:"400",
+				// },
+                        1: {
+					itemsToShow: 1,
+          itemsToScroll:1,
+          wrapAround:"true",
+          transition:"400",
+				},
+				// 1024 and up
+				// 1024: {
+				// 	itemsToShow: 5,
+				// 	snapAlign: "start"
+				// }
+			},
+
+
             title: [
             'Voice Over','Video Explainer','Social Media','SEO','Illustration','Translation','Data Entry', 'Book Covers','Logo Design', 'Word Press',
           ],

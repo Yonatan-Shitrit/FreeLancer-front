@@ -5,10 +5,8 @@
   >
     <section class="app-header">
       <router-link class="logo" to="/">Fastlancer<span>.</span></router-link>
+      <nav>
       <ul>
-        <search-bar>
-          
-        </search-bar>
         <li class="header-item">
           <router-link to="/"
             >Join
@@ -27,7 +25,12 @@
         <li class="header-item">
           <router-link to="/gig"><a href="">Explore</a> </router-link>
         </li>
+                <li>
+        <search-bar >
+        </search-bar>
+        </li>
       </ul>
+      </nav>
     </section>
   </section>
     <section class="main-sub-menu-full-header" 
@@ -39,7 +42,6 @@
 </template>
 
 <script>
-import searchBarVue from "./search-bar.vue";
 import  MainHeaderSubMenu from "./main-header-sub-menu.vue";
 import SearchBar from "./search-bar.vue";
 export default {

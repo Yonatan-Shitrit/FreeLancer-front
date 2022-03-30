@@ -13,16 +13,16 @@
     <label>
       Labels:
       <select class="labselect" @change="setFilter" multiple v-model="filterBy.labels">
-        <option value="Voice Over">Voice Over</option>
-        <option value="Video Explainer">Video Explainer</option>
-        <option value="Social Media">Social Media</option>
-        <option value="SEO">SEO</option>
-        <option value="Illustration">Illustration</option>
-        <option value="Translation">Translation</option>
-        <option value="Data Entry">Data Entry</option>
-        <option value="Book Covers">Book Covers</option>
-        <option value="Logo Design">Logo Design</option>
-        <option value="Word Press">Word Press</option>
+        <option >Voice Over</option>
+        <option >Video Explainer</option>
+        <option >Social Media</option>
+        <option >SEO</option>
+        <option >Illustration</option>
+        <option >Translation</option>
+        <option >Data Entry</option>
+        <option >Book Covers</option>
+        <option >Logo Design</option>
+        <option >Word Press</option>
       </select>
     </label>
     <label>

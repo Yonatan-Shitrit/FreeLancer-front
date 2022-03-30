@@ -8,7 +8,8 @@
     transition: background-color .5s ease;
     .app-header {
         height: 80px;
-        width: 1400px;
+        max-width: 1400px;
+        width:100%;
         margin: 0 auto;
         background-color: rgba(95, 158, 160, 0);
         display: flex;

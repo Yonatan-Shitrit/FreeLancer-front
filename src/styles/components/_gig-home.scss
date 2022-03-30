@@ -6,7 +6,8 @@
     // margin-top:-80px;
     // padding-left: 40px;
     .gig-home-top {
-        width: 1400px;
+        max-width: 1400px;
+        width: 100%;
         margin: auto auto;
         // padding: 0 32px;
         .left-side {
@@ -159,7 +160,8 @@
 }
 
 .main-home-1 {
-    width: 1436px;
+    max-width: 1436px;
+    width: 100%;
     margin: 40px auto;
     // padding: 0 32px;
     padding: 0;
@@ -170,7 +172,8 @@
 }
 
 .main-home-2 {
-    width: 1400px;
+    max-width: 1400px;
+    width:100%;
     margin: auto auto;
     min-height: 705px;
     display: flex;
