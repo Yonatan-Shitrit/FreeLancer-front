@@ -9,6 +9,7 @@
         </agilecarousel>
 
       </div>
+      <h2>About This Gig</h2>
       <gig-description :gig="gig" />
       <h2>About The Seller</h2>
       <gig-profile />
