@@ -3,16 +3,13 @@ import { gigService } from '@/services/gig-service.js'
 export default {
   state: {
     gigs: [],
-    filterBy: ''//{ name: '', inStock: '', labels: [], sortBy: '' },
+    filterBy: { title: '', price: 0, labels: [], sortBy: ''},
     // labels: gigService.getlabels(),
   },
   getters: {
     gigs({ gigs }) {
       return gigs
-    },
-    getEmptyGig() {
-      return gigService.getEmptyGig()
-    },
+    },    
     gigsToShow({ gigs, filterBy }) {
       const copyGigs = JSON.parse(JSON.stringify(gigs))
       return copyGigs
@@ -27,16 +24,17 @@ export default {
       console.log('gigs are set in store');
     },
     saveGig(state, { gig }) {
-      const idx = state.gigs.findIndex((t) => t._id === gig._id)
+      const idx = state.gigs.findIndex((g) => g._id === gig._id)
       if (idx !== -1) state.gigs.splice(idx, 1, gig)
       else state.gigs.push(gig)
       console.log('I saved');
     },
     removeGig(state, { gigId }) {
-      const idx = state.gigs.findIndex((t) => t._id === gigId)
+      const idx = state.gigs.findIndex((g) => g._id === gigId)
       state.gigs.splice(idx, 1)
     },
     setFilter(state, { filterBy }) {
+      // console.log('I am in the store', filterBy);      
       state.filterBy = filterBy
     },
     setSort(state, { sortBy }) {
@@ -55,12 +53,13 @@ export default {
       commit({ type: 'saveGig', gig: savedGig })
       return savedGig
     },
-    removeGig({ commit }, { gigId }) {
-      gigService.remove(gigId).then(() => {
+    async removeGig({ commit }, { gigId }) {
+      await gigService.remove(gigId)
         commit({ type: 'removeGig', gigId })
-      })
+      
     },
     setFilter({ dispatch, commit }, { filterBy }) {
+      // console.log('I am in the store', filterBy);
       commit({ type: 'setFilter', filterBy })
       dispatch({ type: 'loadGigs' })
     },
