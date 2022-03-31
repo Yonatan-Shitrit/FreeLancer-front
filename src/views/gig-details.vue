@@ -23,9 +23,15 @@
       </ul>
     </nav>
   </div>
+  <div v-if="modal" class="order-modal">
+    <div @click="closeModal" class="black-screen"></div>
+    <div class="modal">
+      <h3>Your order has been successfully received</h3>
+    </div>
+  </div>
   <section v-if="gig" class="gig-page">
     <div class="gig-details">
-      <gig-overview :gig="gig" />
+      <gig-overview :gig="gig"  />
 
       <div class="put-carousel">
         <agilecarousel :gig="gig" style="z-index: 1000"> </agilecarousel>
@@ -37,7 +43,7 @@
       <gig-reviews :gig="gig" />
     </div>
     <section class="sidebar">
-      <gig-sidebar :gig="gig" />
+      <gig-sidebar :gig="gig"  @confirmation="confirmation"/>
     </section>
   </section>
 </template>
@@ -63,6 +69,7 @@ export default {
     return {
       scrollY: 0,
       gig: null,
+      modal: false
 
     }
   },
@@ -70,6 +77,13 @@ export default {
     setScroll() {
       this.scrollY = window.scrollY;
     },
+    confirmation(){
+      this.modal = true
+      setTimeout(()=>{this.modal=false},2000)      
+    },
+    closeModal(){
+      this.modal = false
+    }
   },
   created() {
     document.addEventListener("scroll", this.setScroll);
