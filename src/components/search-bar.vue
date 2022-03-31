@@ -35,7 +35,12 @@ export default {
     },
     methods:{
       search(){
+<<<<<<< HEAD
+        this.$router.push({ path: '../gig', query: { category: this.searchTerm }})
+        
+=======
         this.$router.push({ path: '../gig', query: {  title: this.searchTerm ,category: this.searchTerm }})
+>>>>>>> f71c8fb440b0a8c04f872e3775c3e619910c21b5
     },
     }
 }
