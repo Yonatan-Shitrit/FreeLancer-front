@@ -1,5 +1,5 @@
 <template>
-  <section class="gig-page">
+  <section v-if="gig" class="gig-page">
     <div class="gig-details">
       <gig-overview :gig="gig" />
 

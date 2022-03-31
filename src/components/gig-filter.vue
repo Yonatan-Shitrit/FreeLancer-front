@@ -3,17 +3,16 @@
     <input v-model="filterBy.title" @input="setFilter" type="text" placeholder="Search gig.." />
     <label>
       price:
-      <input v-model.number="filterBy.price" @input="setFilter" type="number" placeholder="Search price.." />
-      <!-- <select @change="setFilter" v-model="filterBy.price">
-        <option label="All" value=''></option>
-        <option label="In stock" value="true" />
-        <option label="Not in stock" value="false" />
-      </select> -->
+      <input v-model.number="filterBy.price" @input="setFilter" type="number" placeholder="Search price.." />      
+    </label>
+    <label>
+      Category:
+      <input v-model="filterBy.category" @input="setFilter" type="text" placeholder="Search category.." />      
     </label>
     <label>
       Labels:
       <select class="labselect" @change="setFilter" multiple v-model="filterBy.labels">
-        <option >Voice Over</option>
+        <option >Coach</option>
         <option >Video Explainer</option>
         <option >Social Media</option>
         <option >SEO</option>
@@ -45,6 +44,7 @@ export default {
         title: '',
         price: '',
         labels: [],
+        category: '',
         sortBy: '',
       },
     }

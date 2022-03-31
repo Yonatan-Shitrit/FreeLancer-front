@@ -1,5 +1,6 @@
 import { httpService } from './http-service.js'
 import { storageService } from './async-storage-service'
+import { utilService } from './util-service.js'
 const ENDPOINT = 'auth'
 
 export const userService = {
@@ -7,6 +8,14 @@ export const userService = {
   signup,
   logout,
   getGuestUser,
+  getEmptyOrder,
+  saveOrder,
+  query
+}
+async function query() {
+  return await httpService.get('user' + '/')
+  // return axios.get(BASE_URL, { params: { filterBy } }).then((res) => res.data)  
+  // return await storageService.query(KEY, filterBy)
 }
 
 async function login(cred) {
@@ -36,4 +45,21 @@ function getGuestUser() {
     sales:[],
     isAdmin: false,
   }
+}
+
+function saveOrder(order){
+
+}
+
+function getEmptyOrder(){
+  const order = {
+    _id: utilService.makeId(15),
+    gigId: '',
+    status: 'pending',
+    createdAt: Date.now(),
+    updatedAt: '',
+    sellerId: '',
+    buyerId: ''
+  }
+  return order
 }
