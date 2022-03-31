@@ -191,7 +191,6 @@ export default {
     sellerGigs(){
       if(!this.$store.getters.user) return 
       return this.gigs.filter(gig=> gig.seller._id === this.$store.getters.user._id)
-      // console.log('sellerGigs', this.sellerGigs);
     },
     gigs(){
       return this.$store.getters.gigs;
