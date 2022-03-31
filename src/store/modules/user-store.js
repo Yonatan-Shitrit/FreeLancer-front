@@ -15,13 +15,7 @@ export default {
   mutations: {
     setUser(state, { user }) {
       state.loggedinUser = user
-    },    
-    saveOrder(state, { order }) {
-      const idx = state.gigs.findIndex((g) => g._id === gig._id)
-      if (idx !== -1) state.gigs.splice(idx, 1, gig)
-      else state.gigs.push(gig)
-      console.log('I saved');
-    },
+    }    
   },
   actions: {    
     async login({ commit }, { cred }) {
@@ -42,12 +36,7 @@ export default {
       } catch (err) {
         console.log(err)
       }
-    },    
-    async saveOrder({ commit }, { order }) {
-      const savedOrder = await userService.saveOrder(order)
-      commit({ type: 'saveOrder', order: savedOrder })
-      return savedOrder
-    },
+    },        
     async logout({ commit }) {
       try {
         await userService.logout()

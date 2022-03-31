@@ -7,9 +7,7 @@ export const userService = {
   login,
   signup,
   logout,
-  getGuestUser,
-  getEmptyOrder,
-  saveOrder,
+  getGuestUser,  
   query
 }
 async function query() {
@@ -47,19 +45,5 @@ function getGuestUser() {
   }
 }
 
-function saveOrder(order){
 
-}
 
-function getEmptyOrder(){
-  const order = {
-    _id: utilService.makeId(15),
-    gigId: '',
-    status: 'pending',
-    createdAt: Date.now(),
-    updatedAt: '',
-    sellerId: '',
-    buyerId: ''
-  }
-  return order
-}
