@@ -58,8 +58,11 @@ export default {
       const gigs = this.$store.getters.gigs;
       return gigs.filter((gig) => gig._id === id)[0];
     },
-    changeStatus(order, status){
+    async changeStatus(order, status){
+      order = JSON.parse(JSON.stringify(order))
       order.status = status
+      order.updatedAt = Date.now()
+      console.log('updateOrder',order);
       await this.$store.dispatch({ type: "saveOrder", order });      
     }
   },
