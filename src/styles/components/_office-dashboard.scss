@@ -89,6 +89,7 @@
                         }
                         .category-title {
                             margin-right: auto;
+                            flex: 1;
                         }
                         .category-name {
                             width: 20%;
@@ -96,8 +97,11 @@
                         .category-price {
                             width: 10%;
                         }
-                        .category-actions {
-                            width:20%
+                        .category-actions-dashboard {
+                            width:15%
+                        }
+                        .category-status {
+                            width:10%
                         }
                     }
                     li {
@@ -121,6 +125,7 @@
                         }
                         .gig-title {
                             margin-right: auto;
+                            flex: 1;
                         }
                         .buyer-name {
                             width: 20%;
@@ -129,8 +134,16 @@
                             width: 10%;
                         }
                         .actions {
-                            width: 20%;
-                            text-align: center;
+                            width: 15%;
+                            span{
+                                cursor: pointer;
+                                &:hover{
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                        .status-dashboard{
+                            width: 10%;
                         }
                     }
                 }
