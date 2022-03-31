@@ -10,7 +10,7 @@
   >
     <section class="app-header">
       <div class="search-bar-wrapper">
-        <router-link class="logo" to="/">Fastlancer<span>.</span></router-link>
+        <router-link class="logo" to="/">FreeLancer<span>.</span></router-link>
         <search-bar v-if="scrollY > 159 || !homePage"></search-bar>
       </div>
       <nav>
