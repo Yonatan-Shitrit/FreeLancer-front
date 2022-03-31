@@ -1,8 +1,7 @@
 <template>
   <div class="preview">
-    <!-- <img @click="goToDetail" class="gig-card-img" :src="gig.images[0]" alt="..." /> -->
       <agilepreviewcarousel
-        
+        @goToDetail="goToDetail"
         class="gig-card-img"
         :gig="gig"
       ></agilepreviewcarousel>
