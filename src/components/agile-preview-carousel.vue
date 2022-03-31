@@ -19,7 +19,7 @@
         v-for="(slide, index) in slides"
         :key="index"
         >
-        <img :src="slide"  />
+        <img :src="slide"  alt="<No image to show>" />
       </div>
       </agile>
       <button
