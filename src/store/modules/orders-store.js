@@ -38,21 +38,34 @@ export default {
   },
   actions: {
     async loadOrders({ commit, state }) {
+      try{
       const orders = await orderService.query(state.filterBy)
       commit({ type: 'setOrders', orders })
       console.log('store commit orders'); 
-    
+      }
+      catch(err){
+        console.error('Cannot load orders', err);
+      }
     },
     async saveOrder({ commit }, { order }) {
+      try{
       console.log('hi i am in the save actions: ', order);
       const savedOrder = await orderService.save(order)
       commit({ type: 'saveOrder', order: savedOrder })
       return savedOrder
+      }
+      catch(err){
+        console.error('Cannot save order', err);
+      }
     },
     async removeOrder({ commit }, { orderId }) {
+      try{
       await orderService.remove(orderId)
         commit({ type: 'removeOrder', orderId })
-      
+      }
+      catch(err){
+        console.error('Cannot remove order', err);
+      }
     },
     setFilter({ dispatch, commit }, { filterBy }) {
       commit({ type: 'setFilter', filterBy })

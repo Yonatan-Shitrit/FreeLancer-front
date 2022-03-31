@@ -1,4 +1,3 @@
-import { utilService } from './util-service'
 import { httpService } from './http-service'
 
 const KEY = 'orders_db'
@@ -16,21 +15,41 @@ export const orderService = {
 }
 
 async function query(filterBy) {
+  try{
   return await httpService.get(ENDPOINT, filterBy)  
+  }
+  catch(err){
+    console.error('Cannot query orders', err);
+  }
 }
 
 async function getById(id) {
+  try{
   return await httpService.get(`${ENDPOINT}/${id}`)  
+  }
+  catch(err){
+    console.error('Cannot get order by id', err);
+  }
 }
 
 async function remove(id) {
+  try{
   return await httpService.delete(`${ENDPOINT}/${id}`)  
+  }
+  catch(err){
+    console.error('Cannot remove gig', err);
+  }
 }
 
 async function save(order) {
+  try{
   return order._id
   ? await httpService.put(`${ENDPOINT}/${order._id}`, order)
   : await httpService.post(ENDPOINT, order)
+  }
+  catch(err){
+    console.error('Cannot save order from the orderService', err);
+  }
 }
 
 

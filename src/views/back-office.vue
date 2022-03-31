@@ -144,9 +144,13 @@ export default {
         this.gigToSave.seller.imgUrl = this.$store.getters.user.imgUrl;
     },
     async saveGig() {
+      try{
       console.log(this.gigToSave);
       await this.$store.dispatch({ type: "saveGig", gig: this.gigToSave });
-      // this.loadSellerGigs() 
+      }
+      catch(err){
+        console.error('Cannot save gig from back-office', err);
+      }
     },
     
     getDemoData(){
