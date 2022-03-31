@@ -38,7 +38,7 @@
               <!-- <div class="gig-title"></div> -->
               <div class="buyer-name">{{getGig(order.gigId).seller.fullName}}</div>
               <div class="price">${{ getGig(order.gigId).price }}</div>
-              <div class="actions-orders">Cancel</div>
+              <div @click="changeStatus(order, 'canceled')" class="actions-orders">Cancel</div>
               <div class="status">{{order.status}}</div>
             </li>
           </ul>
@@ -49,8 +49,6 @@
 </template>
 
 <script>
-import { gigService } from "../services/gig-service.js";
-
 export default {
   data() {
     return {};
@@ -60,6 +58,10 @@ export default {
       const gigs = this.$store.getters.gigs;
       return gigs.filter((gig) => gig._id === id)[0];
     },
+    changeStatus(order, status){
+      order.status = status
+      await this.$store.dispatch({ type: "saveOrder", order });      
+    }
   },
   computed: {
     loggedinUser() {
