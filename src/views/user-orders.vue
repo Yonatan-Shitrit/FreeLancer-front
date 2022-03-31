@@ -29,14 +29,17 @@
               <div class="category-title">Gig</div>
               <div class="category-name">Buyer</div>
               <div class="category-price">Price</div>
-              <div class="category-actions"></div>
+              <div class="category-actions">Actions</div>
+              <div class="category-status">status</div>
             </div>
-            <li>
-              <img src="" alt="" />
-              <div class="gig-title">I will cook food</div>
-              <div class="buyer-name">boby</div>
-              <div class="price">$5</div>
-              <div class="actions">delete</div>
+            <li  v-for="order in orders" :key="order._id">
+              <img :src="getGig(order.gigId).images[0]" alt="" />
+              <div class="gig-title">{{getGig(order.gigId).title}}</div>
+              <!-- <div class="gig-title"></div> -->
+              <div class="buyer-name">{{getGig(order.gigId).seller.fullName}}</div>
+              <div class="price">${{ getGig(order.gigId).price }}</div>
+              <div class="actions-orders">Cancel</div>
+              <div class="status">{{order.status}}</div>
             </li>
           </ul>
         </div>
@@ -46,14 +49,27 @@
 </template>
 
 <script>
+import { gigService } from "../services/gig-service.js";
+
 export default {
   data() {
     return {};
+  },
+  methods: {
+    getGig(id) {
+      const gigs = this.$store.getters.gigs;
+      return gigs.filter((gig) => gig._id === id)[0];
+    },
   },
   computed: {
     loggedinUser() {
       console.log("logged user", this.$store.getters.user);
       return this.$store.getters.user;
+    },
+    orders() {
+      const orders = this.$store.getters.orders;
+      console.log("orders", orders);
+      return orders.filter((order) => order.buyerId === this.loggedinUser._id);
     },
   },
 };

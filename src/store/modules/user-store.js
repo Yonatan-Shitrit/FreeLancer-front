@@ -4,6 +4,7 @@ import { utilService } from '../../services/util-service'
 export default {
   state: {
     loggedinUser: utilService.loadFromSessionStorage('user') || null,
+    users: null
   },
   getters: {
     user(state) {
