@@ -19,10 +19,11 @@
           <li v-if="!user" class="header-item">
             <button @click="openModal('signup')">Join</button>
           </li>
-          <li v-else><img :src="user.imgUrl" alt="" /></li>
-          <li class="header-item">
+          <li v-else><img class="user-pic" :src="user.imgUrl" alt="" /></li>
+          <li v-if="!user" class="header-item">
             <button @click="openModal('login')">Sign in</button>
           </li>
+          <li v-else><button @click="openModal('logout')">Logout</button></li>
           <li class="header-item">
             <router-link to="/seller">Become a Seller </router-link>
           </li>
