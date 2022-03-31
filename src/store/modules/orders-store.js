@@ -8,7 +8,7 @@ export default {
   getters: {
     orders({ orders }) {
       return orders
-    },    
+    },
     ordersToShow({ orders, filterBy }) {
       const copyOrders = JSON.parse(JSON.stringify(orders))
       return copyOrders
@@ -37,10 +37,10 @@ export default {
     },
   },
   actions: {
-    async loadGigs({ commit, state }) {
+    async loadOrders({ commit, state }) {
       const orders = await orderService.query(state.filterBy)
-      commit({ type: 'setGigs', orders })
-      console.log('store commit orders');      
+      commit({ type: 'setOrders', orders })
+      console.log('store commit orders'); 
     
     },
     async saveOrder({ commit }, { order }) {
