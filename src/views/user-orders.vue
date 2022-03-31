@@ -27,7 +27,7 @@
             <div class="order-categories">
               <div class="category-title">Gig</div>
               <div class="category-title">Gig</div>
-              <div class="category-name">Buyer</div>
+              <div class="category-name">Seller</div>
               <div class="category-price">Price</div>
               <div class="category-actions">Actions</div>
               <div class="category-status">status</div>
