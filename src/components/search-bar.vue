@@ -18,8 +18,9 @@
             type="text"
             class="search-input"
             placeholder="Find Services"
+            v-model="searchTerm"
           />
-          <button class="search-btn">Search</button>
+          <button @click="search" class="search-btn">Search</button>
         </form>
     </section>
         
@@ -27,7 +28,16 @@
 
 <script>
 export default {
-
+    data(){
+      return{
+        searchTerm:''
+      }
+    },
+    methods:{
+      search(){
+        this.$router.push({ path: '../gig', query: { category: this.searchTerm }})
+    },
+    }
 }
 </script>
 

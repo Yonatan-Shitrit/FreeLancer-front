@@ -166,7 +166,7 @@ import agilecarousel from "../components/main-header-carousel.vue";
 export default {
   methods: {
     search(){
-        this.$router.push({ path: 'gig', query: { title: this.searchTerm }})
+        this.$router.push({ path: 'gig', query: { category: this.searchTerm }})
     },
   },
   data(){
