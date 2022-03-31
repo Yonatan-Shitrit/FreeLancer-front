@@ -81,8 +81,8 @@ export default {
     },
     async saveOrder() {
       console.log(this.orderToSave);
-      await this.$store.dispatch({ type: "saveOrder", order: this.orderToSave });
-      alert('Your order has been successfully received')
+      await this.$store.dispatch({ type: "saveOrder", order: this.orderToSave });      
+      this.$emit('confirmation')
     },
     
   },
