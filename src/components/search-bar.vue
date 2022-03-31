@@ -36,6 +36,7 @@ export default {
     methods:{
       search(){
         this.$router.push({ path: '../gig', query: { category: this.searchTerm }})
+        
     },
     }
 }
