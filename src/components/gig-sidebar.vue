@@ -44,7 +44,7 @@
           </div>
         </article>
         <footer>
-          <button>Continue (${{ gig.price }})</button>
+          <button @click="orderGig">Continue (${{ gig.price }})</button>
         </footer>
       </form>
       <div class="contact-seller">
@@ -55,12 +55,32 @@
 </template>
 
 <script>
+import { userService } from "../services/user-service";
 export default {
   props: {
     gig: {
       type: Object,
       required: true,
     },
+    data(){
+      return{
+        orderToSave: null
+      }
+    }
+  },
+  methods:{
+    orderGig(){
+      this.orderToSave = userService.getEmptyOrder()
+      console.log('this.orderToSave-empty', this.orderToSave);
+
+    },
+    orderGig(){
+      this.orderToSave.gigId = this.gig._id
+      this.orderToSave.sellerId = this.gig.seller._id
+      this.orderToSave.gigId = this.$store.getters.user._id
+      // userService.saveOrder(this.orderToSave)
+      console.log('this.orderToSave', this.orderToSave);
+    }
   },
   computed: {
     gigRevisions() {
@@ -72,6 +92,9 @@ export default {
       else return "days";
     },
   },
+  created(){
+    this.orderGig()
+  }
 };
 </script>
 

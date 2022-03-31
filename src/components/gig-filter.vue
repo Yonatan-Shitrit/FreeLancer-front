@@ -11,6 +11,10 @@
       </select> -->
     </label>
     <label>
+      Category:
+      <input v-model="filterBy.category" @input="setFilter" type="text" placeholder="Search category.." />      
+    </label>
+    <label>
       Labels:
       <select class="labselect" @change="setFilter" multiple v-model="filterBy.labels">
         <option >Voice Over</option>
@@ -45,6 +49,7 @@ export default {
         title: '',
         price: '',
         labels: [],
+        category: '',
         sortBy: '',
       },
     }

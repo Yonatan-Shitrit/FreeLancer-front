@@ -3,7 +3,7 @@ import { gigService } from '@/services/gig-service.js'
 export default {
   state: {
     gigs: [],
-    filterBy: { title: '', price: 0, labels: [], sortBy: ''},
+    filterBy: { title: '', price: 0, labels: [], sortBy: '', category: ''},
     // labels: gigService.getlabels(),
   },
   getters: {
