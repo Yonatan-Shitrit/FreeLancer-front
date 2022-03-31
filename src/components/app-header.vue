@@ -11,8 +11,8 @@
   >
     <section class="app-header">
       <div class="search-bar-wrapper">
-        <router-link class="logo" to="/">FreeLancer<span>.</span></router-link>
-        <search-bar v-if="scrollY>160"> </search-bar>
+        <router-link class="logo" to="/">Fastlancer<span>.</span></router-link>
+        <search-bar v-if="scrollY>160"></search-bar>
       </div>
       <nav>
         <ul>
@@ -25,7 +25,7 @@
           </li>
           <li v-else><button @click="openModal('logout')">Logout</button></li>
           <li class="header-item">
-            <router-link to="/seller">Become a Seller </router-link>
+            <router-link to="/seller/dashboard">Become a Seller </router-link>
           </li>
           <li class="header-item">
             <router-link to="/gig">Explore </router-link>
@@ -70,7 +70,9 @@ export default {
       return this.$store.getters.user;
       // console.log('sellerGigs', this.sellerGigs);
     },
-   
+    path(){
+      return this.$route.path;
+    }
   },
 
   methods: {
