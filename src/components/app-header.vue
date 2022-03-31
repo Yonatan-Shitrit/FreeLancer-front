@@ -11,7 +11,6 @@
     <section class="app-header">
       <div class="search-bar-wrapper">
         <router-link class="logo" to="/">Fastlancer<span>.</span></router-link>
-        <div>{{ homePage }}</div>
         <search-bar v-if="scrollY > 159 || !homePage"></search-bar>
       </div>
       <nav>
