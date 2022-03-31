@@ -90,8 +90,9 @@ export default {
     },
     async login() {
       try {
-        await this.$store.dispatch({ type: "login", userCred: this.loginCred });
-        this.$router.push("/");
+        await this.$store.dispatch({ type: "login", cred: this.loginCred });
+        // this.$router.push("/");
+        this.closeModal()
       } catch (err) {
         console.log(err);
       }
@@ -99,9 +100,10 @@ export default {
     async logout() {
       try {
         await this.$store.dispatch("logout");
-        this.$router.push("/");
+        // this.$router.push("/");
         this.username = null;
         this.password = null;
+        this.closeModal()
       } catch (err) {
         console.log(err);
       }
@@ -117,6 +119,7 @@ export default {
           this.signupCred
         );
         //this.$router.push('/');
+        this.closeModal()
       } catch (err) {
         console.log(err);
       }
@@ -132,7 +135,7 @@ export default {
   },
   computed: {
     loggedinUser() {
-      return this.$store.getters.loggedinUser;
+      return this.$store.getters.user;
     },
     titleBtn() {
       return !this.sigupScop ? "Go to the Login page" : "Go to the Signup page";

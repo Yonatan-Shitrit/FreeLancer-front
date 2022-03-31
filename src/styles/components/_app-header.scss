@@ -137,6 +137,11 @@
                     border: 0;
                     cursor: pointer;
                 }
+                .user-pic{
+                    height: 32px;
+                    width: 32px;
+                    border-radius: 50%;
+                }
                 &:hover {
                     a,
                     button {
