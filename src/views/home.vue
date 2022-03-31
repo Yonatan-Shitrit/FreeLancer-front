@@ -39,16 +39,16 @@
           <span>Popular:</span>
           <ul>
             <li>
-              <a href="">Website Design</a>
+              <a @click="search">Website Design</a>
             </li>
             <li>
-              <a href="">WordPress</a>
+              <a @click="search">WordPress</a>
             </li>
             <li>
-              <a href="">Logo Design</a>
+              <a @click="search">Logo Design</a>
             </li>
             <li>
-              <a href="">NFT Art</a>
+              <a @click="search">NFT Art</a>
             </li>
           </ul>
         </div>
