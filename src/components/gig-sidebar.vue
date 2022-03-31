@@ -69,17 +69,17 @@ export default {
     }
   },
   methods:{
-    orderGig(){
+    getEmptyGig(){
       this.orderToSave = userService.getEmptyOrder()
-      console.log('this.orderToSave-empty', this.orderToSave);
 
     },
     orderGig(){
       this.orderToSave.gigId = this.gig._id
       this.orderToSave.sellerId = this.gig.seller._id
-      this.orderToSave.gigId = this.$store.getters.user._id
-      // userService.saveOrder(this.orderToSave)
+      this.orderToSave.buyerId = this.user._id
+      userService.saveOrder(this.orderToSave)
       console.log('this.orderToSave', this.orderToSave);
+
     }
   },
   computed: {
@@ -91,9 +91,16 @@ export default {
       if (this.gig.daysToMake === 1) return "day";
       else return "days";
     },
+    user(){
+      return this.$store.getters.user
+    },
+    users(){
+      console.log('users',this.$store.getters.users);
+      return this.$store.getters.users
+    }
   },
   created(){
-    this.orderGig()
+    this.getEmptyGig()
   }
 };
 </script>

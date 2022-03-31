@@ -31,8 +31,9 @@
             type="text"
             class="search-input"
             :placeholder="searchPlaceHolder"
+            v-model="searchTerm"
           />
-          <button class="search-btn">Search</button>
+          <button class="search-btn" @click="search">Search</button>
         </form>
         <div class="popular">
           <span>Popular:</span>
@@ -163,10 +164,19 @@ import testCarousel from "../components/main-carousel.vue";
 import agilecarousel from "../components/main-header-carousel.vue";
 
 export default {
-  methods: {},
-
+  methods: {
+    search(){
+        this.$router.push({ path: 'gig', query: { title: this.searchTerm }})
+    }
+  },
+  data(){
+    return{
+      searchTerm:''
+    }
+  },
   created() {},
   computed: {
+     
     searchPlaceHolder() {
       return `Try "building mobile app"`;
     },

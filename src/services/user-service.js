@@ -9,7 +9,13 @@ export const userService = {
   logout,
   getGuestUser,
   getEmptyOrder,
-  saveOrder
+  saveOrder,
+  query
+}
+async function query() {
+  return await httpService.get('user' + '/')
+  // return axios.get(BASE_URL, { params: { filterBy } }).then((res) => res.data)  
+  // return await storageService.query(KEY, filterBy)
 }
 
 async function login(cred) {

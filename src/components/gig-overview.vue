@@ -1,5 +1,5 @@
 <template>
-  <section class="gig-overview">
+  <section v-if="gig" class="gig-overview">
     <h1>{{gig.title}}</h1>
     <div class="seller-overview">
       <img
