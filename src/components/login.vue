@@ -3,12 +3,13 @@
     <div @click="closeModal" class="black-screen"></div>
     <div class="login-container">
       <div v-if="sigupScop" class="log-in">
-        <h1>LOGIN/SIGNUP Page</h1>
         <section v-if="loggedinUser">
+          <h1>Logout</h1>
           <h2>Welcome {{ loggedinUser.fullname }}</h2>
           <button @click="logout">Logout</button>
         </section>
         <form v-else @submit.prevent="login">
+          <h1>Login</h1>
           <input
             type="text"
             v-model="loginCred.username"
@@ -20,8 +21,8 @@
             placeholder="Enter password"
           />
           <button>Login</button>
+        <button @click="switchScop" class="switch">{{ titleBtn }}</button>
         </form>
-        <pre>{{ loginCred }}</pre>
       </div>
 
       <div class="sign-up" v-if="!sigupScop">
@@ -50,8 +51,9 @@
           <button>Signup Now!</button>
         </form>
         <!-- <pre>{{ signupCred }}</pre> -->
+        <button @click="switchScop" class="switch">{{ titleBtn }}</button>
       </div>
-      <button @click="switchScop" class="switch">{{ titleBtn }}</button>
+      
     </div>
   </section>
 </template>
@@ -92,7 +94,7 @@ export default {
       try {
         await this.$store.dispatch({ type: "login", cred: this.loginCred });
         // this.$router.push("/");
-        this.closeModal()
+        this.closeModal();
       } catch (err) {
         console.log(err);
       }
@@ -103,7 +105,7 @@ export default {
         // this.$router.push("/");
         this.username = null;
         this.password = null;
-        this.closeModal()
+        this.closeModal();
       } catch (err) {
         console.log(err);
       }
@@ -119,7 +121,7 @@ export default {
           this.signupCred
         );
         //this.$router.push('/');
-        this.closeModal()
+        this.closeModal();
       } catch (err) {
         console.log(err);
       }
