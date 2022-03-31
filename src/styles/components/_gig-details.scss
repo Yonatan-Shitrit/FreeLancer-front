@@ -1,3 +1,28 @@
+.order-modal{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 4002;
+    .black-screen{
+        background-color: rgba(0, 0, 0, 0.445);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        cursor: pointer;
+    }
+    .modal{
+        background-color: white;
+        height: 300px;
+        width: 300px;
+        z-index: 1;
+    }
+    
+}
 .gig-details-header {
     height: 53px;
     display: flex;

@@ -23,6 +23,10 @@
       </ul>
     </nav>
   </div>
+  <div class="order-modal">
+    <div class="black-screen"></div>
+    <div class="modal"></div>
+  </div>
   <section v-if="gig" class="gig-page">
     <div class="gig-details">
       <gig-overview :gig="gig" />
