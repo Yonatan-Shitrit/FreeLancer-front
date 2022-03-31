@@ -1,7 +1,7 @@
 <template>
     <Carousel :breakpoints="breakpoints">
     <Slide  style="padding: 0 10px 0 10px; display:grid; " v-for="slide in 10" :key="slide" >
-      <img  class="slide-image" :src="images[slide-1]">
+      <img  class="slide-image" @click="explore(title[slide-1])" :src="images[slide-1]">
       <h4 class="main-carousel-slide-txt">
    <small style="font-size: 14px; font-weight: 100;">{{description[slide-1]}}</small><br>
   {{title[slide-1]}}
@@ -84,6 +84,11 @@ export default {
     Slide,
     Navigation,
   },
+  methods:{
+    explore(search){
+      this.$router.push({ path: 'gig', query: { category: search }})
+    }
+  }
 };
 </script>
 
