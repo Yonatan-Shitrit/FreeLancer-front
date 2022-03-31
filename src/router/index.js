@@ -45,12 +45,16 @@ const router = createRouter({
       path: '/seller/dashboard',
       name: 'dashBoard',
       component: dashBoard
+<<<<<<< HEAD
+    }    
+=======
     },
     {
       path: '/orders/',
       name: 'orders',
       component: userOrdersVue
     },
+>>>>>>> d768c35db885ed10b5a7c5f87f6e1e850c004e84
   ]
 })
 
