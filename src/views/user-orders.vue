@@ -63,7 +63,12 @@ export default {
       order.status = status
       order.updatedAt = Date.now()
       console.log('updateOrder',order);
+      try{
       await this.$store.dispatch({ type: "saveOrder", order });      
+      }
+      catch(err){
+        console.error('Cannot change status order from user order', err);
+      }
     }
   },
   computed: {

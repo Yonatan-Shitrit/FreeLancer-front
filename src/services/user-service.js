@@ -1,6 +1,4 @@
 import { httpService } from './http-service.js'
-import { storageService } from './async-storage-service'
-import { utilService } from './util-service.js'
 const ENDPOINT = 'auth'
 
 export const userService = {
@@ -11,25 +9,39 @@ export const userService = {
   query
 }
 async function query() {
-  return await httpService.get('user' + '/')
-  // return axios.get(BASE_URL, { params: { filterBy } }).then((res) => res.data)  
-  // return await storageService.query(KEY, filterBy)
+  try{
+  return await httpService.get('user' + '/')  
+  }
+  catch(err){
+    console.error('Cannot query users', err);
+  }
 }
 
 async function login(cred) {
-  return await httpService.post(ENDPOINT + '/login', cred)
-  // return await storageService.post(ENDPOINT, cred)
+  try{
+  return await httpService.post(ENDPOINT + '/login', cred)  
+  }
+  catch(err){
+    console.error('Cannot login user', err);
+  }
 }
 
-async function signup(cred) {
-  console.log('"Hi userI am in the user service signup',cred);
-  return await httpService.post(ENDPOINT + '/signup', cred)
-  // return await storageService.post(ENDPOINT, cred)
+async function signup(cred) {  
+  try{
+  return await httpService.post(ENDPOINT + '/signup', cred)  
+  }
+  catch(err){
+    console.error('Cannot signup user', err);
+  }
 }
 
 async function logout() {
-  return await httpService.post(ENDPOINT + '/logout')
-  // return await storageService.post(ENDPOINT)
+  try{
+  return await httpService.post(ENDPOINT + '/logout')  
+  }
+  catch(err){
+    console.error('Cannot logout user', err);
+  }
 }
 
 function getGuestUser() {

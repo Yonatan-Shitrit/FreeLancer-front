@@ -80,9 +80,14 @@ export default {
       console.log('this.orderToSave', this.orderToSave);      
     },
     async saveOrder() {
+      try{
       console.log(this.orderToSave);
       await this.$store.dispatch({ type: "saveOrder", order: this.orderToSave });      
       this.$emit('confirmation')
+      }
+      catch(err){
+        console.error('Cannot save order from gig sidebar', err);
+      }
     },
     
   },
