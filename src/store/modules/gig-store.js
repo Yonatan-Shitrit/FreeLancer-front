@@ -43,20 +43,34 @@ export default {
   },
   actions: {
     async loadGigs({ commit, state }) {
+      try{
       const gigs = await gigService.query(state.filterBy)
       commit({ type: 'setGigs', gigs })
-      console.log('store commit gigs');      
+      console.log('store commit gigs');
+      }
+      catch(err){
+        console.error('Cannot load Gigs', err);
+      }
     
     },
     async saveGig({ commit }, { gig }) {
+      try{
       const savedGig = await gigService.save(gig)
       commit({ type: 'saveGig', gig: savedGig })
       return savedGig
+      }
+      catch(err){
+        console.error('Cannot save gig', err);
+      }
     },
     async removeGig({ commit }, { gigId }) {
+      try{
       await gigService.remove(gigId)
         commit({ type: 'removeGig', gigId })
-      
+      }
+      catch(err){
+        console.error('Cannot remove gig', err);
+      }
     },
     setFilter({ dispatch, commit }, { filterBy }) {
       // console.log('I am in the store', filterBy);

@@ -91,11 +91,16 @@ export default {
   unmounted() {
     document.removeEventListener("scroll", this.setScroll);
   },
-  async created() {
+  async created() {    
     const { id } = this.$route.params;
+    try{
     const gig = await gigService.getById(id);
     console.log("i got gig", gig);
     this.gig = gig;
+    }
+    catch(err){
+      console.error('Cannot get gig by id from gig details', err);
+    }
   },
 };
 </script>

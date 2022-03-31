@@ -21,55 +21,64 @@ export const gigService = {
 
 
 
-// const gGigs = _createManyGigs()
+
 
 async function query(filterBy) {
+  try{
   return await httpService.get(ENDPOINT, filterBy)
-  // return axios.get(BASE_URL, { params: { filterBy } }).then((res) => res.data)  
-  // return await storageService.query(KEY, filterBy)
+  }
+  catch(err){
+    console.error('Cannot query gigs', err);
+  }
+  
 }
 
 async function getUserById(id) {
+  try{
   return await httpService.get(ENDPOINT, filterBy)
-  // return axios.get(BASE_URL, { params: { filterBy } }).then((res) => res.data)
-  
-  //no back end:
-  // return storageService.getById('sellers_DB', id)
-
+  }
+  catch(err){
+    console.error('Cannot get gig by id', err);
+  }  
 }
 
 
 async function getById(id) {
+  try{
   return await httpService.get(`${ENDPOINT}/${id}`)
-  // return axios.get(BASE_URL + id).then((res) => res.data)
-  
-  //no back end:
-  // return storageService.getById(KEY, id)
+  }
+  catch(err){
+    console.error('Cannot get gigs', err);
+  }
 }
 
 async function remove(id) {
+  try{
   return await httpService.delete(`${ENDPOINT}/${id}`)
-  // return axios.delete(BASE_URL + id).then((res) => res.data)
-  
-  //no back end:
-  // return storageService.remove(KEY, id)
+  }
+  catch(err){
+    console.error('Cannot remove gig', err);
+  }  
 }
 
 async function save(gig) {
+  try{
   return gig._id
   ? await httpService.put(`${ENDPOINT}/${gig._id}`, gig)
-  : await httpService.post(ENDPOINT, gig)
-
-  //no back end:
-  // return gig._id ? storageService.put(KEY, gig) : storageService.post(KEY, gig)
+  : await httpService.post(ENDPOINT, gig)  
+  }
+  catch(err){
+    console.error('Cannot save gig from gig service', err);
+  }
 }
+
 _createManyGigs()
+
 async function _createManyGigs() {
   try {
     const gigs = await query();
     if (!gigs || !gigs.length) {
       utilService.saveToStorage(KEY, gGigsTest);
-      // for back end:
       gGigsTest.forEach(gig => {
         save(gig);
       });
@@ -86,7 +95,6 @@ async function _createManySellers() {
   try {
     const sellers = await query('sellers_DB');
     if (!sellers || !sellers.length) {
-      // storageService.post(KEY, gGigsTest)
       utilService.saveToStorage('sellers_DB', gSellersTest);
     }
   }
@@ -95,7 +103,7 @@ async function _createManySellers() {
   }
 }
 
-function getEmptyGig() { //TODO
+function getEmptyGig() { 
   return {    
         title: '',
         images: [],
@@ -129,39 +137,7 @@ function getEmptyGig() { //TODO
     }
 
 
-// function getCatigories() { //TODO
-//   return labels
-// }
 
-// function _createGigs() {
-//   let gigs = utilService.loadFromStorage(KEY)
-//   if (!gigs || !gigs.length) {
-//     gigs = [
-//       _createGig('Doll', 150, ['On wheels', 'Doll']),
-//       _createGig('Truck', 80, ['Outdoor', 'Baby']),
-//       _createGig('Cards', 150, ['Puzzle', 'Art']),
-//     ]
-//     utilService.saveToStorage(KEY, gigs)
-//     // 'On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor'
-//   }
-//   return gigs
-// }
-
-// function _createGig(name, price, labels, reviews) {
-//   return {
-//     _id: utilService.makeId(),
-//     name,
-//     price,
-//     labels,
-//     inStock: true,
-//     createdAt: new Date(),
-//     reviews: [
-//       { _id: utilService.makeId(), txt: utilService.getLoremIpsum(5), createdAt: new Date() },
-//       { _id: utilService.makeId(), txt: utilService.getLoremIpsum(5), createdAt: new Date() },
-//       { _id: utilService.makeId(), txt: utilService.getLoremIpsum(5), createdAt: new Date() },
-//     ],
-//   }
-// }
 
 var gGigsTest = [
   {
@@ -13109,581 +13085,3 @@ var gGigsTest = [
   }
 ]
 
-// var gSellersTest = [
-//   {
-//     _id: "1A5uQ",
-//     oneLiner: "earum nam dolorem voluptas corrupti",
-//     country: {
-//       name: "Kenya",
-//       flag: "https://flagcdn.com/w320/ke.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/so.png"
-//     },
-//     avargResponsTime: 12,
-//     lastDelevary: 12,
-//     discription: "aspernatur! Dolore voluptatibus sed provident aperiam ea autem! Incidunt quia, obcaecati natus officia delectus minima, dignissimos porro, accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero",
-//     gigsId: [
-//       "ogzJPyzTuRuja9f",
-//       "eljdJMbluripJKZ",
-//       "5owve7xt0RRI0ob"
-//     ]
-//   },
-//   {
-//     _id: "iSIHg",
-//     oneLiner: "Incidunt quia, obcaecati natus",
-//     country: {
-//       name: "Cocos (Keeling) Islands",
-//       flag: "https://flagcdn.com/w320/cc.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/bb.png"
-//     },
-//     avargResponsTime: 18,
-//     lastDelevary: 20,
-//     discription: "aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio",
-//     gigsId: [
-//       "lzbzt7Zk6lclIga",
-//       "K0UIJMYo9umf4iB",
-//       "c5IS4S5bENXCnEY",
-//       "MnoTZZdRnsXKVc8",
-//       "Ac003P71bJIDRgg"
-//     ]
-//   },
-//   {
-//     _id: "1H8g4",
-//     oneLiner: "aliquid? Ipsam libero aliquam eos",
-//     country: {
-//       name: "Switzerland",
-//       flag: "https://flagcdn.com/w320/ch.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/nc.png"
-//     },
-//     avargResponsTime: 11,
-//     lastDelevary: 14,
-//     discription: "cumque culpa, dicta hic harum expedita possimus, deleniti, minima ducimus sit quas asperiores at magni earum nam dolorem voluptas corrupti aspernatur! Dolore voluptatibus sed provident aperiam ea autem! Incidunt quia, obcaecati natus officia delectus minima, dignissimos porro, accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis",
-//     gigsId: [
-//       "TVh72JR72r9PjRS",
-//       "AWQmQMPffVoUvv7",
-//       "LRxe6MIUKhr7jto",
-//       "EqZEfZR1wGORs67"
-//     ]
-//   },
-//   {
-//     _id: "v4lxw",
-//     oneLiner: "provident eveniet. Ut ab ipsum",
-//     country: {
-//       name: "Italy",
-//       flag: "https://flagcdn.com/w320/it.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/gp.png"
-//     },
-//     avargResponsTime: 18,
-//     lastDelevary: 19,
-//     discription: "delectus minima, dignissimos porro, accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis",
-//     gigsId: [
-//       "TvuNV5EqSvE70lS",
-//       "Y7iCjAqoQHwea0J"
-//     ]
-//   },
-//   {
-//     _id: "2nQ5M",
-//     oneLiner: "at magni earum nam dolorem",
-//     country: {
-//       name: "South Africa",
-//       flag: "https://flagcdn.com/w320/za.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/kh.png"
-//     },
-//     avargResponsTime: 15,
-//     lastDelevary: 18,
-//     discription: "dolorem voluptas corrupti aspernatur! Dolore voluptatibus sed provident aperiam ea autem! Incidunt quia, obcaecati natus officia delectus minima, dignissimos porro, accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis",
-//     gigsId: [
-//       "cY10AZYCAFRdmrS",
-//       "Oa9ObuAtRa5tNZQ"
-//     ]
-//   },
-//   {
-//     _id: "jpO1u",
-//     oneLiner: "consectetur adipisicing elit. Officiis inventore",
-//     country: {
-//       name: "Ethiopia",
-//       flag: "https://flagcdn.com/w320/et.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/ht.png"
-//     },
-//     avargResponsTime: 15,
-//     lastDelevary: 18,
-//     discription: "reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem, quam corporis iste illum sint ut necessitatibus exercitationem facilis deserunt cum modi doloremque distinctio fugit veniam accusamus quae voluptas debitis, itaque perferendis sunt quisquam! Doloremque aspernatur excepturi doloribus inventore repudiandae, debitis vel quisquam provident quibusdam minus pariatur dolores rem exercitationem laudantium!",
-//     gigsId: [
-//       "nceIEP9t2cfV8dc",
-//       "WCVbnKa3VATErz5",
-//       "ThMl3kV35h55eAI",
-//       "MeknwxQbG237ngG",
-//       "kFQrpwV9kzN0BtY"
-//     ]
-//   },
-//   {
-//     _id: "0UNyd",
-//     oneLiner: "quaerat quos, ducimus quod minima",
-//     country: {
-//       name: "Caribbean Netherlands",
-//       flag: "https://flagcdn.com/w320/bq.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/il.png"
-//     },
-//     avargResponsTime: 16,
-//     lastDelevary: 19,
-//     discription: "voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum",
-//     gigsId: [
-//       "NweXb1OTwuesDVx",
-//       "O7xeyBNzd0C608v",
-//       "1JZ5SEyD5WX9sI0"
-//     ]
-//   },
-//   {
-//     _id: "nC1fA",
-//     oneLiner: "eveniet. Ut ab ipsum",
-//     country: {
-//       name: "Solomon Islands",
-//       flag: "https://flagcdn.com/w320/sb.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/ax.png"
-//     },
-//     avargResponsTime: 7,
-//     lastDelevary: 22,
-//     discription: "illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem, quam corporis iste illum sint ut necessitatibus",
-//     gigsId: [
-//       "w6ysfYXbab4Yk2a",
-//       "UvXEtdplh88wHgQ"
-//     ]
-//   },
-//   {
-//     _id: "PHQta",
-//     oneLiner: "quos, ducimus quod minima aliquid?",
-//     country: {
-//       name: "Tunisia",
-//       flag: "https://flagcdn.com/w320/tn.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/mr.png"
-//     },
-//     avargResponsTime: 5,
-//     lastDelevary: 13,
-//     discription: "reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem, quam corporis iste illum sint ut necessitatibus exercitationem facilis deserunt cum modi doloremque distinctio fugit veniam accusamus quae voluptas debitis, itaque perferendis sunt quisquam!",
-//     gigsId: [
-//       "ZlZodbqotMd4P5E",
-//       "oNot67a2o0Tq3kr",
-//       "QyssUNUKwVbq5gd",
-//       "hI3nCxKFGuMVY22",
-//       "7wHZYUfK1zom1eb"
-//     ]
-//   },
-//   {
-//     _id: "kKNUt",
-//     oneLiner: "illum velit esse assumenda! Ipsum",
-//     country: {
-//       name: "Slovenia",
-//       flag: "https://flagcdn.com/w320/si.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/ee.png"
-//     },
-//     avargResponsTime: 4,
-//     lastDelevary: 8,
-//     discription: "aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem, quam corporis iste illum sint ut necessitatibus exercitationem facilis deserunt cum modi doloremque distinctio fugit veniam",
-//     gigsId: [
-//       "8JacbZY9vJJcqqG",
-//       "V4AdcoS9sheHfrD"
-//     ]
-//   },
-//   {
-//     _id: "Zd1kW",
-//     oneLiner: "aperiam ea autem! Incidunt",
-//     country: {
-//       name: "Senegal",
-//       flag: "https://flagcdn.com/w320/sn.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/ci.png"
-//     },
-//     avargResponsTime: 19,
-//     lastDelevary: 16,
-//     discription: "harum expedita possimus, deleniti, minima ducimus sit quas asperiores at magni earum nam dolorem voluptas corrupti aspernatur! Dolore voluptatibus sed provident aperiam ea autem! Incidunt quia, obcaecati natus officia delectus minima, dignissimos porro, accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat",
-//     gigsId: [
-//       "rYGKl8vmtVdkgSw",
-//       "SE09Z2U9vIhp0YF",
-//       "8V49oRbcWPUyB3F",
-//       "eyiOYN82RWv7ysi"
-//     ]
-//   },
-//   {
-//     _id: "cEVU2",
-//     oneLiner: "aliquid? Ipsam libero aliquam",
-//     country: {
-//       name: "São Tomé and Príncipe",
-//       flag: "https://flagcdn.com/w320/st.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/gm.png"
-//     },
-//     avargResponsTime: 1,
-//     lastDelevary: 21,
-//     discription: "Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem, quam corporis iste illum sint ut necessitatibus exercitationem facilis deserunt cum modi doloremque distinctio fugit veniam accusamus quae voluptas debitis, itaque perferendis sunt quisquam! Doloremque aspernatur excepturi doloribus inventore repudiandae, debitis vel quisquam provident quibusdam minus",
-//     gigsId: [
-//       "iMyuSx7TX0dQTUL",
-//       "zn8hkX3bvqVevYE",
-//       "5uwPQLFDITVerbP",
-//       "CMgLuy6y4wwV1Ru",
-//       "Sz6xQOrfVnK0U6j"
-//     ]
-//   },
-//   {
-//     _id: "073iz",
-//     oneLiner: "quod minima aliquid? Ipsam",
-//     country: {
-//       name: "Sweden",
-//       flag: "https://flagcdn.com/w320/se.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/co.png"
-//     },
-//     avargResponsTime: 22,
-//     lastDelevary: 7,
-//     discription: "hic harum expedita possimus, deleniti, minima ducimus sit quas asperiores at magni earum nam dolorem voluptas corrupti aspernatur! Dolore voluptatibus sed provident aperiam ea autem! Incidunt quia, obcaecati natus officia delectus minima, dignissimos porro, accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam",
-//     gigsId: [
-//       "ANt00wUT9qo7a7c",
-//       "GCPQ0ZqF6QIkyIP",
-//       "NWE6bgGzRXlie68",
-//       "myOW4tGehmswS3m"
-//     ]
-//   },
-//   {
-//     _id: "qaVAf",
-//     oneLiner: "vero mollitia, voluptas nobis",
-//     country: {
-//       name: "Cuba",
-//       flag: "https://flagcdn.com/w320/cu.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/cu.png"
-//     },
-//     avargResponsTime: 6,
-//     lastDelevary: 13,
-//     discription: "nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio",
-//     gigsId: [
-//       "egCECrjZir9bB5f",
-//       "iLccEirgK2aUiaK",
-//       "6QyZ9OsB3vmOBC3"
-//     ]
-//   },
-//   {
-//     _id: "rEOXP",
-//     oneLiner: "repellat possimus reiciendis id",
-//     country: {
-//       name: "American Samoa",
-//       flag: "https://flagcdn.com/w320/as.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/pl.png"
-//     },
-//     avargResponsTime: 9,
-//     lastDelevary: 17,
-//     discription: "in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem,",
-//     gigsId: [
-//       "M1oOesUg6alIHjp",
-//       "3znVm97cFxWaX83",
-//       "fBF3DTbdunGHP8C",
-//       "kgiSKcWWReCaImm",
-//       "9yGGlGtm5gmz0hN",
-//       "WVzCyIddzVJNfhC"
-//     ]
-//   },
-//   {
-//     _id: "HhHvc",
-//     oneLiner: "dolorem ipsum. Reiciendis cumque",
-//     country: {
-//       name: "Australia",
-//       flag: "https://flagcdn.com/w320/au.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/la.png"
-//     },
-//     avargResponsTime: 4,
-//     lastDelevary: 8,
-//     discription: "ea autem! Incidunt quia, obcaecati natus officia delectus minima, dignissimos porro, accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo",
-//     gigsId: [
-//       "C7lafLaZiIfGYK7",
-//       "B246R1gzRfF9bPb",
-//       "kpLar5CdbUuJ27v",
-//       "BwodS2tjuxqRwiQ"
-//     ]
-//   },
-//   {
-//     _id: "YdeQn",
-//     oneLiner: "fuga at perspiciatis cumque",
-//     country: {
-//       name: "Estonia",
-//       flag: "https://flagcdn.com/w320/ee.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/ky.png"
-//     },
-//     avargResponsTime: 9,
-//     lastDelevary: 4,
-//     discription: "optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem, quam corporis iste illum sint ut necessitatibus exercitationem facilis deserunt cum modi doloremque distinctio fugit veniam accusamus quae voluptas debitis, itaque perferendis sunt quisquam! Doloremque aspernatur excepturi doloribus inventore repudiandae, debitis vel quisquam",
-//     gigsId: [
-//       "X645Pj52U3msciX",
-//       "lb1mVTuiRnZUhbK",
-//       "9TgI9qwLmeiN4wL"
-//     ]
-//   },
-//   {
-//     _id: "FmZxC",
-//     oneLiner: "ab ipsum excepturi in,",
-//     country: {
-//       name: "Liberia",
-//       flag: "https://flagcdn.com/w320/lr.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/bq.png"
-//     },
-//     avargResponsTime: 3,
-//     lastDelevary: 4,
-//     discription: "accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis",
-//     gigsId: [
-//       "FhTKYOZOmjf4h5F",
-//       "CkZ7qa8R1ZLxn7y",
-//       "VtAj8TnhVRoOptv",
-//       "iTb2yKXUmYwyGBk",
-//       "YZ2UHqHNaQNwyni"
-//     ]
-//   },
-//   {
-//     _id: "SRfnG",
-//     oneLiner: "hic harum expedita possimus,",
-//     country: {
-//       name: "Saint Martin",
-//       flag: "https://flagcdn.com/w320/mf.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/lr.png"
-//     },
-//     avargResponsTime: 7,
-//     lastDelevary: 10,
-//     discription: "voluptas corrupti aspernatur! Dolore voluptatibus sed provident aperiam ea autem! Incidunt quia, obcaecati natus officia delectus minima, dignissimos porro, accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime,",
-//     gigsId: [
-//       "GwAJ02HULzNkm1R",
-//       "6wcj9q4VhIoq3Wf",
-//       "iqkU6vVOuR6GeUn"
-//     ]
-//   },
-//   {
-//     _id: "ObpTv",
-//     oneLiner: "at perspiciatis cumque maxime!",
-//     country: {
-//       name: "South Georgia",
-//       flag: "https://flagcdn.com/w320/gs.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/ba.png"
-//     },
-//     avargResponsTime: 17,
-//     lastDelevary: 16,
-//     discription: "est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem, quam corporis iste illum sint ut necessitatibus exercitationem facilis deserunt cum modi doloremque distinctio fugit veniam accusamus quae voluptas debitis,",
-//     gigsId: [
-//       "SSx4fjYVl325fIf",
-//       "uVnkpgN4hHXtOHE",
-//       "wm9yPweBn8ZsJqz",
-//       "sTv9hXVvcNRmCYu"
-//     ]
-//   },
-//   {
-//     _id: "5jSSV",
-//     oneLiner: "possimus reiciendis id quaerat",
-//     country: {
-//       name: "Cuba",
-//       flag: "https://flagcdn.com/w320/cu.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/cu.png"
-//     },
-//     avargResponsTime: 5,
-//     lastDelevary: 11,
-//     discription: "illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad",
-//     gigsId: [
-//       "0bQiIWybgZYwYng",
-//       "dc3LbxZ9EOEYqmj"
-//     ]
-//   },
-//   {
-//     _id: "viu25",
-//     oneLiner: "minima debitis aspernatur vero",
-//     country: {
-//       name: "Ireland",
-//       flag: "https://flagcdn.com/w320/ie.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/ma.png"
-//     },
-//     avargResponsTime: 15,
-//     lastDelevary: 7,
-//     discription: "quia, obcaecati natus officia delectus minima, dignissimos porro, accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus",
-//     gigsId: [
-//       "rP3Tyv72gTPVpZZ",
-//       "WYlOThcnN1mWiYF",
-//       "YFK7eGg1YdP2Zsm"
-//     ]
-//   },
-//   {
-//     _id: "qwgPk",
-//     oneLiner: "aliquam eos doloribus, reiciendis suscipit",
-//     country: {
-//       name: "Saint Helena, Ascension and Tristan da Cunha",
-//       flag: "https://flagcdn.com/w320/sh.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/ne.png"
-//     },
-//     avargResponsTime: 6,
-//     lastDelevary: 14,
-//     discription: "Reiciendis cumque culpa, dicta hic harum expedita possimus, deleniti, minima ducimus sit quas asperiores at magni earum nam dolorem voluptas corrupti aspernatur! Dolore voluptatibus sed provident aperiam ea autem! Incidunt quia, obcaecati natus officia delectus minima, dignissimos porro, accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis",
-//     gigsId: [
-//       "bHjPLsfCQObXunz",
-//       "qYe6FTajuDDz8Cj",
-//       "yqHYdfkvl6RlZBo"
-//     ]
-//   },
-//   {
-//     _id: "lXASe",
-//     oneLiner: "dolorem voluptas corrupti aspernatur!",
-//     country: {
-//       name: "Cocos (Keeling) Islands",
-//       flag: "https://flagcdn.com/w320/cc.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/bb.png"
-//     },
-//     avargResponsTime: 21,
-//     lastDelevary: 3,
-//     discription: "voluptatibus sed provident aperiam ea autem! Incidunt quia, obcaecati natus officia delectus minima, dignissimos porro, accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus,",
-//     gigsId: [
-//       "J4LWxUczGF9Q35N",
-//       "PgWcg72XKBZFDhw",
-//       "cSJOgFd1vHdj9OR"
-//     ]
-//   },
-//   {
-//     _id: "kGwuo",
-//     oneLiner: "expedita possimus, deleniti, minima",
-//     country: {
-//       name: "Yemen",
-//       flag: "https://flagcdn.com/w320/ye.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/pt.png"
-//     },
-//     avargResponsTime: 4,
-//     lastDelevary: 20,
-//     discription: "voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime,",
-//     gigsId: [
-//       "wgUhv3AFW9qhS3m",
-//       "oIsYxNe9m6oXa2U"
-//     ]
-//   },
-//   {
-//     _id: "BkiGF",
-//     oneLiner: "amet consectetur adipisicing elit.",
-//     country: {
-//       name: "Brunei",
-//       flag: "https://flagcdn.com/w320/bn.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/pk.png"
-//     },
-//     avargResponsTime: 12,
-//     lastDelevary: 4,
-//     discription: "minima ducimus sit quas asperiores at magni earum nam dolorem voluptas corrupti aspernatur! Dolore voluptatibus sed provident aperiam ea autem! Incidunt quia, obcaecati natus officia delectus minima, dignissimos porro, accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis",
-//     gigsId: [
-//       "2uZw9L2Vx5LkXyP"
-//     ]
-//   },
-//   {
-//     _id: "nztSc",
-//     oneLiner: "molestiae est voluptatum minima",
-//     country: {
-//       name: "Italy",
-//       flag: "https://flagcdn.com/w320/it.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/gp.png"
-//     },
-//     avargResponsTime: 8,
-//     lastDelevary: 10,
-//     discription: "obcaecati natus officia delectus minima, dignissimos porro, accusantium aut molestias provident eveniet. Ut ab ipsum excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi",
-//     gigsId: [
-//       "kqaflsjmeiTdIdh"
-//     ]
-//   },
-//   {
-//     _id: "6E4y5",
-//     oneLiner: "at magni earum nam dolorem",
-//     country: {
-//       name: "Greece",
-//       flag: "https://flagcdn.com/w320/gr.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/zw.png"
-//     },
-//     avargResponsTime: 18,
-//     lastDelevary: 14,
-//     discription: "aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem, quam corporis iste illum sint ut necessitatibus exercitationem facilis deserunt cum modi doloremque distinctio fugit veniam accusamus quae voluptas debitis, itaque perferendis sunt quisquam! Doloremque aspernatur excepturi",
-//     gigsId: [
-//       "JOWHyad27qviDCO"
-//     ]
-//   },
-//   {
-//     _id: "dORcc",
-//     oneLiner: "voluptas nobis asperiores illum",
-//     country: {
-//       name: "Bouvet Island",
-//       flag: "https://flagcdn.com/w320/bv.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/ai.png"
-//     },
-//     avargResponsTime: 22,
-//     lastDelevary: 21,
-//     discription: "excepturi in, vitae praesentium cumque molestiae est voluptatum minima debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem, quam corporis iste illum sint ut necessitatibus exercitationem facilis deserunt cum modi doloremque distinctio fugit",
-//     gigsId: [
-//       "HecCy2EP5MpQhtM",
-//       "AQ5XioHXEJMB2Zs"
-//     ]
-//   },
-//   {
-//     _id: "BWmOB",
-//     oneLiner: "libero aliquam eos doloribus,",
-//     country: {
-//       name: "Solomon Islands",
-//       flag: "https://flagcdn.com/w320/sb.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/ax.png"
-//     },
-//     avargResponsTime: 17,
-//     lastDelevary: 22,
-//     discription: "cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem, quam corporis iste illum sint ut necessitatibus exercitationem facilis deserunt cum modi doloremque distinctio fugit veniam accusamus quae voluptas debitis, itaque perferendis sunt",
-//     gigsId: [
-//       "diqzUkJRrnUIbga",
-//       "iFSaqF6ETkCAdWg",
-//       "4OGrmACeqkoHhuQ"
-//     ]
-//   },
-//   {
-//     _id: "bI0EQ",
-//     oneLiner: "aliquid? Ipsam libero aliquam eos",
-//     country: {
-//       name: "Trinidad and Tobago",
-//       flag: "https://flagcdn.com/w320/tt.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/md.png"
-//     },
-//     avargResponsTime: 15,
-//     lastDelevary: 16,
-//     discription: "reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem, quam corporis iste illum sint ut necessitatibus exercitationem facilis deserunt cum modi doloremque distinctio fugit veniam accusamus quae voluptas debitis, itaque perferendis sunt quisquam! Doloremque aspernatur excepturi doloribus inventore repudiandae, debitis vel quisquam",
-//     gigsId: [
-//       "oJ5RtdxQTHFpXtS"
-//     ]
-//   },
-//   {
-//     _id: "7Z2tq",
-//     oneLiner: "aperiam ea autem! Incidunt quia,",
-//     country: {
-//       name: "Saint Kitts and Nevis",
-//       flag: "https://flagcdn.com/w320/kn.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/al.png"
-//     },
-//     avargResponsTime: 15,
-//     lastDelevary: 18,
-//     discription: "debitis aspernatur vero mollitia, voluptas nobis asperiores illum velit esse assumenda! Ipsum fuga at perspiciatis cumque maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque,",
-//     gigsId: [
-//       "LLG29QqRt1mQgNz"
-//     ]
-//   },
-//   {
-//     _id: "Y4WFf",
-//     oneLiner: "asperiores at magni earum",
-//     country: {
-//       name: "Guam",
-//       flag: "https://flagcdn.com/w320/gu.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/cr.png"
-//     },
-//     avargResponsTime: 8,
-//     lastDelevary: 11,
-//     discription: "id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem, quam corporis iste illum sint ut necessitatibus exercitationem facilis deserunt cum modi doloremque distinctio fugit veniam accusamus quae voluptas debitis, itaque perferendis sunt quisquam! Doloremque aspernatur excepturi doloribus inventore repudiandae, debitis vel quisquam",
-//     gigsId: [
-//       "neyiEwH4TloS4J9",
-//       "N3rH0ViIZuWkQdQ"
-//     ]
-//   },
-//   {
-//     _id: "1BHBP",
-//     oneLiner: "ipsum excepturi in, vitae praesentium",
-//     country: {
-//       name: "Colombia",
-//       flag: "https://flagcdn.com/w320/co.png",
-//       logo: "https://mainfacts.com/media/images/coats_of_arms/tt.png"
-//     },
-//     avargResponsTime: 19,
-//     lastDelevary: 6,
-//     discription: "maxime! Blanditiis optio repellat possimus reiciendis id quaerat quos, ducimus quod minima aliquid? Ipsam libero aliquam eos doloribus, reiciendis suscipit error, repellat repellendus, perferendis corporis veniam explicabo nemo? Odio delectus commodi velit asperiores maxime, eius corrupti rerum a optio provident eligendi illum similique, neque, quia quidem molestiae et ad veritatis ipsum ipsa tempore. Animi autem, quam corporis iste illum sint ut necessitatibus exercitationem facilis deserunt cum modi doloremque distinctio fugit veniam accusamus quae voluptas debitis, itaque perferendis sunt quisquam! Doloremque aspernatur excepturi doloribus inventore repudiandae, debitis vel quisquam provident quibusdam",
-//     gigsId: [
-//       "iP50NqIoueqqbH6"
-//     ]
-//   }
-// ]
