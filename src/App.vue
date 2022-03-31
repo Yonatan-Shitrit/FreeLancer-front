@@ -10,7 +10,6 @@
 export default {
   created(){    
     this.$store.dispatch({ type: "loadGigs" });
-    this.$store.dispatch({ type: "loadUsers" });
     console.log('store load gigs dispatch from app');
   },
   components:{

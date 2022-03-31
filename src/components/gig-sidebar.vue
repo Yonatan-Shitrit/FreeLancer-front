@@ -44,7 +44,7 @@
           </div>
         </article>
         <footer>
-          <button @click="orderGig">Continue (${{ gig.price }})</button>
+          <button @click="saveOrder">Continue (${{ gig.price }})</button>
         </footer>
       </form>
       <div class="contact-seller">
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { userService } from "../services/user-service";
+import { orderService } from "../services/order-service";
 export default {
   props: {
     gig: {
@@ -70,17 +70,21 @@ export default {
   },
   methods:{
     getEmptyGig(){
-      this.orderToSave = userService.getEmptyOrder()
+      this.orderToSave = orderService.getEmptyOrder()
 
     },
     orderGig(){
       this.orderToSave.gigId = this.gig._id
       this.orderToSave.sellerId = this.gig.seller._id
-      this.orderToSave.buyerId = this.user._id
-      userService.saveOrder(this.orderToSave)
-      console.log('this.orderToSave', this.orderToSave);
-
-    }
+      this.orderToSave.buyerId = this.user._id      
+      console.log('this.orderToSave', this.orderToSave);      
+    },
+    async saveOrder() {
+      console.log(this.orderToSave);
+      await this.$store.dispatch({ type: "saveOrder", order: this.orderToSave });
+      // this.loadSellerGigs() 
+    },
+    
   },
   computed: {
     gigRevisions() {
@@ -101,6 +105,7 @@ export default {
   },
   created(){
     this.getEmptyGig()
+    this.orderGig()
   }
 };
 </script>
