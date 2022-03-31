@@ -6,6 +6,7 @@ import gigDetails from '../views/gig-details.vue'
 import gigEdit from '../views/gig-edit.vue'
 import backOffice from '../views/back-office.vue'
 import dashBoard from '../views/office-dashboard.vue'
+import userOrdersVue from '../views/user-orders.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -44,7 +45,16 @@ const router = createRouter({
       path: '/seller/dashboard',
       name: 'dashBoard',
       component: dashBoard
+<<<<<<< HEAD
     }    
+=======
+    },
+    {
+      path: '/orders/',
+      name: 'orders',
+      component: userOrdersVue
+    },
+>>>>>>> d768c35db885ed10b5a7c5f87f6e1e850c004e84
   ]
 })
 

@@ -19,7 +19,10 @@
           <li v-if="!user" class="header-item">
             <button @click="openModal('signup')">Join</button>
           </li>
-          <li v-else><img class="user-pic" :src="user.imgUrl" alt="" /></li>
+          <li v-else>
+            <router-link to="/orders/"><img class="user-pic" :src="user.imgUrl"/></router-link>
+          
+          </li>
           <li v-if="!user" class="header-item">
             <button @click="openModal('login')">Sign in</button>
           </li>
@@ -78,7 +81,6 @@ export default {
   methods: {
     setScroll() {
       this.scrollY = window.scrollY;
-      // console.log(this.scrollY)
     },
      closeModal() {
       this.loginMode = false;

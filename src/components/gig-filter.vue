@@ -1,27 +1,47 @@
 <template>
   <form class="search-aria">
-    <input v-model="filterBy.title" @input="setFilter" type="text" placeholder="Search gig.." />
+    <input
+      v-model="filterBy.title"
+      @input="setFilter"
+      type="text"
+      placeholder="Search gig.."
+    />
     <label>
       price:
-      <input v-model.number="filterBy.price" @input="setFilter" type="number" placeholder="Search price.." />      
+      <input
+        v-model.number="filterBy.price"
+        @input="setFilter"
+        type="number"
+        placeholder="Search price.."
+      />
     </label>
     <label>
       Category:
-      <input v-model="filterBy.category" @input="setFilter" type="text" placeholder="Search category.." />      
+      <input
+        v-model="filterBy.category"
+        @input="setFilter"
+        type="text"
+        placeholder="Search category.."
+      />
     </label>
     <label>
       Labels:
-      <select class="labselect" @change="setFilter" multiple v-model="filterBy.labels">
-        <option >Coach</option>
-        <option >Video Explainer</option>
-        <option >Social Media</option>
-        <option >SEO</option>
-        <option >Illustration</option>
-        <option >Translation</option>
-        <option >Data Entry</option>
-        <option >Book Covers</option>
-        <option >Logo Design</option>
-        <option >Word Press</option>
+      <select
+        class="labselect"
+        @change="setFilter"
+        multiple
+        v-model="filterBy.labels"
+      >
+        <option>Coach</option>
+        <option>Video Explainer</option>
+        <option>Social Media</option>
+        <option>SEO</option>
+        <option>Illustration</option>
+        <option>Translation</option>
+        <option>Data Entry</option>
+        <option>Book Covers</option>
+        <option>Logo Design</option>
+        <option>Word Press</option>
       </select>
     </label>
     <label>
@@ -37,25 +57,34 @@
 
 <script>
 export default {
-  name: 'gig-filter',
+  name: "gig-filter",
   data() {
     return {
       filterBy: {
-        title: '',
-        price: '',
+        title: "",
+        price: "",
         labels: [],
-        category: '',
-        sortBy: '',
+        category: "",
+        sortBy: "",
       },
-    }
+    };
+  },
+  created() {
+    this.setFilterByParams();
   },
   methods: {
     setFilter() {
       // console.log(this.filterBy)
-      this.$emit('setFilter', JSON.parse(JSON.stringify(this.filterBy)))
+      this.$emit("setFilter", JSON.parse(JSON.stringify(this.filterBy)));
+    },
+    setFilterByParams() {
+      const params = this.$route.query;
+      if (params.title) this.filterBy.title = params.title;
+      else if (params.category) this.filterBy.category = params.category;
+      this.$emit("setFilter", JSON.parse(JSON.stringify(this.filterBy)));
     },
   },
-}
+};
 </script>
 
 
