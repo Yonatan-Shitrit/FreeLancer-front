@@ -1,18 +1,18 @@
 <template>
   <section
     class="full-header"
-    style="position: relative"
     v-bind:style="{
-      backgroundColor: scrollY
+      backgroundColor: scrollY || !homePage
         ? 'rgba(255, 255, 255, 1)'
         : 'rgba(255, 255, 255, 0)',
-      position: scrollY ? 'fixed' : 'fixed',
+        position: !homePage ? 'relative' : 'fixed'
     }"
   >
     <section class="app-header">
       <div class="search-bar-wrapper">
         <router-link class="logo" to="/">Fastlancer<span>.</span></router-link>
-        <search-bar v-if="scrollY>160"></search-bar>
+        <div>{{ homePage }}</div>
+        <search-bar v-if="scrollY > 159 || !homePage"></search-bar>
       </div>
       <nav>
         <ul>
@@ -20,8 +20,9 @@
             <button @click="openModal('signup')">Join</button>
           </li>
           <li v-else>
-            <router-link to="/orders/"><img class="user-pic" :src="user.imgUrl"/></router-link>
-          
+            <router-link to="/orders/"
+              ><img class="user-pic" :src="user.imgUrl"
+            /></router-link>
           </li>
           <li v-if="!user" class="header-item">
             <button @click="openModal('login')">Sign in</button>
@@ -40,8 +41,10 @@
   <section
     class="main-sub-menu-full-header"
     v-bind:style="{
-      display: scrollY > 100 ? 'block' : 'none',
-      transform: scrollY > 160 ? 'rotateX(0deg)' : 'rotateX(90deg)',
+      display: (scrollY > 100 || !homePage) ? 'block' : 'none',
+      transform: (scrollY > 159 || !homePage) ? 'rotateX(0deg)' : 'rotateX(90deg)',
+      position: !homePage ? 'relative' : 'fixed',
+      margin: !homePage ? 0 :''
     }"
   >
     <section style="transition: 1s" class="app-header">
@@ -51,7 +54,8 @@
   <login-modal
     @closeModal="closeModal"
     :loginMode="loginMode"
-    v-if="loginMode"></login-modal>
+    v-if="loginMode"
+  ></login-modal>
 </template>
 
 <script>
@@ -73,16 +77,21 @@ export default {
       return this.$store.getters.user;
       // console.log('sellerGigs', this.sellerGigs);
     },
-    path(){
+    path() {
       return this.$route.path;
-    }
+    },
+    homePage() {
+      if (this.path === "/") return true;
+      else return false;
+    },
   },
 
   methods: {
     setScroll() {
       this.scrollY = window.scrollY;
     },
-     closeModal() {
+    pageScroll() {},
+    closeModal() {
       this.loginMode = false;
     },
     openModal(mode) {
