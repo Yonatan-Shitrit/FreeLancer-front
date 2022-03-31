@@ -13,7 +13,7 @@
         </svg>
       </button>
 
-      <agile ref="main" class="" :options="options1" style="background-color: white">
+      <agile @click="goToDetail" ref="main" class="" :options="options1" style="background-color: white">
         <div
         class="slide gig-card-img"
         v-for="(slide, index) in slides"
@@ -50,6 +50,13 @@ export default {
   components: {
     agile: VueAgile,
   },
+
+  methods:{
+
+    goToDetail(){
+      this.$emit('goToDetail')
+    }
+  },
   data() {
     return {
       options1: {
@@ -62,9 +69,9 @@ export default {
     };
   },
 
+
   created(){
       this.slides= this.gig.images
-      console.log(this.slides)
   }
 };
 </script>
