@@ -1,8 +1,14 @@
 <template>
   <!-- <div class="gig-details-header" 
   :style="{ position: (scrollY<120)
-  ? 'fixed'
-  : 'inherit'
+  ? 'relative'
+  : 'fixed' ,
+
+  marginTop: (scrollY<120)
+  ? ''
+  : '-120px' ,
+
+
   
   }"
   >
@@ -79,6 +85,7 @@ export default {
   methods: {
     setScroll() {
       this.scrollY = window.scrollY;
+      console.log("Y-index", this.scrollY)
     },
     confirmation() {
       this.modal = true;
@@ -96,21 +103,22 @@ export default {
       this.login = false
     }
   },
-  created() {
-    document.addEventListener("scroll", this.setScroll);
-  },
+  // created() {
+  //   document.addEventListener("scroll", this.setScroll);
+  // },
   unmounted() {
     document.removeEventListener("scroll", this.setScroll);
   },
-  async created() {
-    const { id }= this.$route.params;
-    console.log("the id", id);
-    try {
-      const gig = await gigService.getById(id);
-      console.log("i got gig", gig);
-      this.gig = gig;
-    } catch (err) {
-      console.error("Cannot get gig by id from gig details", err);
+  async created() {    
+    document.addEventListener("scroll", this.setScroll);
+    const { id } = this.$route.params;
+    try{
+    const gig = await gigService.getById(id);
+    console.log("i got gig", gig);
+    this.gig = gig;
+    }
+    catch(err){
+      console.error('Cannot get gig by id from gig details', err);
     }
   },
 };

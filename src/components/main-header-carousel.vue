@@ -12,9 +12,9 @@
         :style="image.bgc"
         style="display: flex; justify-content: center; position: relative"
       >
-        <img style="height: 630px; width: auto" :src="image.img" />
-        <div style="position:absolute; height:630px; width:1400px; margin: 0 auto;">
-          <div style="position: absolute; bottom: 10px; right: 0">
+        <img style="height: 680px; width: auto" :src="image.img" />
+        <div style="position:absolute; height:680px; width:1400px; margin: 0 auto;">
+          <div style="position: absolute; bottom: 32px; right: 0">
             <img
               style="height: 12px; width:70px; margin-bottom: 10px"
               :src="image.stars"
