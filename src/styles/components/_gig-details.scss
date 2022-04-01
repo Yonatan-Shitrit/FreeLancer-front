@@ -35,13 +35,13 @@
     border-top: lightgrey solid 1px;
     border-bottom: lightgrey solid 1px;
     // margin-top: 120px;
-    justify-content: flex-start;
-    max-width: 1304px;
+    justify-content: center;
     width: 100%;
     z-index: 10;
     background-color: white;
-
+    
     .gig-details-header-nav {
+        max-width: 1400px;
         list-style-type: none;
         text-decoration:none;
         width: 100%;
@@ -53,6 +53,7 @@
             justify-content: flex-start;
             width: 100%;
             margin:0 ;
+            padding: 0;
 
             .gig-details-header-item {
                 list-style-type: none;
