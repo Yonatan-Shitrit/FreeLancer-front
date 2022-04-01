@@ -31,7 +31,7 @@
   </div>
   <section v-if="gig" class="gig-page">
     <div class="gig-details">
-      <gig-overview :gig="gig"  />
+      <gig-overview :gig="gig" />
 
       <div class="put-carousel">
         <agilecarousel :gig="gig" style="z-index: 1000"> </agilecarousel>
@@ -43,8 +43,9 @@
       <gig-reviews :gig="gig" />
     </div>
     <section class="sidebar">
-      <gig-sidebar :gig="gig"  @confirmation="confirmation"/>
+      <gig-sidebar :gig="gig" @openLoginModal="openLoginModal" @confirmation="confirmation" />
     </section>
+    <login-modal @closeModal="closeLoginModal" v-if="login"/>
   </section>
 </template>
 
@@ -56,6 +57,7 @@ import gigProfile from "../components/gig-profile.vue";
 import gigReviews from "../components/gig-reviews.vue";
 import { gigService } from "../services/gig-service.js";
 import agilecarousel from "../components/agile-carousel.vue";
+import loginModal from "../components/login.vue";
 export default {
   components: {
     gigSidebar,
@@ -64,25 +66,34 @@ export default {
     gigProfile,
     gigReviews,
     agilecarousel,
+    loginModal,
   },
   data() {
     return {
       scrollY: 0,
       gig: null,
-      modal: false
-
-    }
+      modal: false,
+      login: false,
+    };
   },
-   methods: {
+  methods: {
     setScroll() {
       this.scrollY = window.scrollY;
     },
-    confirmation(){
-      this.modal = true
-      setTimeout(()=>{this.modal=false},2000)      
+    confirmation() {
+      this.modal = true;
+      setTimeout(() => {
+        this.modal = false;
+      }, 2000);
     },
-    closeModal(){
-      this.modal = false
+    closeModal() {
+      this.modal = false;
+    },
+    openLoginModal(){
+      this.login = true;
+    },
+    closeLoginModal(){
+      this.login = false
     }
   },
   created() {
@@ -91,15 +102,15 @@ export default {
   unmounted() {
     document.removeEventListener("scroll", this.setScroll);
   },
-  async created() {    
-    const { id } = this.$route.params;
-    try{
-    const gig = await gigService.getById(id);
-    console.log("i got gig", gig);
-    this.gig = gig;
-    }
-    catch(err){
-      console.error('Cannot get gig by id from gig details', err);
+  async created() {
+    const { id }= this.$route.params;
+    console.log("the id", id);
+    try {
+      const gig = await gigService.getById(id);
+      console.log("i got gig", gig);
+      this.gig = gig;
+    } catch (err) {
+      console.error("Cannot get gig by id from gig details", err);
     }
   },
 };

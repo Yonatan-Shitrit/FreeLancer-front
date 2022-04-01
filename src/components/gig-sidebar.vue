@@ -1,7 +1,7 @@
 <template>
   <section class="sidebar-container">
     <aside>
-      <form class="sidebar-form">
+      <form @submit.prevent="" class="sidebar-form">
         <header>
           <h3>
             <b>Order Details:</b>
@@ -24,7 +24,7 @@
               ></path>
               <path d="M9 4H7v5h5V7H9V4z"></path>
             </svg>
-            <b> {{gig.daysToMake}} {{gigDelivery}} delivery</b>
+            <b> {{ gig.daysToMake }} {{ gigDelivery }} delivery</b>
           </div>
           <div class="sidebar-revision">
             <svg
@@ -62,34 +62,43 @@ export default {
       type: Object,
       required: true,
     },
-    data(){
-      return{
-        orderToSave: null
-      }
-    }
-  },
-  methods:{
-    getEmptyGig(){
-      this.orderToSave = orderService.getEmptyOrder()
-
+    data() {
+      return {
+        orderToSave: null,
+      };
     },
-    orderGig(){
-      this.orderToSave.gigId = this.gig._id
-      this.orderToSave.sellerId = this.gig.seller._id
-      this.orderToSave.buyerId = this.user._id      
-      console.log('this.orderToSave', this.orderToSave);      
+  },
+  methods: {
+    getEmptyGig() {
+      this.orderToSave = orderService.getEmptyOrder();
+    },
+    orderGig() {
+      this.orderToSave.gigId = this.gig._id;
+      this.orderToSave.sellerId = this.gig.seller._id;
+      this.orderToSave.buyerId = this.user._id;
+      console.log("this.orderToSave", this.orderToSave);
     },
     async saveOrder() {
-      try{
-      console.log(this.orderToSave);
-      await this.$store.dispatch({ type: "saveOrder", order: this.orderToSave });      
-      this.$emit('confirmation')
+      if (!this.user) {
+        console.log("you must login to make an order");
+        this.loginModal();
+        return;
       }
-      catch(err){
-        console.error('Cannot save order from gig sidebar', err);
+      this.orderGig();
+      try {
+        console.log(this.orderToSave);
+        await this.$store.dispatch({
+          type: "saveOrder",
+          order: this.orderToSave,
+        });
+        this.$emit("confirmation");
+      } catch (err) {
+        console.error("Cannot save order from gig sidebar", err);
       }
     },
-    
+    loginModal() {
+      this.$emit("openLoginModal");
+    },
   },
   computed: {
     gigRevisions() {
@@ -100,18 +109,17 @@ export default {
       if (this.gig.daysToMake === 1) return "day";
       else return "days";
     },
-    user(){
-      return this.$store.getters.user
+    user() {
+      return this.$store.getters.user;
     },
-    users(){
-      console.log('users',this.$store.getters.users);
-      return this.$store.getters.users
-    }
+    users() {
+      console.log("users", this.$store.getters.users);
+      return this.$store.getters.users;
+    },
   },
-  created(){
-    this.getEmptyGig()
-    this.orderGig()
-  }
+  created() {
+    this.getEmptyGig();
+  },
 };
 </script>
 
