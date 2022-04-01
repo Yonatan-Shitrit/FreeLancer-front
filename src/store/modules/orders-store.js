@@ -67,7 +67,7 @@ export default {
         console.error('Cannot remove order', err);
       }
     },
-    setFilter({ dispatch, commit }, { filterBy }) {
+    setOrderFilter({ dispatch, commit }, { filterBy }) {
       commit({ type: 'setFilter', filterBy })
       dispatch({ type: 'loadOrders' })
     },
