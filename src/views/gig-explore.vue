@@ -1,6 +1,6 @@
 <template>
   <section class="search-aria">
-    <gig-filter  @setFilter="setFilter" hidden/>
+    <gig-filter @setFilter="setTheFilter" />
     <!-- <input type="number" placeholder="min price"> -->
     <div class="">
       <gig-list :gigs="gigs" />
@@ -15,6 +15,7 @@ export default {
   data() {
     return {
       // gigs: null,
+      setTheFilter: this.debounce((filter) => this.setFilter(filter)),
     };
   },
   created() {
@@ -22,7 +23,7 @@ export default {
   },
   components: {
     gigList,
-    gigFilter
+    gigFilter,
   },
   methods: {
     // loadGigs() {
@@ -37,15 +38,24 @@ export default {
     //   // console.log(this.gigs);
     // },
     setFilter(filterBy) {
-            // console.log(filterBy)
-            this.$store.dispatch({ type: 'setFilter', filterBy })
-    },    
+      // console.log(filterBy)
+      this.$store.dispatch({ type: "setFilter", filterBy });
+    },
+    debounce(func, timeout = 1000) {
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          func.apply(this, args);
+        }, timeout);
+      };
+    },
   },
-  computed:{
-    gigs(){
+  computed: {
+    gigs() {
       return this.$store.getters.gigs;
-    }
-  }
+    },
+  },
 };
 </script>
 

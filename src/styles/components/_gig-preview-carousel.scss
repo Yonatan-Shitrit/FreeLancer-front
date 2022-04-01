@@ -1,27 +1,26 @@
-
 .view-sub-carousel-prev-btn {
 
-    background-color: white;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;  
-    width: 25px;
-    height: 30px;
-    font-size:15px;
-    padding: 0;
-    color:black;
-    justify-content: center;
-    align-items: center;
-    border: lightgrey 1px solid;
-    cursor: pointer;
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
-    z-index: 6;
-    position: relative;
-    top: 45%;
-    left:calc(100% - 12px );
-    border-right: 0;
-    transform: rotateY(-90deg);
-    transition: all 0.2s;
-    padding: 2px;
+  background-color: white;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  width: 25px;
+  height: 30px;
+  font-size: 15px;
+  padding: 0;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  border: lightgrey 1px solid;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+  z-index: 6;
+  position: relative;
+  top: 40%;
+  left: calc(100% - 12px);
+  border-right: 0;
+  transform: rotateY(-90deg);
+  transition: all 0.2s;
+  padding: 2px;
 
 
 
@@ -32,12 +31,12 @@
 
   background-color: white;
   border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;  
+  border-bottom-right-radius: 50%;
   width: 25px;
   height: 30px;
-  font-size:15px;
+  font-size: 15px;
   border: lightgrey 1px solid;
-  color:black;
+  color: black;
   justify-content: center;
   align-items: center;
   border: lightgrey 1px solid;
@@ -45,7 +44,7 @@
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
   z-index: 6;
   position: relative;
-  bottom: 75%;
+  bottom: 50%;
   border-left: 0;
   right: 13px;
   transform: rotateY(90deg);
@@ -55,21 +54,50 @@
 
 }
 
-.gig-card-img:hover{
+.gig-card-img:hover {
 
-    .view-sub-carousel-next-btn{
-        transform: rotateY(0deg);
-        right: 0px;
+  .view-sub-carousel-next-btn {
+    transform: rotateY(0deg);
+    right: 0px;
 
-    }
+  }
 
-    .view-sub-carousel-prev-btn{
-      transform: rotateY(0deg);
-        left: calc(100% - 25px);
-       
+  .view-sub-carousel-prev-btn {
+    transform: rotateY(0deg);
+    left: calc(100% - 25px);
 
-    }
+
+  }
 
 
 }
 
+.agile__actions {
+
+  z-index: 6;
+  position: relative;
+  margin: -50px;
+}
+
+
+
+.agile__dot {
+
+  // width: 6px;
+  margin: 0 4px;
+
+  button {
+    width: 5px;
+    height: 5px;
+  }
+}
+.agile__dot--current {
+
+
+
+  button {
+
+    width: 10px;
+    height: 10px;
+  }
+}

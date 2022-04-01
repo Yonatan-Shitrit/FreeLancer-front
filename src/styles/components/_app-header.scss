@@ -1,8 +1,7 @@
 .full-header {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgb(255, 255, 255);
     width: 100%;
-    color: #62646a;
-    position: sticky;
+    position: relative;
     top: 0px;
     z-index: 3000;
     transition: background-color 0.5s ease;
@@ -44,7 +43,7 @@
                     border-right: 0;
                     border-radius: 3px 0 0 3px;
                     color: #404145;
-                    // height: 48px;
+                    // height: 48px;f
                     box-sizing: border-box;
                     font-size: 15px;
                     line-height: 17px;
@@ -82,7 +81,7 @@
         a {
             height: auto;
             display: block;
-            color: #62646a;
+            color: #404145;
             text-align: center;
             text-decoration: none;
             .not-exist {
@@ -137,7 +136,7 @@
                     border: 0;
                     cursor: pointer;
                 }
-                .user-pic{
+                .user-pic {
                     height: 32px;
                     width: 32px;
                     border-radius: 50%;
@@ -147,6 +146,42 @@
                     button {
                         color: #1dbf73;
                     }
+                }
+            }
+        }
+    }
+}
+.home-mode {
+    background-color: rgba(255, 255, 255, 0);
+    position: fixed;
+    color: white;
+    .app-header{
+        div{
+            a{
+                color: white;
+            }
+        }
+        ul{
+            li{
+                a,button{
+                    color: white;
+                }
+            }
+        }
+    }
+}
+.scroll-mode {
+    background-color: rgb(255, 255, 255);
+    .app-header{
+        div{
+            a{
+                color: #74767e;
+            }
+        }
+        ul{
+            li{
+                a,button{
+                    color: #74767e;
                 }
             }
         }

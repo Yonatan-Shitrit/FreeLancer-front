@@ -1,8 +1,14 @@
 <template>
   <div class="gig-details-header" 
   :style="{ position: (scrollY<120)
-  ? 'fixed'
-  : 'inherit'
+  ? 'relative'
+  : 'fixed' ,
+
+  marginTop: (scrollY<120)
+  ? ''
+  : '-120px' ,
+
+
   
   }"
   >
@@ -31,7 +37,7 @@
   </div>
   <section v-if="gig" class="gig-page">
     <div class="gig-details">
-      <gig-overview :gig="gig"  />
+      <gig-overview :gig="gig" />
 
       <div class="put-carousel">
         <agilecarousel :gig="gig" style="z-index: 1000"> </agilecarousel>
@@ -43,8 +49,9 @@
       <gig-reviews :gig="gig" />
     </div>
     <section class="sidebar">
-      <gig-sidebar :gig="gig"  @confirmation="confirmation"/>
+      <gig-sidebar :gig="gig" @openLoginModal="openLoginModal" @confirmation="confirmation" />
     </section>
+    <login-modal @closeModal="closeLoginModal" v-if="login"/>
   </section>
 </template>
 
@@ -56,6 +63,7 @@ import gigProfile from "../components/gig-profile.vue";
 import gigReviews from "../components/gig-reviews.vue";
 import { gigService } from "../services/gig-service.js";
 import agilecarousel from "../components/agile-carousel.vue";
+import loginModal from "../components/login.vue";
 export default {
   components: {
     gigSidebar,
@@ -64,34 +72,45 @@ export default {
     gigProfile,
     gigReviews,
     agilecarousel,
+    loginModal,
   },
   data() {
     return {
       scrollY: 0,
       gig: null,
-      modal: false
-
-    }
+      modal: false,
+      login: false,
+    };
   },
-   methods: {
+  methods: {
     setScroll() {
       this.scrollY = window.scrollY;
+      console.log("Y-index", this.scrollY)
     },
-    confirmation(){
-      this.modal = true
-      setTimeout(()=>{this.modal=false},2000)      
+    confirmation() {
+      this.modal = true;
+      setTimeout(() => {
+        this.modal = false;
+      }, 2000);
     },
-    closeModal(){
-      this.modal = false
+    closeModal() {
+      this.modal = false;
+    },
+    openLoginModal(){
+      this.login = true;
+    },
+    closeLoginModal(){
+      this.login = false
     }
   },
-  created() {
-    document.addEventListener("scroll", this.setScroll);
-  },
+  // created() {
+  //   document.addEventListener("scroll", this.setScroll);
+  // },
   unmounted() {
     document.removeEventListener("scroll", this.setScroll);
   },
   async created() {    
+    document.addEventListener("scroll", this.setScroll);
     const { id } = this.$route.params;
     try{
     const gig = await gigService.getById(id);

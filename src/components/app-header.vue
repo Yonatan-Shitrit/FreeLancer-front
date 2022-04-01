@@ -1,17 +1,12 @@
 <template>
   <section
     class="full-header"
-    v-bind:style="{
-      backgroundColor: scrollY || !homePage
-        ? 'rgba(255, 255, 255, 1)'
-        : 'rgba(255, 255, 255, 0)',
-        position: !homePage ? 'relative' : 'fixed'
-    }"
+    :class="{ 'scroll-mode': scrollY || !homePage, 'home-mode': homePage }"
   >
     <section class="app-header">
       <div class="search-bar-wrapper">
         <router-link class="logo" to="/">FreeLancer<span>.</span></router-link>
-        <search-bar v-if="scrollY > 159 || !homePage"></search-bar>
+        <search-bar v-if="(scrollY > 159 || !homePage) && buyerMode"></search-bar>
       </div>
       <nav>
         <ul>
@@ -28,26 +23,30 @@
           </li>
           <li v-else><button @click="openModal('logout')">Logout</button></li>
           <li class="header-item">
-            <router-link to="/seller/dashboard">Become a Seller </router-link>
+            <router-link v-if="buyerMode" to="/seller/dashboard">
+              {{ sellerDisplay }}
+            </router-link>
+            <router-link v-else to="/"> {{ sellerDisplay }} </router-link>
           </li>
-          <li class="header-item">
+          <li v-if="buyerMode" class="header-item">
             <router-link to="/gig">Explore </router-link>
           </li>
         </ul>
       </nav>
     </section>
   </section>
-  <section
+  <section v-if="buyerMode"
     class="main-sub-menu-full-header"
     v-bind:style="{
-      display: (scrollY > 100 || !homePage) ? 'block' : 'none',
-      transform: (scrollY > 159 || !homePage) ? 'rotateX(0deg)' : 'rotateX(90deg)',
+      display: scrollY > 100 || !homePage ? 'block' : 'none',
+      transform:
+        scrollY > 159 || !homePage ? 'rotateX(0deg)' : 'rotateX(90deg)',
       position: !homePage ? 'relative' : 'fixed',
-      margin: !homePage ? 0 :''
+      margin: !homePage ? 0 : '',
     }"
   >
     <section style="transition: 1s" class="app-header">
-      <main-header-sub-menu style="width: 100%"></main-header-sub-menu>
+      <main-header-sub-menu  style="width: 100%"></main-header-sub-menu>
     </section>
   </section>
   <login-modal
@@ -82,6 +81,16 @@ export default {
     homePage() {
       if (this.path === "/") return true;
       else return false;
+    },
+    buyerMode() {
+      const path = this.path.slice(0, 7);
+      console.log(path);
+      return path !== "/seller";
+    },
+    sellerDisplay() {
+      if (!this.user) return "Become a Seller";
+      if (this.buyerMode) return "Switch to Selling";
+      else return "Switch to Buying";
     },
   },
 
