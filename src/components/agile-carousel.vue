@@ -21,7 +21,7 @@
         style="background-color: white"
       >
         <div class="slide" v-for="(slide, index) in slides" :key="index">
-          <img :src="slide" />
+          <img style="    width: calc(100% - 6px);" :src="slide" />
         </div>
       </agile>
       <button
@@ -41,11 +41,11 @@
       <button
         @click="$refs.thumbnails.goToPrev()"
         type="button"
-        class=""
+        class="bot-carousel__next"
         style="
           z-index: 6;
           position: relative;
-          right: 346px;
+          right: 347px;
           height: 100px;
           width: 20px;
           margin-bottom: -200px;
@@ -86,7 +86,7 @@
         style="
           z-index: 6;
           position: relative;
-          right: -346px;
+          right: -347px;
           height: 100px;
           width: 20px;
           margin-bottom: -200px;

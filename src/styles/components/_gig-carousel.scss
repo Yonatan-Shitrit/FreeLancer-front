@@ -171,5 +171,18 @@
 
 
 
-// .bot-carousel__prev .
-// background-color: hsla(0,0%,100%,.7);
+.bot-carousel__prev, .bot-carousel__next{
+    background-color: hsla(0,0%,100%,.7);
+    border: 0;
+}
+
+.bot-carousel__prev:hover , .bot-carousel__next:hover{
+    background-color: hsla(0,0%,100%,1);
+}
+
+
+.thumbnails{
+    width: calc(100% + 10px);
+    margin: auto 0;
+    right: 5px;
+}
