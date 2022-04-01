@@ -1,12 +1,7 @@
 <template>
   <section
     class="full-header"
-    v-bind:style="{
-      backgroundColor: scrollY || !homePage
-        ? 'rgba(255, 255, 255, 1)'
-        : 'rgba(255, 255, 255, 0)',
-        position: !homePage ? 'relative' : 'fixed'
-    }"
+    :class="{'scroll-mode': scrollY || !homePage, 'home-mode':homePage}"
   >
     <section class="app-header">
       <div class="search-bar-wrapper">
