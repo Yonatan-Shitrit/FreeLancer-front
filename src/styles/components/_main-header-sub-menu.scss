@@ -106,9 +106,9 @@
     width: 100%;
     background-color: white;
 }
-.a-main-subheader{
+// .a-main-subheader{
     // margin: auto;
-}
+// }
 .a-main-subheader-container{
     height: 100%;
 
@@ -117,7 +117,7 @@
         justify-content: center;
         align-items: center;
         &:hover {
-            box-shadow:         inset 0px -6px 2px -2px #1dbf73;
+            box-shadow:         inset 0px -4px 0px #1dbf73;
         }
     }
         }
