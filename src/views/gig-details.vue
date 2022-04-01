@@ -1,5 +1,5 @@
 <template>
-  <div class="gig-details-header" 
+  <!-- <div class="gig-details-header" 
   :style="{ position: (scrollY<120)
   ? 'relative'
   : 'fixed' ,
@@ -28,7 +28,7 @@
         </li>
       </ul>
     </nav>
-  </div>
+  </div> -->
   <div v-if="modal" class="order-modal">
     <div @click="closeModal" class="black-screen"></div>
     <div class="modal">
