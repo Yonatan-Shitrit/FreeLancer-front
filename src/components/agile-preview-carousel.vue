@@ -60,7 +60,7 @@ export default {
   data() {
     return {
       options1: {
-        dots: false,
+        dots: true,
         fade: false,
         infinite: true,
         navButtons: false,
