@@ -1,8 +1,6 @@
 <template>
   <section class="gig-description">
-    <header>
-      <h2>About This Gig</h2>
-    </header>
+
     <p>{{gig.description}}</p>
     <!-- <p>You're in the right place!</p>
     <p>
