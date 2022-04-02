@@ -7,6 +7,7 @@ import gigEdit from '../views/gig-edit.vue'
 import backOffice from '../views/back-office.vue'
 import dashBoard from '../views/office-dashboard.vue'
 import userOrdersVue from '../views/user-orders.vue'
+import smartFilter from '../views/smart-filter.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,11 @@ const router = createRouter({
       path: '/orders/',
       name: 'orders',
       component: userOrdersVue
+    },
+    {
+      path: '/smart',
+      name: 'smartFilter',
+      component: smartFilter
     },
   ]
 })

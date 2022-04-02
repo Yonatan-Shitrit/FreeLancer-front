@@ -1,5 +1,6 @@
 import { userService } from '../../services/user-service'
 import { utilService } from '../../services/util-service'
+import { socketService } from '../../services/socket.service'
 
 export default {
   state: {
@@ -10,15 +11,15 @@ export default {
     user(state) {
       return state.loggedinUser
     },
-    
+
 
   },
   mutations: {
     setUser(state, { user }) {
       state.loggedinUser = user
-    }    
+    }
   },
-  actions: {    
+  actions: {
     async login({ commit }, { cred }) {
       try {
         const user = await userService.login(cred)
@@ -29,7 +30,7 @@ export default {
       }
     },
     async signup({ commit }, { userCred }) {
-      console.log('"Hi user I am in the user store',userCred);
+      console.log('"Hi user I am in the user store', userCred);
       try {
         const user = await userService.signup(userCred)
         commit({ type: 'setUser', user })
@@ -37,7 +38,7 @@ export default {
       } catch (err) {
         console.log(err)
       }
-    },        
+    },
     async logout({ commit }) {
       try {
         await userService.logout()

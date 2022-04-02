@@ -1,13 +1,18 @@
 import { orderService } from '@/services/order-service.js'
+import { socketService } from '../../services/socket.service'
 
 export default {
   state: {
     orders: [],
-    filterBy: ''//{ title: '', price: 0, labels: [], sortBy: '', category: ''},    
+    filterBy: '',//{ title: '', price: 0, labels: [], sortBy: '', category: ''},
+    newOrders : []  
   },
   getters: {
     orders({ orders }) {
       return orders
+    },
+    newOrders({newOrders}){
+      return newOrders
     },
     ordersToShow({ orders, filterBy }) {
       const copyOrders = JSON.parse(JSON.stringify(orders))
@@ -25,6 +30,16 @@ export default {
       else state.orders.push(order)
       console.log('I saved');
     },
+    saveNewOrder(state, { order }){
+      console.log('save new order ', order);
+      const idx = state.newOrders.findIndex((o) => o._id === order._id)
+      if (idx !== -1) state.newOrders.splice(idx, 1, order)
+      else state.newOrders.push(order)
+      console.log('I saved new order');
+    },
+    clearNotifications(state){
+      state.newOrders=[]
+    },
     removeGig(state, { orderId }) {
       const idx = state.orders.findIndex((o) => o._id === orderId)
       state.orders.splice(idx, 1)
@@ -37,10 +52,17 @@ export default {
     },
   },
   actions: {
-    async loadOrders({ commit, state }) {
+    async loadOrders({ commit, dispatch, state }) {
       try{
       const orders = await orderService.query(state.filterBy)
       commit({ type: 'setOrders', orders })
+      socketService.off('order update')
+      console.log('socket off');
+      socketService.on('order update', (order) => {
+        console.log('order update from socket', order);
+        commit({ type: 'saveNewOrder', order})
+        dispatch({ type: 'loadOrders'})
+      })
       console.log('store commit orders'); 
       }
       catch(err){
@@ -51,6 +73,7 @@ export default {
       try{
       console.log('hi i am in the save actions: ', order);
       const savedOrder = await orderService.save(order)
+      socketService.emit('order change', order)
       commit({ type: 'saveOrder', order: savedOrder })
       return savedOrder
       }

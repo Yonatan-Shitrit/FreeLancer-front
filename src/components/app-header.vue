@@ -6,7 +6,9 @@
     <section class="app-header">
       <div class="search-bar-wrapper">
         <router-link class="logo" to="/">FreeLancer<span>.</span></router-link>
-        <search-bar v-if="(scrollY > 159 || !homePage) && buyerMode"></search-bar>
+        <search-bar
+          v-if="(scrollY > 159 || !homePage) && buyerMode"
+        ></search-bar>
       </div>
       <nav>
         <ul>
@@ -14,17 +16,19 @@
             <button @click="openModal('signup')">Join</button>
           </li>
           <li v-else>
-            <router-link to="/orders/"
-              ><img class="user-pic" :src="user.imgUrl"
-            /></router-link>
+            <router-link @click="clearNotifications" to="/orders/">
+            <img class="user-pic" :src="user.imgUrl"/>
+            <span class="notification-dot-icon" v-if="newBuyerOrders.length"></span>
+            </router-link>
           </li>
           <li v-if="!user" class="header-item">
             <button @click="openModal('login')">Sign in</button>
           </li>
           <li v-else><button @click="openModal('logout')">Logout</button></li>
           <li class="header-item">
-            <router-link v-if="buyerMode" to="/seller/dashboard">
+            <router-link  @click="clearNotifications" v-if="buyerMode" to="/seller/dashboard">
               {{ sellerDisplay }}
+              <span class="notification-dot" v-if="newSellerOrders.length"></span>
             </router-link>
             <router-link v-else to="/"> {{ sellerDisplay }} </router-link>
           </li>
@@ -35,7 +39,8 @@
       </nav>
     </section>
   </section>
-  <section v-if="buyerMode"
+  <section
+    v-if="buyerMode"
     class="main-sub-menu-full-header"
     v-bind:style="{
       display: scrollY > 100 || !homePage ? 'block' : 'none',
@@ -46,7 +51,7 @@
     }"
   >
     <section style="transition: 1s" class="app-header">
-      <main-header-sub-menu  style="width: 100%"></main-header-sub-menu>
+      <main-header-sub-menu style="width: 100%"></main-header-sub-menu>
     </section>
   </section>
   <login-modal
@@ -74,6 +79,20 @@ export default {
     user() {
       return this.$store.getters.user;
       // console.log('sellerGigs', this.sellerGigs);
+    },
+    newBuyerOrders() {
+      let orders = this.$store.getters.newOrders;
+      console.log("new orders before filter", orders);
+      orders = orders.filter((order) => order.buyerId === this.user._id);
+      console.log("new orders after filter", orders);
+      return orders;
+    },
+    newSellerOrders() {
+      let orders = this.$store.getters.newOrders;
+      console.log("new orders before filter", orders);
+      orders = orders.filter((order) => order.sellerId === this.user._id);
+      console.log("new orders after filter", orders);
+      return orders;
     },
     path() {
       return this.$route.path;
@@ -105,7 +124,11 @@ export default {
     openModal(mode) {
       this.loginMode = mode;
     },
+    clearNotifications(){
+      this.$store.commit('clearNotifications')
+    }
   },
+  
   created() {
     document.addEventListener("scroll", this.setScroll);
   },

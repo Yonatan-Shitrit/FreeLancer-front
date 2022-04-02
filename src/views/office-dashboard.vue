@@ -12,14 +12,15 @@
       <div class="dashboard-orders">
         <div class="orders-filter">
           <h3>
-            Active orders
-            <span> - 0 ($0)</span>
+            {{filter}} orders
+            <span> - {{orders.length}} (${{totalPrice.toLocaleString('en-US')}})</span>
           </h3>
-          <select name="" id="">
-            <option value="">Active orders (0)</option>
-            <option value="">Pending</option>
-            <option value="">Completed</option>
-            <option value="">Canceled</option>
+          <select v-model="filter" name="" id="">
+            <option value="all">All</option>
+            <option value="active">Active</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+            <option value="canceled">Canceled</option>
           </select>
         </div>
         <div class="orders-container">
@@ -38,7 +39,7 @@
               <div class="buyer-name">
                 {{ getGig(order.gigId).seller.fullName }}
               </div>
-              <div class="price">${{ getGig(order.gigId).price }}</div>
+              <div class="price">${{ getGig(order.gigId).price.toLocaleString('en-US') }}</div>
               <div class="actions">
                 <span @click="changeStatus(order,'canceled')">Cancel </span>&nbsp;<span @click="changeStatus(order,'active')"> Accept</span>
               </div>
@@ -54,7 +55,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      filter: 'all'
+    }
   },
   methods: {
     getGig(id) {
@@ -75,14 +78,17 @@ export default {
   },
   computed: {
     loggedinUser() {
-      console.log("logged user", this.$store.getters.user);
       return this.$store.getters.user;
     },
     orders() {
       const orders = this.$store.getters.orders;
-      console.log("orders", orders);
-      return orders.filter((order) => order.sellerId === this.loggedinUser._id);
+      return orders.filter((order) => (order.sellerId === this.loggedinUser._id && (order.status === this.filter || this.filter === 'all')));
     },
+    totalPrice(){
+      return this.orders.reduce((acc, order) => {
+        return (acc + this.getGig(order.gigId).price)
+        }, 0)
+    }
   },
 };
 </script>
