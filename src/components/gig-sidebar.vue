@@ -80,13 +80,11 @@ export default {
     },
     async saveOrder() {
       if (!this.user) {
-        console.log("you must login to make an order");
         this.loginModal();
         return;
       }
       this.orderGig();
       try {
-        console.log(this.orderToSave);
         await this.$store.dispatch({
           type: "saveOrder",
           order: this.orderToSave,

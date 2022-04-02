@@ -28,7 +28,6 @@ export default {
       const idx = state.orders.findIndex((o) => o._id === order._id)
       if (idx !== -1) state.orders.splice(idx, 1, order)
       else state.orders.push(order)
-      console.log('I saved');
     },
     saveNewOrder(state, { order }){
       console.log('save new order ', order);
@@ -71,7 +70,6 @@ export default {
     },
     async saveOrder({ commit }, { order }) {
       try{
-      console.log('hi i am in the save actions: ', order);
       const savedOrder = await orderService.save(order)
       socketService.emit('order change', order)
       commit({ type: 'saveOrder', order: savedOrder })
