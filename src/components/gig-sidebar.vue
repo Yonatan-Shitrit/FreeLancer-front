@@ -88,6 +88,7 @@ export default {
         await this.$store.dispatch({
           type: "saveOrder",
           order: this.orderToSave,
+          notification: 'A new order has been received'
         });
         this.$emit("confirmation");
       } catch (err) {

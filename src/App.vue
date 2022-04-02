@@ -11,7 +11,13 @@ export default {
   created(){    
     this.$store.dispatch({ type: "loadGigs" });
     this.$store.dispatch({ type: "loadOrders" });
+    this.notification();
     console.log('store load gigs dispatch from app');
+  },
+  methods:{
+    notification(){
+      if(Notification.permission !== 'granted') Notification.requestPermission().then(result=>console.log(result))
+    }
   },
   components:{
     appHeader,

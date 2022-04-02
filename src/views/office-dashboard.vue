@@ -68,9 +68,11 @@ export default {
       order = JSON.parse(JSON.stringify(order));
       order.status = status;
       order.updatedAt = Date.now();
+
       console.log("updateOrder", order);
+      console.log("updateStatus", status);
       try{
-        await this.$store.dispatch({ type: "saveOrder", order });
+        await this.$store.dispatch({ type: "saveOrder", order, notification: 'Your order is ' + status });        
       }catch{
         console.log('unable to change order status', err);
       }
@@ -81,7 +83,7 @@ export default {
       return this.$store.getters.user;
     },
     orders() {
-      const orders = this.$store.getters.orders;
+      const orders = this.$store.getters.orders;      
       return orders.filter((order) => (order.sellerId === this.loggedinUser._id && (order.status === this.filter || this.filter === 'all')));
     },
     totalPrice(){

@@ -11,7 +11,7 @@ export default {
     orders({ orders }) {
       return orders
     },
-    newOrders({newOrders}){
+    newOrders({newOrders}){      
       return newOrders
     },
     ordersToShow({ orders, filterBy }) {
@@ -24,12 +24,12 @@ export default {
       state.orders = orders
       console.log('orders are set in store');
     },
-    saveOrder(state, { order }) {
+    saveOrder(state, { order }) {            
       const idx = state.orders.findIndex((o) => o._id === order._id)
       if (idx !== -1) state.orders.splice(idx, 1, order)
       else state.orders.push(order)
     },
-    saveNewOrder(state, { order }){
+    saveNewOrder(state, { order }){      
       console.log('save new order ', order);
       const idx = state.newOrders.findIndex((o) => o._id === order._id)
       if (idx !== -1) state.newOrders.splice(idx, 1, order)
@@ -68,10 +68,11 @@ export default {
         console.error('Cannot load orders', err);
       }
     },
-    async saveOrder({ commit }, { order }) {
+    async saveOrder({ commit }, { order, notification }) {
       try{
       const savedOrder = await orderService.save(order)
       socketService.emit('order change', order)
+      new Notification( 'FareeLancer Messages', {body: notification})
       commit({ type: 'saveOrder', order: savedOrder })
       return savedOrder
       }

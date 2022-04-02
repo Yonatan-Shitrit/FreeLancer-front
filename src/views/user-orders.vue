@@ -76,7 +76,7 @@ export default {
       order.updatedAt = Date.now();
       console.log("updateOrder", order);
       try {
-        await this.$store.dispatch({ type: "saveOrder", order });
+        await this.$store.dispatch({ type: "saveOrder", order, notification: 'Your order is ' + status });
       } catch (err) {
         console.error("Cannot change status order from user order", err);
       }
