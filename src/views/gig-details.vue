@@ -1,52 +1,52 @@
 <template>
-  <div class="gig-details-header" 
+  <div class="gig-details-header"
+   
   :style="{ position: (scrollY<120)
   ? 'relative'
   : 'fixed' ,
-
   marginTop: (scrollY<120)
   ? ''
-  : '-120px' ,
-
-
-  
+  : '-120px' ,  
   }"
   >
     <nav class="gig-details-header-nav">
       <ul class="gig-details-header-ul">
         <li class="gig-details-header-item" style="margin-left: 0;">
-          <a href=""  class="gig-details-header-item-a">Overview</a>
+          <a  @click="scrollMeTo('Overview')" class="gig-details-header-item-a">Overview</a>
         </li>
         <li class="gig-details-header-item">
-          <a href=""  class="gig-details-header-item-a">Description</a>
+          <a @click="scrollMeTo('Description')" class="gig-details-header-item-a">Description</a>
         </li>
         <li class="gig-details-header-item">
-          <a href=""  class="gig-details-header-item-a">About the seller</a>
+          <a @click="scrollMeTo('AboutTheSeller')"  class="gig-details-header-item-a">About the seller</a>
         </li>
         <li class="gig-details-header-item">
-          <a href="" class="gig-details-header-item-a">Reviews</a>
+          <a @click="scrollMeTo('Reviews')" class="gig-details-header-item-a">Reviews</a>
         </li>
       </ul>
     </nav>
   </div>
-  <div v-if="modal" class="order-modal">
+  <div  v-if="modal" class="order-modal">
     <div @click="closeModal" class="black-screen"></div>
     <div class="modal">
       <h3>Your order has been successfully received</h3>
     </div>
   </div>
-  <section v-if="gig" class="gig-page">
-    <div class="gig-details">
+  <section v-if="gig" class="gig-page" >
+    
+    <div class="gig-details" >
+      <h2 ref="Overview" >Overview</h2>
       <gig-overview :gig="gig" />
 
       <div class="put-carousel">
         <agilecarousel :gig="gig" style="z-index: 1000"> </agilecarousel>
       </div>
-      <h2>About This Gig</h2>
+      <h2 ref="Description" >About This Gig</h2>
       <gig-description :gig="gig" />
-      <h2>About The Seller</h2>
+      <h2 ref="AboutTheSeller" >About The Seller</h2>
       <gig-profile />
-      <gig-reviews :gig="gig" />
+      <h2 ref="Reviews" >Reviews</h2>
+      <gig-reviews  :gig="gig" />
     </div>
     <section class="sidebar">
       <gig-sidebar :gig="gig" @openLoginModal="openLoginModal" @confirmation="confirmation" />
@@ -85,7 +85,13 @@ export default {
   methods: {
     setScroll() {
       this.scrollY = window.scrollY;
-      console.log("Y-index", this.scrollY)
+    },
+    scrollMeTo(refName){
+      var element = this.$refs[refName]
+      var top = element.offsetTop - element.offsetHeight
+      console.log("element", top)
+
+      window.scrollTo(0,top)
     },
     confirmation() {
       this.modal = true;
