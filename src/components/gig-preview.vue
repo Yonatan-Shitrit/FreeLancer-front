@@ -48,7 +48,7 @@
       <span @click="goToDetail" class="price-container">
         <small class="price-tag">starting at</small>
         <span class="gig-price"
-          >${{ gig.price }}<sup class="price-cents">56</sup>
+          >${{ gig.price }}<sup class="price-cents">00</sup>
         </span>
       </span>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <section class="search-aria">
-    <gig-filter hidden @setFilter="setTheFilter" />
+    <gig-filter  @setFilter="setTheFilter" />
     <!-- <input type="number" placeholder="min price"> -->
     <div class="">
       <gig-list :gigs="gigs" />

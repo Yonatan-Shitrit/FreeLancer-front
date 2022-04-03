@@ -4,10 +4,10 @@
       v-model="filterBy.title"
       @input="setFilter"
       type="text"
-      placeholder="Search gig.."
+      placeholder="Look for a gig.."
     />
     <label>
-      price:
+      Max-budget:
       <input
         v-model.number="filterBy.price"
         @input="setFilter"
@@ -16,22 +16,18 @@
       />
     </label>
     <label>
-      Category:
+      <!-- Category:
       <input
         v-model="filterBy.category"
         @input="setFilter"
         type="text"
         placeholder="Search category.."
-      />
+      /> -->
     </label>
     <label>
-      Labels:
-      <select
-        class="labselect"
-        @change="setFilter"
-        multiple
-        v-model="filterBy.labels"
-      >
+      Category:
+      <select class="labselect" @change="setFilter" v-model="filterBy.category">
+        <option></option>
         <option>Coach</option>
         <option>Video Explainer</option>
         <option>Social Media</option>
@@ -47,11 +43,13 @@
     <label>
       Sort By:
       <select @change="setFilter" v-model="filterBy.sortBy">
+        <option></option>
         <option value="createdAt">Time</option>
         <option value="name">Name</option>
         <option value="price">Price</option>
       </select>
     </label>
+    <button type="reset" @click="resetFilter">reset</button>
   </form>
 </template>
 
@@ -72,6 +70,9 @@ export default {
   created() {
     this.setFilterByParams();
   },
+  unmounted() {
+    this.resetFilter();
+  },
   methods: {
     setFilter() {
       // console.log(this.filterBy)
@@ -82,6 +83,13 @@ export default {
       if (params.title) this.filterBy.title = params.title;
       else if (params.category) this.filterBy.category = params.category;
       this.$emit("setFilter", JSON.parse(JSON.stringify(this.filterBy)));
+    },
+    resetFilter() {
+      this.filterBy.price = "";
+      this.filterBy.title = "";
+      this.filterBy.category = "";
+      this.filterBy.sortBy = "";
+      this.setFilter();
     },
   },
 };
