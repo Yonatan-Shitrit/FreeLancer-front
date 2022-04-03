@@ -49,7 +49,7 @@
         />
       </div>
 
-      <div class="delaynote1" v-if="!delayNote2">
+      <div class="delaynote1 gg" v-if="!delayNote2">
         <div class="list-container" v-if="relevantGigs">
           <h1>Please remove the services you already have</h1>
           <ul>
