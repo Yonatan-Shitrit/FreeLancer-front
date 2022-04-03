@@ -1,5 +1,6 @@
 <template>
   <form class="search-aria">
+    <div style="display:flex">
     <div>
     <input
       v-model="filterBy.title"
@@ -50,6 +51,8 @@
       </select>
     </div>
     <button type="reset" class="reset-btn" @click=" resetFilter">reset</button>
+    </div>
+  <router-link class="start-business"  to="/smart"><button class="start-business-btn">Start Your Own Business</button></router-link>
   </form>
 </template>
 
