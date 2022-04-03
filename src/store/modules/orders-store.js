@@ -72,7 +72,7 @@ export default {
       try{
       const savedOrder = await orderService.save(order)
       socketService.emit('order change', order)
-      new Notification( 'FareeLancer Messages', {body: notification})
+      new Notification( 'FreeLancer Messages', {body: notification})
       commit({ type: 'saveOrder', order: savedOrder })
       return savedOrder
       }
