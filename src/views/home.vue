@@ -1,11 +1,9 @@
 <template>
-  <section    class="gig-home" style="position:relative">
-                 <div style="margin:auto 0; position: absolute; z-index:0; width:100%">
-        <agilecarousel  style="-max-height: 630px; width:100%">
-        </agilecarousel>
-
-      </div>
-    <section  style="z-index:10; " class="gig-home-top">
+  <section class="gig-home" style="position: relative">
+    <div style="margin: auto 0; position: absolute; z-index: 0; width: 100%">
+      <agilecarousel style="-max-height: 630px; width: 100%"> </agilecarousel>
+    </div>
+    <section style="z-index: 10" class="gig-home-top">
       <div class="left-side">
         <div class="sub-left-side1">
           <h1 class="mini-dis">
@@ -56,12 +54,17 @@
     </section>
   </section>
 
-  <section class="main-home-6" > 
-    <router-link  to="/smart"><button class="start-business-btn">Start Your Own Business</button></router-link>
-  <h2 class="main-carousel-header"> Popular professional services </h2>
-  <test-carousel  class="carousel" :itemsToShow="5" :itemsToScroll="5"  :wrapAround="true" :transition="400" />
+  <section class="main-home-6">
+    <h2 class="main-carousel-header">Popular professional services</h2>
+    <test-carousel
+      class="carousel"
+      :itemsToShow="5"
+      :itemsToScroll="5"
+      :wrapAround="true"
+      :transition="400"
+    />
   </section>
-  
+
   <section class="markit-home">
     <section class="main-home-2">
       <div class="right-side">
@@ -128,9 +131,9 @@
             ></path>
             <path
               d="M11.5303 5.46967C11.8232 5.76256 11.8232 6.23744 11.5303 6.53033L7.53033 10.5303C7.23744 10.8232 6.76256 10.8232 6.46967 10.5303L4.46967 8.53033C4.17678 8.23744 4.17678 7.76256 4.46967 7.46967C4.76256 7.17678 5.23744 7.17678 5.53033 7.46967L7 8.93934L10.4697 5.46967C10.7626 5.17678 11.2374 5.17678 11.5303 5.46967Z"
-            ></path></svg
-          > &nbsp; Protected payments, every
-          time
+            ></path>
+          </svg>
+          &nbsp; Protected payments, every time
         </h6>
         <p>
           Always know what you'll pay upfront. Your payment isn't <br />
@@ -150,7 +153,8 @@
             <path
               d="M11.5303 5.46967C11.8232 5.76256 11.8232 6.23744 11.5303 6.53033L7.53033 10.5303C7.23744 10.8232 6.76256 10.8232 6.46967 10.5303L4.46967 8.53033C4.17678 8.23744 4.17678 7.76256 4.46967 7.46967C4.76256 7.17678 5.23744 7.17678 5.53033 7.46967L7 8.93934L10.4697 5.46967C10.7626 5.17678 11.2374 5.17678 11.5303 5.46967Z"
             ></path></svg
-          >&nbsp; 24/7 support</h6>
+          >&nbsp; 24/7 support
+        </h6>
         <p>
           Questions? Our round-the-clock support team is <br />
           available to help anytime, anywhere.
@@ -166,18 +170,20 @@ import agilecarousel from "../components/main-header-carousel.vue";
 
 export default {
   methods: {
-    search(){
-        this.$router.push({ path: 'gig', query: {title: this.searchTerm, category: this.searchTerm }})
+    search() {
+      this.$router.push({
+        path: "gig",
+        query: { title: this.searchTerm, category: this.searchTerm },
+      });
     },
   },
-  data(){
-    return{
-      searchTerm:''
-    }
+  data() {
+    return {
+      searchTerm: "",
+    };
   },
   created() {},
   computed: {
-     
     searchPlaceHolder() {
       return `Try "building mobile app"`;
     },
@@ -188,8 +194,6 @@ export default {
       return this.$store.getters.user;
     },
   },
-
-
 
   components: {
     testCarousel,
