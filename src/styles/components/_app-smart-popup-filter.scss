@@ -2,6 +2,7 @@
     padding: 100px 0;
     background-color: rgb(247, 247, 247);;
     min-height: calc(100vh - 120px);
+    
     .img {
         width: auto;
         height: 400px;
@@ -61,10 +62,12 @@
         background-color: white;
         padding: 40px;
         border-radius: 20px;
+        // border: #c5c6c9 solid 1px;
        
         .list-container{
             display: flex;
             flex-direction: column;
+            
             span{
                 align-self:center;
             }
