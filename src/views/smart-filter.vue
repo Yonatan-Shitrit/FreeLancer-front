@@ -1,5 +1,5 @@
 <template>
-<section class="main-layout">
+<section class="">
   
 <smart-filter-popup/>
 </section>
