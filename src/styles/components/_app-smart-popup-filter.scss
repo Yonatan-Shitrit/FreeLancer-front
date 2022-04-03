@@ -1,7 +1,103 @@
-.smart-popup-filter{
-    img{
+.smart-popup-filter {
+    padding: 100px 0;
+    background-color: rgb(247, 247, 247);;
+    min-height: calc(100vh - 120px);
+    .img {
         width: auto;
         height: 400px;
         margin: auto 0;
+    }
+    .button {
+        margin: 20px;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        border: solid 1px #1dbf73;
+        background-color: #1dbf73;
+        color: white;
+        transition: color 0.5s ease, border 0.5s ease;
+        cursor: pointer;
+        &:hover {
+            background: #19a463;
+            color: #fff;
+        }
+    }
+    select{
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 120%;
+    }
+    .final{
+        .final-offer{
+            
+            h1,h2{
+                padding: 50px;
+                font-size: 35px;
+                margin: 0;
+            }
+            h2{
+                font-size: 30px;
+                padding-top: 0px;
+            }
+            max-width: 1400px;
+            margin: 0 auto;
+            border-radius: 20px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .grid-container{
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                max-width: 1400px;
+                gap: 34.666px;
+                margin: 50px 0;
+            }
+        }
+    }
+    .delaynote1 {
+        margin: 0 auto;
+        max-width: 600px;
+        background-color: white;
+        padding: 40px;
+        border-radius: 20px;
+       
+        .list-container{
+            display: flex;
+            flex-direction: column;
+            span{
+                align-self:center;
+            }
+            button{
+                align-self:center;
+            }
+        }
+        ul{
+            li{
+                font-size: 120%;
+                line-height: 120%;
+            }
+        }
+        h1{
+            text-align: center;
+            font-size: 30px;
+            color: #62646a;;
+        }
+        .questionarie {
+            text-align: center;
+            h1 {
+                font-size: 30px;
+                color: #62646a;;
+                
+            }
+            .second-quest{
+                margin-top: 25px;
+                padding-top: 25px;
+                border-top: solid 1px #c5c6c9;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     }
 }
