@@ -12,9 +12,12 @@
             border-bottom: 1px solid #e5e5e5;
             border-right: 1px solid #e5e5e5;
             height: fit-content;
+            @media (max-width: 1000px) {
+                display: none;
+            }
             .seller-graphs {
                 ul {
-                    padding: 18px 0 4px ;
+                    padding: 18px 0 4px;
                     margin-top: 26px;
                     border-bottom: 1px solid #e4e5e7;
                     border-top: 1px solid #e4e5e7;
@@ -22,6 +25,7 @@
                         display: flex;
                         justify-content: space-between;
                         padding-bottom: 12px;
+
                         h6 {
                             color: #404145;
                             margin: 0;
@@ -47,7 +51,7 @@
                                     border-radius: 999px;
                                 }
                             }
-                            .percentage-text{
+                            .percentage-text {
                                 padding-left: 12px;
                                 font-weight: 500;
                                 font-size: 14px;
@@ -69,6 +73,7 @@
                         width: 60px;
                         border-radius: 50%;
                         margin-right: 20px;
+                        object-fit: cover;
                     }
                     div {
                         line-height: 140%;
@@ -78,17 +83,17 @@
                     }
                 }
             }
-            .seller-earnings{
+            .seller-earnings {
                 display: flex;
                 justify-content: space-between;
                 margin-top: 18px;
                 margin-bottom: 20px;
                 line-height: 140%;
-                div{
+                div {
                     color: #62646a;
                     font-size: 16px;
                 }
-                span{
+                span {
                     float: right;
                     font-weight: 700;
                     color: #62646a;
@@ -144,13 +149,19 @@
             }
             .orders-container {
                 ul {
-                    background-color: white;
+                    @media (min-width: 1000px) {
+                        background-color: white;
+                    }
+
                     padding: 0;
                     .order-categories {
                         display: flex;
                         padding: 10px 15px;
                         border: 1px solid #eee;
                         border-bottom: 0;
+                        @media (max-width: 1000px) {
+                            display: none;
+                        }
                         div {
                             padding-left: 11px;
                         }
@@ -172,10 +183,68 @@
                         }
                     }
                     li {
+                        @media (max-width: 1000px) {
+                            border: #95979d solid 1px;
+                            background-color: white;
+                            margin-top: 10px;
+                            padding: 0;
+                        }
+                        .mobile-card {
+                            @media (min-width: 1000px) {
+                                display: none;
+                            }
+                            .mobile-title {
+                                white-space: normal;
+                            }
+                            .mobile-name {
+                                display: flex;
+                                justify-content: space-between;
+                            }
+                            .mobile-status {
+                                display: flex;
+                                justify-content: space-between;
+                            }
+                            .mobile-actions {
+                                display: flex;
+                                justify-content: space-around;
+                                span {
+                                    border: 1px solid;
+                                    padding: 7px;
+                                    border-radius: 3px;
+                                }
+                                .accept {
+                                    border-color: #1dbf73;
+                                    color: #1dbf73;
+                                    &:hover {
+                                        background-color: #1dbf73;
+                                        color: white;
+                                    }
+                                }
+                                .cancel {
+                                    border-color: #74767e;
+                                    &:hover {
+                                        background: #74767e;
+                                        color: white;
+                                    }
+                                }
+                            }
+                            padding: 2px;
+                        }
+                        .media-q {
+                            display: flex;
+                            width: 100%;
+
+                            @media (max-width: 1000px) {
+                                display: none;
+                            }
+                        }
                         border: 1px solid #eee;
                         padding: 15px;
                         display: flex;
                         transition: background-color 0.1s;
+                        @media (max-width: 1000px) {
+                            flex-direction: column;
+                        }
                         &:hover {
                             background-color: #f4f4f4;
                         }
@@ -192,6 +261,8 @@
                         }
                         .gig-title {
                             margin-right: auto;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
                             flex: 1;
                         }
                         .buyer-name {
