@@ -93,6 +93,14 @@
         </div>
       </div>
     </div>
+
+    <div  v-if="modal" class="order-modal">
+    <div @click="closeModal" class="black-screen"></div>
+    <div class="modal">
+      <h3>Your order has been successfully received</h3>
+    </div>
+  </div>
+
   </section>
 </template>
 
@@ -106,6 +114,7 @@ export default {
       isOpen: null,
       storeType: "",
       spend: null,
+      modal: false,
       relevantGigs: false,
       delayNote1: false,
       delayNote2: false,
