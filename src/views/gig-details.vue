@@ -44,8 +44,7 @@
       <h2 ref="Description" >About This Gig</h2>
       <gig-description :gig="gig" />
       <h2 ref="AboutTheSeller" >About The Seller</h2>
-      <gig-profile />
-      <router-link to="/smart"><button class="start-business-btn">Start Your Own Business</button></router-link>
+      <gig-profile />      
       <h2 ref="Reviews" >Reviews</h2>
       <gig-reviews  :gig="gig" />
     </div>

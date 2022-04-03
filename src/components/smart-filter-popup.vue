@@ -149,7 +149,7 @@ export default {
         await this.$store.dispatch({
           type: "saveOrder",
           order: this.orderToSave,
-          notification: "A new order logo has been received",
+          notification: "A new order logo has been received. You received this job offer after signing up for the site's VIP service club",
         });
         this.$emit("confirmation");
       } catch (err) {
