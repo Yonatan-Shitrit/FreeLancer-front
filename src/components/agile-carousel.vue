@@ -50,7 +50,7 @@
           width: 20px;
           margin-bottom: -200px;
           margin-top: -200px;
-          top: 67px;
+          top: 42px;
         "
       >
         <svg

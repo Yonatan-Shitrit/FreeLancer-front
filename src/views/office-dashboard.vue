@@ -16,7 +16,7 @@
                 <div class="progress-bar">
                   <span :style="{ width: '100%' }"></span>
                 </div>
-                <div class="percentage-text">100%</div>
+                <div class="percentage-text">87%</div>
               </div>
             </li>
             <li>
@@ -25,7 +25,7 @@
                 <div class="progress-bar">
                   <span :style="{ width: '100%' }"></span>
                 </div>
-                <div class="percentage-text">100%</div>
+                <div class="percentage-text">91%</div>
               </div>
             </li>
             <li>
@@ -34,7 +34,7 @@
                 <div class="progress-bar">
                   <span :style="{ width: '100%' }"></span>
                 </div>
-                <div class="percentage-text">100%</div>
+                <div class="percentage-text">67%</div>
               </div>
             </li>
             <li>
@@ -43,7 +43,7 @@
                 <div class="progress-bar">
                   <span :style="{ width: '100%' }"></span>
                 </div>
-                <div class="percentage-text">100%</div>
+                <div class="percentage-text">98%</div>
               </div>
             </li>
             <li>
@@ -84,7 +84,7 @@
           <ul>
             <div class="order-categories">
               <div class="category-title">Gig</div>
-              <div class="category-title">Gig</div>
+              <div class="category-title">Date</div>
               <div class="category-name">Buyer</div>
               <div class="category-price">Price</div>
               <div class="category-actions-dashboard">Actions</div>
@@ -93,6 +93,7 @@
             <li v-for="order in orders" :key="order._id">
               <img :src="getGig(order.gigId).images[0]" alt="" />
               <div class="gig-title">{{ getGig(order.gigId).title }}</div>
+                            <div class="buyer-date"></div> 
               <div class="buyer-name">
                 {{ getGig(order.gigId).seller.fullName }}
               </div>
