@@ -16,7 +16,7 @@ export default {
   },
   methods:{
     notification(){
-      Notification.requestPermission().then(result=>console.log(result))
+      if(Notification.permission !== 'granted') Notification.requestPermission().then(result=>console.log(result))
     }
   },
   components:{
