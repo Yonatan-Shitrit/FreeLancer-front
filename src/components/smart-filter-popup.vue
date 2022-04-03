@@ -151,10 +151,16 @@ export default {
           order: this.orderToSave,
           notification: "A new order logo has been received. You received this job offer after signing up for the site's VIP service club",
         });
-        this.$emit("confirmation");
+        this.confirmation()
       } catch (err) {
         console.error("Cannot save order from smart filter", err);
       }
+    },
+    confirmation() {
+      this.modal = true;
+      setTimeout(() => {
+        this.modal = false;
+      }, 2000);
     },
   },
   computed: {
