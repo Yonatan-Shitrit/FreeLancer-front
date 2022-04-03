@@ -11,6 +11,54 @@
             padding: 1px 20px 5px;
             border-bottom: 1px solid #e5e5e5;
             border-right: 1px solid #e5e5e5;
+            height: fit-content;
+            .seller-graphs {
+                ul {
+                    padding: 18px 0 4px ;
+                    margin-top: 26px;
+                    border-bottom: 1px solid #e4e5e7;
+                    border-top: 1px solid #e4e5e7;
+                    li {
+                        display: flex;
+                        justify-content: space-between;
+                        padding-bottom: 12px;
+                        h6 {
+                            color: #404145;
+                            margin: 0;
+                            padding: 0;
+                            font-size: 16px;
+                            font-weight: 400;
+                            line-height: 24px;
+                        }
+                        .proggress-container {
+                            display: flex;
+                            align-items: center;
+                            .progress-bar {
+                                position: relative;
+                                height: 8px;
+                                background: #e4e5e7;
+                                border-radius: 999px;
+                                width: 60px;
+                                span {
+                                    background: #1dbf73;
+                                    height: 100%;
+                                    position: absolute;
+                                    left: 0;
+                                    border-radius: 999px;
+                                }
+                            }
+                            .percentage-text{
+                                padding-left: 12px;
+                                font-weight: 500;
+                                font-size: 14px;
+                                width: 45px;
+                                text-align: right;
+                                color: #62646a;
+                            }
+                        }
+                    }
+                }
+            }
             .dashboard-profile {
                 .seller-details {
                     padding-top: 24px;
@@ -28,6 +76,22 @@
                         color: #62646a;
                         font-weight: 700;
                     }
+                }
+            }
+            .seller-earnings{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 18px;
+                margin-bottom: 20px;
+                line-height: 140%;
+                div{
+                    color: #62646a;
+                    font-size: 16px;
+                }
+                span{
+                    float: right;
+                    font-weight: 700;
+                    color: #62646a;
                 }
             }
         }
@@ -57,7 +121,7 @@
                 z-index: 1;
                 display: flex;
                 justify-content: space-between;
-                h3{
+                h3 {
                     text-transform: capitalize;
                 }
                 // align-items: center;
@@ -87,7 +151,7 @@
                         padding: 10px 15px;
                         border: 1px solid #eee;
                         border-bottom: 0;
-                        div{
+                        div {
                             padding-left: 11px;
                         }
                         .category-title {
@@ -101,10 +165,10 @@
                             width: 10%;
                         }
                         .category-actions-dashboard {
-                            width:15%
+                            width: 15%;
                         }
                         .category-status {
-                            width:10%
+                            width: 10%;
                         }
                     }
                     li {
@@ -138,14 +202,14 @@
                         }
                         .actions {
                             width: 15%;
-                            span{
+                            span {
                                 cursor: pointer;
-                                &:hover{
+                                &:hover {
                                     text-decoration: underline;
                                 }
                             }
                         }
-                        .status-dashboard{
+                        .status-dashboard {
                             width: 10%;
                             text-transform: capitalize;
                         }

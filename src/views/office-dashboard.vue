@@ -8,12 +8,69 @@
             <div class="seller-name">{{ loggedinUser.username }}</div>
           </div>
         </div>
+        <div class="seller-graphs">
+          <ul>
+            <li>
+              <h6>Inbox response rate</h6>
+              <div class="proggress-container">
+                <div class="progress-bar">
+                  <span :style="{ width: '100%' }"></span>
+                </div>
+                <div class="percentage-text">100%</div>
+              </div>
+            </li>
+            <li>
+              <h6>Inbox response time</h6>
+              <div class="proggress-container">
+                <div class="progress-bar">
+                  <span :style="{ width: '100%' }"></span>
+                </div>
+                <div class="percentage-text">100%</div>
+              </div>
+            </li>
+            <li>
+              <h6>Order response rate</h6>
+              <div class="proggress-container">
+                <div class="progress-bar">
+                  <span :style="{ width: '100%' }"></span>
+                </div>
+                <div class="percentage-text">100%</div>
+              </div>
+            </li>
+            <li>
+              <h6>Delivered on time</h6>
+              <div class="proggress-container">
+                <div class="progress-bar">
+                  <span :style="{ width: '100%' }"></span>
+                </div>
+                <div class="percentage-text">100%</div>
+              </div>
+            </li>
+            <li>
+              <h6>Order completion</h6>
+              <div class="proggress-container">
+                <div class="progress-bar">
+                  <span :style="{ width: completedPercentage+'%' }"></span>
+                </div>
+                <div class="percentage-text">{{completedPercentage}}%</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="seller-earnings">
+          <div>Earned Last Month</div>
+          <span>${{totalEarned.toLocaleString("en-US")}}</span>
+        </div>
       </div>
       <div class="dashboard-orders">
         <div class="orders-filter">
           <h3>
-            {{filter}} orders
-            <span> - {{orders.length}} (${{totalPrice.toLocaleString('en-US')}})</span>
+            {{ filter }} orders
+            <span>
+              - {{ orders.length }} (${{
+                totalPrice.toLocaleString("en-US")
+              }})</span
+            >
           </h3>
           <select v-model="filter" name="" id="">
             <option value="all">All</option>
@@ -39,9 +96,14 @@
               <div class="buyer-name">
                 {{ getGig(order.gigId).seller.fullName }}
               </div>
-              <div class="price">${{ getGig(order.gigId).price.toLocaleString('en-US') }}</div>
+              <div class="price">
+                ${{ getGig(order.gigId).price.toLocaleString("en-US") }}
+              </div>
               <div class="actions">
-                <span @click="changeStatus(order,'canceled')">Cancel </span>&nbsp;<span @click="changeStatus(order,'active')"> Accept</span>
+                <span @click="changeStatus(order, 'canceled')">Cancel </span
+                >&nbsp;<span @click="changeStatus(order, 'active')">
+                  Accept</span
+                >
               </div>
               <div class="status-dashboard">{{ order.status }}</div>
             </li>
@@ -56,8 +118,8 @@
 export default {
   data() {
     return {
-      filter: 'all'
-    }
+      filter: "all",
+    };
   },
   methods: {
     getGig(id) {
@@ -71,10 +133,14 @@ export default {
 
       console.log("updateOrder", order);
       console.log("updateStatus", status);
-      try{
-        await this.$store.dispatch({ type: "saveOrder", order, notification: 'Your order is ' + status });        
-      }catch{
-        console.log('unable to change order status', err);
+      try {
+        await this.$store.dispatch({
+          type: "saveOrder",
+          order,
+          notification: "Your order is " + status,
+        });
+      } catch {
+        console.log("unable to change order status", err);
       }
     },
   },
@@ -82,14 +148,34 @@ export default {
     loggedinUser() {
       return this.$store.getters.user;
     },
-    orders() {
-      const orders = this.$store.getters.orders;      
-      return orders.filter((order) => (order.sellerId === this.loggedinUser._id && (order.status === this.filter || this.filter === 'all')));
+    completedOrders() {
+      const orders = this.$store.getters.orders;
+      return orders.filter((order) => order.sellerId === this.loggedinUser._id && order.status === 'completed');
     },
-    totalPrice(){
+    allOrders() {
+      const orders = this.$store.getters.orders;
+      return orders.filter((order) => order.sellerId === this.loggedinUser._id);
+    },
+    orders() {
+      const orders = this.$store.getters.orders;
+      return orders.filter(
+        (order) =>
+          order.sellerId === this.loggedinUser._id &&
+          (order.status === this.filter || this.filter === "all")
+      );
+    },
+    totalPrice() {
       return this.orders.reduce((acc, order) => {
-        return (acc + this.getGig(order.gigId).price)
-        }, 0)
+        return acc + this.getGig(order.gigId).price;
+      }, 0);
+    },
+    totalEarned() {
+      return this.completedOrders.reduce((acc, order) => {
+        return acc + this.getGig(order.gigId).price;
+      }, 0);
+    },
+    completedPercentage(){
+      return ((this.completedOrders.length*100)/this.allOrders.length)
     }
   },
 };
