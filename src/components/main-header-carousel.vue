@@ -39,7 +39,7 @@ export default {
         {
           img: "https://higherr-app.herokuapp.com/img/4.d2278b78.jpg",
           bgc: "background-color:#88b3e0",
-          hero: "Andrea",
+          hero: "Jaina",
           title: "Fashion Designer",
           stars: "",
         },
