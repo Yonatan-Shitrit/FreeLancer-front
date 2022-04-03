@@ -57,7 +57,7 @@
   </section>
 
   <section class="main-home-6" > 
-    <router-link hidden to="/smart"><button class="start-business-btn">Start Your Own Business</button></router-link>
+    <router-link  to="/smart"><button class="start-business-btn">Start Your Own Business</button></router-link>
   <h2 class="main-carousel-header"> Popular professional services </h2>
   <test-carousel  class="carousel" :itemsToShow="5" :itemsToScroll="5"  :wrapAround="true" :transition="400" />
   </section>
