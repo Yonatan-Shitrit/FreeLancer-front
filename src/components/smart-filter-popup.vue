@@ -49,7 +49,7 @@
         />
       </div>
 
-      <div class="delaynote1" v-if="!delayNote2">
+      <div class="delaynote1 gg" v-if="!delayNote2">
         <div class="list-container" v-if="relevantGigs">
           <h1>Please remove the services you already have</h1>
           <ul>
@@ -93,6 +93,14 @@
         </div>
       </div>
     </div>
+
+    <div  v-if="modal" class="order-modal">
+    <div @click="closeModal" class="black-screen"></div>
+    <div class="modal">
+      <h3>Your order has been successfully received</h3>
+    </div>
+  </div>
+
   </section>
 </template>
 
@@ -106,6 +114,7 @@ export default {
       isOpen: null,
       storeType: "",
       spend: null,
+      modal: false,
       relevantGigs: false,
       delayNote1: false,
       delayNote2: false,
@@ -151,10 +160,16 @@ export default {
           order: this.orderToSave,
           notification: "A new order logo has been received. You received this job offer after signing up for the site's VIP service club",
         });
-        this.$emit("confirmation");
+        this.confirmation()
       } catch (err) {
         console.error("Cannot save order from smart filter", err);
       }
+    },
+    confirmation() {
+      this.modal = true;
+      setTimeout(() => {
+        this.modal = false;
+      }, 2000);
     },
   },
   computed: {
