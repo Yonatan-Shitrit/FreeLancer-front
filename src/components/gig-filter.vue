@@ -20,15 +20,7 @@
         placeholder="Max budget:"
       />
     </div>
-    <!-- <label>
-      Category:
-      <input
-        v-model="filterBy.category"
-        @input="setFilter"
-        type="text"
-        placeholder="Search category.."
-      />
-    </label> -->
+
         <div >
       <select
         class="explore-filter-label"
@@ -83,7 +75,6 @@ export default {
   },
   methods: {
     setFilter() {
-      // console.log(this.filterBy)
       this.$emit("setFilter", JSON.parse(JSON.stringify(this.filterBy)));
     },
     setFilterByParams() {

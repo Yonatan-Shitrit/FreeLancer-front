@@ -37,24 +37,24 @@ export default {
     return {
       images: [
         {
-          img: "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049983/bg-hero-1-1792-x1.png",
-          bgc: "background-color:#023a15",
+          img: "https://higherr-app.herokuapp.com/img/4.d2278b78.jpg",
+          bgc: "background-color:#88b3e0",
           hero: "Andrea",
           title: "Fashion Designer",
           stars: "",
         },
         {
-          img: "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/2413b8415dda9dbd7756d02cb87cd4b1-1599595203045/bg-hero-2-1792-x1.png",
-          bgc: "background-color:#b64762",
-          hero: "Moon",
-          title: "Marketing Expert",
+          img: "https://higherr-app.herokuapp.com/img/5.d9d3b327.jpg",
+          bgc: "background-color:rgb(238, 165, 174)",
+          hero: "Sun",
+          title: "Program Manager",
           stars:"https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/five_stars.e5c37f5.svg",
         },
         {
-          img: "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/d14871e2d118f46db2c18ad882619ea8-1599835783966/bg-hero-3-1792-x1.png",
-          bgc: "background-color:#540e1f",
-          hero: "Ritika",
-          title: "Shoemaker and Designer",
+          img: "	https://higherr-app.herokuapp.com/img/6.22758028.jpg",
+          bgc: "background-color:rgb(112, 130, 132)",
+          hero: "Allen",
+          title: "Asntronomer and Designer",
           stars: "",
         },
         {
