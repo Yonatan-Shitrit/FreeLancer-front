@@ -4,14 +4,14 @@
       v-model="filterBy.title"
       @input="setFilter"
       type="text"
-      placeholder="Look for a gig.." 
+      placeholder="Look for a gig.."
     />
     <label>
-     Max-budget:
+      Max-budget:
       <input
         v-model.number="filterBy.price"
         @input="setFilter"
-        type="number" 
+        type="number"
         placeholder="Search price.."
       />
     </label>
@@ -26,11 +26,7 @@
     </label>
     <label>
       Category:
-      <select
-        class="labselect"
-        @change="setFilter"
-        v-model="filterBy.category"
-      >
+      <select class="labselect" @change="setFilter" v-model="filterBy.category">
         <option></option>
         <option>Coach</option>
         <option>Video Explainer</option>
@@ -53,7 +49,7 @@
         <option value="price">Price</option>
       </select>
     </label>
-    <button type="reset" @click=" resetFilter">reset</button>
+    <button type="reset" @click="resetFilter">reset</button>
   </form>
 </template>
 
@@ -74,6 +70,9 @@ export default {
   created() {
     this.setFilterByParams();
   },
+  unmounted() {
+    this.resetFilter();
+  },
   methods: {
     setFilter() {
       // console.log(this.filterBy)
@@ -85,14 +84,13 @@ export default {
       else if (params.category) this.filterBy.category = params.category;
       this.$emit("setFilter", JSON.parse(JSON.stringify(this.filterBy)));
     },
-    resetFilter(){
-      this.filterBy.price=""
-      this.filterBy.title=""
-      this.filterBy.category=""
-      this.filterBy.sortBy=""
-      this.setFilter()
-
-    }
+    resetFilter() {
+      this.filterBy.price = "";
+      this.filterBy.title = "";
+      this.filterBy.category = "";
+      this.filterBy.sortBy = "";
+      this.setFilter();
+    },
   },
 };
 </script>
