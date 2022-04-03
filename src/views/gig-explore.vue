@@ -1,5 +1,5 @@
 <template>
-  <section class="search-aria">
+  <section >
     <gig-filter  @setFilter="setTheFilter" />
     <!-- <input type="number" placeholder="min price"> -->
     <div class="">
