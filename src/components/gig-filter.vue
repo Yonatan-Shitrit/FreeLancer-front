@@ -78,6 +78,9 @@ export default {
   created() {
     this.setFilterByParams();
   },
+  unmounted() {
+    this.resetFilter();
+  },
   methods: {
     setFilter() {
       // console.log(this.filterBy)
@@ -89,14 +92,13 @@ export default {
       else if (params.category) this.filterBy.category = params.category;
       this.$emit("setFilter", JSON.parse(JSON.stringify(this.filterBy)));
     },
-    resetFilter(){
-      this.filterBy.price=""
-      this.filterBy.title=""
-      this.filterBy.category=""
-      this.filterBy.sortBy=""
-      this.setFilter()
-
-    }
+    resetFilter() {
+      this.filterBy.price = "";
+      this.filterBy.title = "";
+      this.filterBy.category = "";
+      this.filterBy.sortBy = "";
+      this.setFilter();
+    },
   },
 };
 </script>

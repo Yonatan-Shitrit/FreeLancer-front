@@ -1,6 +1,6 @@
 <template>
-<section class="smart-filter">
-  <h4>Is your store already open?</h4>
+<section class="main-layout">
+  
 <smart-filter-popup/>
 </section>
 
