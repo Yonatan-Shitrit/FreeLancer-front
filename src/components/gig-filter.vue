@@ -1,33 +1,41 @@
 <template>
   <form class="search-aria">
+    <div>
     <input
       v-model="filterBy.title"
       @input="setFilter"
       type="text"
-      placeholder="Look for a gig.."
+      placeholder="Look for a gig" 
+      class="explore-filter-label"
+      
     />
-    <label>
-      Max-budget:
+    </div>
+    <div >
+     
       <input
+      class="explore-filter-label"
         v-model.number="filterBy.price"
         @input="setFilter"
-        type="number"
-        placeholder="Search price.."
+        type="number" 
+        placeholder="Max budget:"
       />
-    </label>
-    <label>
-      <!-- Category:
+    </div>
+    <!-- <label>
+      Category:
       <input
         v-model="filterBy.category"
         @input="setFilter"
         type="text"
         placeholder="Search category.."
-      /> -->
-    </label>
-    <label>
-      Category:
-      <select class="labselect" @change="setFilter" v-model="filterBy.category">
-        <option></option>
+      />
+    </label> -->
+        <div >
+      <select
+        class="explore-filter-label"
+        @change="setFilter"
+        v-model="filterBy.category"
+      >
+        <option value="" > Select category</option>
         <option>Coach</option>
         <option>Video Explainer</option>
         <option>Social Media</option>
@@ -39,17 +47,17 @@
         <option>Logo Design</option>
         <option>Word Press</option>
       </select>
-    </label>
-    <label>
-      Sort By:
-      <select @change="setFilter" v-model="filterBy.sortBy">
-        <option></option>
-        <option value="createdAt">Time</option>
+
+    </div>
+        <div>
+      <select @change="setFilter" v-model="filterBy.sortBy" class="explore-filter-label">
+        <option  value="" class="grey">aditional filter</option>
+        <option value="createdAt">Date</option>
         <option value="name">Name</option>
         <option value="price">Price</option>
       </select>
-    </label>
-    <button type="reset" @click="resetFilter">reset</button>
+    </div>
+    <button type="reset" class="reset-btn" @click=" resetFilter">reset</button>
   </form>
 </template>
 
