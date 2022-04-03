@@ -4,7 +4,7 @@
       v-model="filterBy.title"
       @input="setFilter"
       type="text"
-      placeholder="Search gig.."
+      placeholder="Search gig.." 
     />
     <label>
       price:
@@ -16,21 +16,20 @@
       />
     </label>
     <label>
-      Category:
+      <!-- Category:
       <input
         v-model="filterBy.category"
         @input="setFilter"
         type="text"
         placeholder="Search category.."
-      />
+      /> -->
     </label>
     <label>
-      Labels:
+      Category:
       <select
         class="labselect"
         @change="setFilter"
-        multiple
-        v-model="filterBy.labels"
+        v-model="filterBy.category"
       >
         <option>Coach</option>
         <option>Video Explainer</option>
