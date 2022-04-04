@@ -22,7 +22,8 @@
       />
     </div>
 
-        <div >
+        <div class="select-wrapper">
+          <img class="less-than" src="@/../imgs/less-than.png" alt="">
       <select
         class="explore-filter-label"
         @change="setFilter"
@@ -42,7 +43,8 @@
       </select>
 
     </div>
-        <div>
+        <div class="select-wrapper">
+          <img class="less-than" src="@/../imgs/less-than.png" alt="">
       <select @change="setFilter" v-model="filterBy.sortBy" class="explore-filter-label">
         <option  value="" class="grey">aditional filter</option>
         <option value="createdAt">Date</option>
