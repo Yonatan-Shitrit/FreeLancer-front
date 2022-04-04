@@ -61,7 +61,8 @@ function getEmptyOrder(){
     createdAt: Date.now(),
     updatedAt: '',
     sellerId: '',
-    buyerId: ''
+    buyerId: '',
+    buyerName:''
   }
   return order
 }

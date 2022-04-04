@@ -5,7 +5,7 @@
         <div class="dashboard-profile">
           <div class="seller-details">
             <img :src="loggedinUser.imgUrl" alt="" />
-            <div class="seller-name">{{ loggedinUser.username }}</div>
+            <div class="seller-name">{{ loggedinUser.fullname }}</div>
           </div>
         </div>
       </div>
@@ -27,8 +27,8 @@
           <ul>
             <div class="order-categories">
               <div class="category-title">Gig</div>
-              <div class="category-date">Date</div>
               <div class="category-name">Seller</div>
+              <div class="category-date">Delivery Date</div>
               <div class="category-price">Price</div>
               <div class="category-actions">Actions</div>
               <div class="category-status">status</div>
@@ -40,6 +40,10 @@
               <div class="buyer-name">
                 {{ getGig(order.gigId).seller.fullName }}
               </div>
+              <div class="delivery-date">
+                {{deliveryDateFormat(order.createdAt, getGig(order.gigId).daysToMake)}}
+              </div>
+
               <div class="price">
                 ${{ getGig(order.gigId).price.toLocaleString("en-US") }}
               </div>
@@ -69,6 +73,13 @@ export default {
     getGig(id) {
       const gigs = this.$store.getters.gigs;
       return gigs.filter((gig) => gig._id === id)[0];
+    },
+     deliveryDateFormat(time, days) {
+      time = new Date(time+(days*86400000))
+      const year = time.getFullYear();
+      const month = (time.getMonth() + 1 + "").padStart(2, "0");
+      const day = ("" + time.getDate()).padStart(2, "0");
+      return day + "-" + month + "-" +year ;
     },
     async changeStatus(order, status) {
       order = JSON.parse(JSON.stringify(order));

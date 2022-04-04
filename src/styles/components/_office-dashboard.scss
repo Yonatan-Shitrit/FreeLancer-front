@@ -152,7 +152,8 @@
                     @media (min-width: 1000px) {
                         background-color: white;
                     }
-
+                    display: flex;
+                    flex-direction: column-reverse;
                     padding: 0;
                     .order-categories {
                         display: flex;
@@ -183,8 +184,9 @@
                         }
                     }
                     li {
+                        box-shadow: 0 2px 3px -2px rgb(0 0 0 / 15%);
                         @media (max-width: 1000px) {
-                            border: #95979d solid 1px;
+                            border: #e5e5e5 solid 1px;
                             background-color: white;
                             margin-top: 10px;
                             padding: 0;

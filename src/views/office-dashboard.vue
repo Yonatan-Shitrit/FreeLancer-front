@@ -113,7 +113,7 @@
               <div class="mobile-card">
                 <div class="mobile-title">{{ getGig(order.gigId).title }}</div>
                 <div class="mobile-name">
-                  <span>Buyer: {{ getGig(order.gigId).seller.fullName }}</span>
+                  <span>Buyer: {{ order.buyerName }}</span>
                   <span
                     >Price: ${{
                       getGig(order.gigId).price.toLocaleString("en-US")
@@ -122,7 +122,7 @@
                 </div>
                 <div class="mobile-status">
                   <span>Status: {{ order.status }}</span>
-                  <span>Order Date: {{dateFormat(order.createdAt)}}</span>
+                  <span>Delivery Date: {{deliveryDateFormat(order.createdAt, getGig(order.gigId).daysToMake)}}</span>
                 </div>
                 <div class="mobile-actions">
                   <span class="cancel" @click="changeStatus(order, 'canceled')"
@@ -154,8 +154,8 @@ export default {
       const gigs = this.$store.getters.gigs;
       return gigs.filter((gig) => gig._id === id)[0];
     },
-    dateFormat(time) {
-      time = new Date(time)
+    deliveryDateFormat(time, days) {
+      time = new Date(time+(days*86400000))
       const year = time.getFullYear();
       const month = (time.getMonth() + 1 + "").padStart(2, "0");
       const day = ("" + time.getDate()).padStart(2, "0");

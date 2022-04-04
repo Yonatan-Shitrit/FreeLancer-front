@@ -76,6 +76,7 @@ export default {
       this.orderToSave.gigId = this.gig._id;
       this.orderToSave.sellerId = this.gig.seller._id;
       this.orderToSave.buyerId = this.user._id;
+      this.orderToSave.buyerName = this.user.fullname;
       console.log("this.orderToSave", this.orderToSave);
     },
     async saveOrder() {

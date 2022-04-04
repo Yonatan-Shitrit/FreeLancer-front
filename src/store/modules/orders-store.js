@@ -27,7 +27,7 @@ export default {
     saveOrder(state, { order }) {            
       const idx = state.orders.findIndex((o) => o._id === order._id)
       if (idx !== -1) state.orders.splice(idx, 1, order)
-      else state.orders.push(order)
+      else state.orders.unshift(order)
     },
     saveNewOrder(state, { order }){      
       console.log('save new order ', order);
