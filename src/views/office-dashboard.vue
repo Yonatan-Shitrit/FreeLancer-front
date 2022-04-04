@@ -122,10 +122,16 @@
                 </div>
                 <div class="mobile-status">
                   <span>Status: {{ order.status }}</span>
-                  <span>Date: 16456</span>
+                  <span>Order Date: {{dateFormat(order.createdAt)}}</span>
                 </div>
                 <div class="mobile-actions">
-                  <span class="cancel" @click="changeStatus(order, 'canceled')">Cancel </span>&nbsp;<span class="accept" @click="changeStatus(order, 'active')">Accept</span>
+                  <span class="cancel" @click="changeStatus(order, 'canceled')"
+                    >Cancel </span
+                  >&nbsp;<span
+                    class="accept"
+                    @click="changeStatus(order, 'active')"
+                    >Accept</span
+                  >
                 </div>
               </div>
             </li>
@@ -147,6 +153,13 @@ export default {
     getGig(id) {
       const gigs = this.$store.getters.gigs;
       return gigs.filter((gig) => gig._id === id)[0];
+    },
+    dateFormat(time) {
+      time = new Date(time)
+      const year = time.getFullYear();
+      const month = (time.getMonth() + 1 + "").padStart(2, "0");
+      const day = ("" + time.getDate()).padStart(2, "0");
+      return day + "-" + month + "-" +year ;
     },
     async changeStatus(order, status) {
       order = JSON.parse(JSON.stringify(order));

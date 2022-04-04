@@ -6,6 +6,9 @@
     z-index: 3000;
     transition: background-color 0.5s ease;
     .app-header {
+        @media (max-width: 600px) {
+            padding: 0 20px;
+        }
         height: 80px;
         max-width: 1400px;
         width: 100%;
@@ -16,6 +19,18 @@
         align-items: center;
         justify-content: space-between;
         flex-wrap: nowrap;
+        .navBurger{
+            display: none;
+            font-size: 40px;
+            @media (max-width: 600px) {
+                display: block;
+            }
+        }
+        nav{
+            @media (max-width: 600px) {
+                display: none;
+            }
+        }
         .search-bar-wrapper {
             flex: 1;
         }
@@ -67,7 +82,7 @@
                 }
             }
         }
-
+        
         .logo {
             float: left;
             font-family: "logoFont", serif;
@@ -123,6 +138,9 @@
                 }
                 float: right;
                 padding-right: 24px;
+                .img-wrapper{
+                    height: 32px;
+                }
                 a,
                 button {
                     font-weight: 600;

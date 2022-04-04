@@ -10,13 +10,14 @@
           v-if="(scrollY > 159 || !homePage) && buyerMode"
         ></search-bar>
       </div>
+      <div class="navBurger">☰</div>
       <nav>
         <ul>
           <li v-if="!user" class="header-item">
             <button @click="openModal('signup')">Join</button>
           </li>
           <li v-else>
-            <router-link @click="clearNotifications" to="/orders/">
+            <router-link class="img-wrapper" @click="clearNotifications" to="/orders/">
             <img class="user-pic" :src="user.imgUrl"/>
             <span class="notification-dot-icon" v-if="newBuyerOrders.length"></span>
             </router-link>

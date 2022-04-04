@@ -193,6 +193,7 @@
                             @media (min-width: 1000px) {
                                 display: none;
                             }
+                            
                             .mobile-title {
                                 white-space: normal;
                             }
@@ -209,7 +210,7 @@
                                 justify-content: space-around;
                                 span {
                                     border: 1px solid;
-                                    padding: 7px;
+                                    padding: 7px 28px;
                                     border-radius: 3px;
                                 }
                                 .accept {
