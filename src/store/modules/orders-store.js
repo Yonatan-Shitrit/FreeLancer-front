@@ -24,7 +24,7 @@ export default {
       state.orders = orders
       console.log('orders are set in store');
     },
-    saveOrder(state, { order }) {            
+    saveOrder(state, { order }) {
       const idx = state.orders.findIndex((o) => o._id === order._id)
       if (idx !== -1) state.orders.splice(idx, 1, order)
       else state.orders.unshift(order)
