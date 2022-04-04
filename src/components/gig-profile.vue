@@ -2,13 +2,13 @@
   <section class="profile-card">
     <div class="profile-info">
       <img
-        src="https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIbfDzNPtnPQF6u02N9c4z9QvRUPlIFGu91A&usqp=CAU"
         alt=""
       />
 
       <div class="profile-label">
-        <div class="username-line">pro_graphics_cg</div>
-        <div class="one-liner">Design Agency at your service!!</div>
+        <div class="username-line">Matan</div>
+        <div class="one-liner">Logo design agency at your service!!</div>
         <div class="rating-stars">
           <svg
             width="16"
@@ -94,9 +94,9 @@
         </li>
       </ul>
       <article>
-        Hello I am Martin. I'm,professional Graphic Designer with 8 years
+        Hello I am Matan. I'm,professional Graphic Designer with 8 years
         experience. I'm passionate about creating unique eye catching Designs.
-        My experience includes: Flyers + LabeIs + Business cards + Poster. I
+        My experience includes: Logos +Flyers + LabeIs + Business cards + Poster. I
         will help you to maximize your profits and beat the competition with
         extremely low cost, but effective gigs
       </article>
