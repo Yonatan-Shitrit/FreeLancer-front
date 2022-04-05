@@ -29,7 +29,7 @@
         @change="setFilter"
         v-model="filterBy.category"
       >
-        <option value="" > Select category</option>
+        <option value="" >Select category</option>
         <option>Coach</option>
         <option>Video Explainer</option>
         <option>Social Media</option>
@@ -46,13 +46,13 @@
         <div class="select-wrapper">
           <img class="less-than" src="@/../imgs/less-than.png" alt="">
       <select @change="setFilter" v-model="filterBy.sortBy" class="explore-filter-label">
-        <option  value="" class="grey">aditional filter</option>
+        <option  value="" class="grey">Additional filter</option>
         <option value="createdAt">Date</option>
         <option value="name">Name</option>
         <option value="price">Price</option>
       </select>
     </div>
-    <button type="reset" class="reset-btn" @click=" resetFilter">reset</button>
+    <button type="reset" class="reset-btn" @click=" resetFilter">Reset</button>
     </div>
   <router-link class="start-business"  to="/smart"><button class="start-business-btn">Start Your Own Business</button></router-link>
   </form>
