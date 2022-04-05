@@ -1,7 +1,7 @@
 <template>
   <section class="dashboard-orders">
     <div class="dashboard-container main-layout">
-      <div class="seller-preformance">
+      <div v-if="false" class="seller-preformance">
         <div class="dashboard-profile">
           <div class="seller-details">
             <img :src="loggedinUser.imgUrl" alt="" />

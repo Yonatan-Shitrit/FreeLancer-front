@@ -34,7 +34,7 @@
             }
         }
         .dashboard-orders {
-            padding: 20px 20px 20px 84px;
+            padding: 20px;
             width: 100%;
             h3 {
                 line-height: 42px;
@@ -90,26 +90,31 @@
                         border: 1px solid #eee;
                         border-bottom: 0;
                         div{
-                            padding-left: 11px;
+                            padding: 0 11px;
                         }
                         .category-title {
                             margin-right: auto;
+                            // padding-left: 0;
                             flex: 1;
                         }
                         .category-name {
-                            width: 15%;
+                            width: 10%;
                         }
                         .category-price {
-                            width: 10%;
+                            width: 5%;
+                            text-align: center;
                         }
                         .category-actions {
                             width: 10%;
+                            text-align: center;
                         }
                         .category-status {
                             width: 10%;
+                            text-align: center;
                         }
                         .category-date {
-                            width: 15%;
+                            width: 10%;
+                            text-align: center;
                         }
                     }
                     li {
@@ -138,18 +143,21 @@
                             flex: 1;
                         }
                         .buyer-name {
-                            width: 15%;
+                            width: 10%;
                             text-overflow: ellipsis;
                             overflow: hidden;
                         }
                         .delivery-date {
-                            width: 15%;
+                            width: 10%;
+                            text-align: center;
                         }
                         .price {
-                            width: 10%;
+                            width: 5%;
+                            text-align: center;
                         }
                         .actions-orders {
                             width: 10%;
+                            text-align: center;
                             cursor: pointer;
                             &:hover{
                                 text-decoration: underline;
@@ -157,6 +165,7 @@
                         }
                         .status{
                             width: 10%;
+                            text-align: center;
                             text-transform: capitalize;
                         }
                     }

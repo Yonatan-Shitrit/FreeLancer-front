@@ -17,15 +17,20 @@
     }
     .modal{
         background-color: white;
-        height: 120px;
+        display: flex;
+        align-items: center;
+        height: 180px;
         width: 500px;
         z-index: 1;
         font-size: 22pt;
         padding: 20px;
-        color: darkgreen;
+        color: #1dbf73;
         text-align: center;
-        border: 1px solid black;
-        border-radius: 15px;
+        border: lightgrey solid 1px;
+        border-radius: 10px;
+        h3{
+            margin: 0;
+        }
     }
     
 }
