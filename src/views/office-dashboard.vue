@@ -88,7 +88,7 @@
               <div class="category-name">Buyer</div>
               <div class="category-price">Price</div>
               <div class="category-actions-dashboard">Actions</div>
-              <div class="category-status">status</div>
+              <div class="category-status">Status</div>
             </div>
             <li v-for="order in orders" :key="order._id">
               <div class="media-q">
