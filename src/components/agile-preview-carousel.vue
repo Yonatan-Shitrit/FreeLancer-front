@@ -8,7 +8,7 @@
       >
         <svg class="carousel__icon" style="" role="img">
           <path
-            d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
           ></path>
         </svg>
       </button>
@@ -27,9 +27,9 @@
         type="button"
         class="view-sub-carousel-next-btn"
       >
-        <svg class="carousel__icon" style="height:32px; width:32px; right:7px; position:relative;" role="img">
+        <svg class="carousel__icon" style="height:32px; width:32px; right:8px; top:1px; position:relative;" role="img">
           <path
-            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+            d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
           ></path>
         </svg>
       </button>
