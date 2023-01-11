@@ -17,8 +17,8 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  build: {
-    outDir: '../FreeLancer-back/public',
-    emptyOutDir:true
+  build: { 
+    outDir: '../sprint-4-backend/public',
+    emptyOutDir: true
   }
 })
