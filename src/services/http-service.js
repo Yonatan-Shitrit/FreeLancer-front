@@ -30,10 +30,11 @@ async function ajax(endpoint, method = 'GET', data = null) {
       data,
       params: method === 'GET' ? data : null,
     })
+    console.log('data: ', res.data)
     return res.data
   } catch (err) {
     console.log(
-      `Had Issues ${method}ing to the backend, endpoint: ${BASE_URL}${endpoint}, with data: ${data}`
+      `Had Issues ${method}ing to the backend, base url + endpoint: ${BASE_URL}${endpoint}, with data: ${data}`
     )
     console.dir(err)
     if (err.response && err.response.status === 401) {
