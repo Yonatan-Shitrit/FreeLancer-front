@@ -6,7 +6,7 @@ import { storageService } from './async-storage-service'
 // const KEY = 'gigs_db'
 const KEY = 'gigs'
 const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor']
-const ENDPOINT = 'gig'
+const ENDPOINT = 'https://freelancer-back.onrender.com/gig'
 // const BASE_URL =
 //   process.env.NODE_ENV !== 'development' ? '/api/gig' : '//localhost:3030/api/gig/'
 
