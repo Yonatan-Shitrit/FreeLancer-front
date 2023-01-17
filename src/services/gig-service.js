@@ -3,9 +3,10 @@ import { utilService } from './util-service'
 import { httpService } from './http-service'
 import { storageService } from './async-storage-service'
 
-const KEY = 'gigs_db'
+// const KEY = 'gigs_db'
+const KEY = 'gigs'
 const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor']
-const ENDPOINT = 'gig'
+const ENDPOINT = 'https://freelancer-back.onrender.com/gig'
 // const BASE_URL =
 //   process.env.NODE_ENV !== 'development' ? '/api/gig' : '//localhost:3030/api/gig/'
 
@@ -93,9 +94,9 @@ async function _createManyGigs() {
 _createManySellers()
 async function _createManySellers() {
   try {
-    const sellers = await query('sellers_DB');
+    const sellers = await query('gigs');
     if (!sellers || !sellers.length) {
-      utilService.saveToStorage('sellers_DB', gSellersTest);
+      utilService.saveToStorage('gigs', gSellersTest);
     }
   }
   catch (err) {

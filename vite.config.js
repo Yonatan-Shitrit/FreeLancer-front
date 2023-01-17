@@ -16,5 +16,9 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  build: { 
+    outDir: '../sprint-4-backend/public',
+    emptyOutDir: true
   }
 })
