@@ -23,7 +23,6 @@ export const httpService = {
 }
 
 async function ajax(endpoint, method = 'GET', data = null) {
-  console.log('environment base url:', BASE_URL);
   try {
     const res = await axios({
       url: `${BASE_URL}${endpoint}`,
@@ -37,8 +36,6 @@ async function ajax(endpoint, method = 'GET', data = null) {
     console.log(
       `Had Issues ${method}ing to the backend, base url + endpoint: ${BASE_URL}${endpoint}, with data: ${data}`
     )
-    console.log('environment base url:', BASE_URL);
-    
     console.dir(err)
     if (err.response && err.response.status === 401) {
       window.location.assign('/login')
