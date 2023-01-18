@@ -25,6 +25,8 @@ export const gigService = {
 
 async function query(filterBy) {
   try{
+    console.log('attempt: 1');
+    
   return await httpService.get(ENDPOINT, filterBy)
   }
   catch(err){
