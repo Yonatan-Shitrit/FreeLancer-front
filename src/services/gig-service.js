@@ -78,7 +78,7 @@ _createManyGigs()
 
 async function _createManyGigs() {
   try {
-    const gigs = await query('');
+    const gigs = await query();
     if (!gigs || !gigs.length) {
       utilService.saveToStorage(KEY, gGigsTest);
       gGigsTest.forEach(gig => {
