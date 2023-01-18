@@ -3,8 +3,7 @@ import { utilService } from './util-service'
 import { httpService } from './http-service'
 import { storageService } from './async-storage-service'
 
-// const KEY = 'gigs_db'
-const KEY = 'gigs'
+const KEY = 'gigs_db'
 const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor']
 const ENDPOINT = 'gig'
 // const BASE_URL =
@@ -94,9 +93,9 @@ async function _createManyGigs() {
 _createManySellers()
 async function _createManySellers() {
   try {
-    const sellers = await query('gigs');
+    const sellers = await query('sellers_DB');
     if (!sellers || !sellers.length) {
-      utilService.saveToStorage('gigs', gSellersTest);
+      utilService.saveToStorage('sellers_DB', gSellersTest);
     }
   }
   catch (err) {
