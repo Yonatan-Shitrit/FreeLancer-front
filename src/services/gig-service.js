@@ -93,9 +93,9 @@ async function _createManyGigs() {
 _createManySellers()
 async function _createManySellers() {
   try {
-    const sellers = await query('sellers_DB');
+    const sellers = await query('gigs');
     if (!sellers || !sellers.length) {
-      utilService.saveToStorage('sellers_DB', gSellersTest);
+      utilService.saveToStorage('gigs', gSellersTest);
     }
   }
   catch (err) {
