@@ -31,7 +31,7 @@
               {{ sellerDisplay }}
               <span class="notification-dot" v-if="newSellerOrders.length"></span>
             </router-link>
-            <router-link v-else to="/"> {{ sellerDisplay }} </router-link>
+            <router-link v-else to="/gig"> {{ sellerDisplay }} </router-link>
           </li>
           <li v-if="buyerMode" class="header-item">
             <router-link to="/gig">Explore </router-link>
@@ -108,7 +108,7 @@ export default {
       return path !== "/seller";
     },
     sellerDisplay() {
-      if (!this.user) return "Become a Seller";
+      if (!this.user) return " ";
       if (this.buyerMode) return "Switch to Selling";
       else return "Switch to Buying";
     },
