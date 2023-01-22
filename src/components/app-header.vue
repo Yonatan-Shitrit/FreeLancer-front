@@ -25,7 +25,7 @@
           <li v-if="!user" class="header-item">
             <button @click="openModal('login')">Sign in</button>
           </li>
-          <li v-else><button @click="openModal('logout')">Logout</button></li>
+          <li v-else><button @click="openModal('logout')">Log out</button></li>
           <li class="header-item">
             <router-link  @click="clearNotifications" v-if="buyerMode" to="/seller/dashboard">
               {{ sellerDisplay }}

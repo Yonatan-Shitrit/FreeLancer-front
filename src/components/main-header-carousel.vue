@@ -38,7 +38,7 @@ export default {
       images: [
         {
           // img: "@/../imgs/nyess.png",
-          img:"https://res.cloudinary.com/dhpnklpna/image/upload/v1674065431/nyess_fwrgxq.png",
+          img:"https://res.cloudinary.com/dhpnklpna/image/upload/v1674065431/metilda_rwjirs.png",
           bgc: "background-color:#023a15",
           hero: "Jaina",
           title: "Fashion Designer",
@@ -46,7 +46,7 @@ export default {
         },
         {
           // img: "@/../imgs/metilda.png", 
-          img: "https://res.cloudinary.com/dhpnklpna/image/upload/v1674065431/metilda_rwjirs.png",
+          img: "https://res.cloudinary.com/dhpnklpna/image/upload/v1674065431/nyess_fwrgxq.png",
           bgc: "background-color:rgb(238, 165, 174)",
           hero: "Sun",
           title: "Program Manager",
