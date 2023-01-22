@@ -47,7 +47,7 @@
           <button @click="saveOrder">Continue (${{ gig.price }})</button>
         </footer>
       </form>
-      <div class="contact-seller">
+      <div hidden class="contact-seller">
         <button>Contact Seller</button>
       </div>
     </aside>

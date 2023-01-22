@@ -6,6 +6,7 @@
           <div class="seller-details">
             <img :src="loggedinUser.imgUrl" alt="" />
             <div class="seller-name">{{ loggedinUser.username }}</div>
+            <router-link class="save-btn" to="./gig-edit "> new gig</router-link>
           </div>
         </div>
         <div class="seller-graphs">

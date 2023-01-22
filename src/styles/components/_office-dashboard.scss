@@ -68,6 +68,24 @@
                     padding-top: 24px;
                     display: flex;
                     align-items: center;
+
+                    .save-btn{
+                        text-decoration: none;
+                        font-size: 20px;
+                padding: 10px;
+                border-radius: 10px;
+                border: solid 1px #1dbf73;
+                background-color: white;
+                color: #1dbf73;
+                transition: color 0.5s ease, border 0.5s ease;
+                cursor: pointer;
+                margin-left: 10%;
+                &:hover{
+                    background: #19a463;
+                    color: #fff;
+                }
+                    }
+
                     img {
                         height: 60px;
                         width: 60px;

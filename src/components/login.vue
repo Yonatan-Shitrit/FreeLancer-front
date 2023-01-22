@@ -4,9 +4,9 @@
     <div class="login-container">
       <div v-if="sigupScop" class="log-in">
         <section v-if="loggedinUser">
-          <h1>Logout</h1>
-          <h2>Welcome {{ loggedinUser.fullname }}</h2>
-          <button @click="logout">Logout</button>
+          <h1>Log out</h1>
+          <h2>Goodbye {{ loggedinUser.fullname }}</h2>
+          <button @click="logout" >Log out</button>
         </section>
         <form v-else @submit.prevent="login">
           <h1>Login</h1>
@@ -106,6 +106,7 @@ export default {
         this.username = null;
         this.password = null;
         this.closeModal();
+
       } catch (err) {
         console.log(err);
       }

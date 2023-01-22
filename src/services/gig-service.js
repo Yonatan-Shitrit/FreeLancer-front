@@ -3,7 +3,6 @@ import { utilService } from './util-service'
 import { httpService } from './http-service'
 import { storageService } from './async-storage-service'
 
-// const KEY = 'gigs_db'
 const KEY = 'gigs'
 const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor']
 const ENDPOINT = 'gig'
@@ -26,6 +25,8 @@ export const gigService = {
 
 async function query(filterBy) {
   try{
+    console.log('attempt: 1');
+    
   return await httpService.get(ENDPOINT, filterBy)
   }
   catch(err){
