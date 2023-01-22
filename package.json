@@ -7,6 +7,7 @@
     "preview": "vite preview --port 5050",
     "test:unit": "vitest --environment jsdom"
   },
+  
   "dependencies": {
     "agile": "^0.0.2",
     "axios": "^0.26.1",
