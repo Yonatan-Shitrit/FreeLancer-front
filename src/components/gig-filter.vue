@@ -54,7 +54,7 @@
     </div>
     <button type="reset" class="reset-btn" @click=" resetFilter">Reset</button>
     </div>
-  <router-link class="start-business" hidden to="/smart"><button class="start-business-btn">Start Your Own Business</button></router-link>
+  <!-- <router-link class="start-business" hidden  to="/smart"><button class="start-business-btn">Start Your Own Business</button></router-link> -->
   </form>
 </template>
 

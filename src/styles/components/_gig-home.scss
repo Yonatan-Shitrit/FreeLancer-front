@@ -186,6 +186,12 @@
         cursor: pointer;
         -webkit-box-direction: normal;
         -webkit-font-smoothing: antialiased;
+
+        .img-home{
+            @media (max-width: 600px) {
+                display: none;
+            }
+        }
     }
     .left-side {
         grid-area: left-side;
