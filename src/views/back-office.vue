@@ -1,6 +1,7 @@
 <template>
   <section class="main-container">
     <form @submit.prevent="">
+      <button  @click="getDemoData">Get Demo Data</button>
       <div class="edit-form">
         <input type="text" placeholder="Title" v-model="gigToSave.title" />
         <input
@@ -58,7 +59,6 @@
         <button class="add-input" @click="addMoreLabel(labelCount-1)">+</button>
       </div>
       <button type="submit" @click="saveGig">save</button>
-      <button  @click="getDemoData">Get Demo Data</button>
     </form>
     <div v-if="gigs">
       <div class="div-preview" v-for="gig in gigs" :key="gig._id">

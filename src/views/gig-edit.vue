@@ -2,6 +2,7 @@
   <section class="main-container gig-edit">
     <form @submit.prevent="">
       <div class="form-container">
+        <button @click="getDemoData">Get Demo Data</button>
         <label for="title">Gig Title </label>
         <textarea
           id="title"
@@ -133,10 +134,9 @@
           </button>
         </div>
         <div class="btn-container">
-          <button class="save-btn" type="submit" @click="saveGig">save</button>
+          <router-link class="save-btn" to="/seller/dashboard" type="submit" @click="saveGig">save</router-link>
         </div>
       </div>
-      <button @click="getDemoData">Get Demo Data</button>
     </form>
     <!-- <div v-if="sellerGigs">
       <gig-preview v-for="gig in sellerGigs" :key="gig._id" :gig="gig" />
@@ -153,6 +153,7 @@ sellerGigs:
 </template>
 
 <script>
+
 import { gigService } from "@/services/gig-service.js";
 import gigPreview from "../components/gig-preview.vue";
 export default {
